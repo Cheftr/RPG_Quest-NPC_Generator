@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TTRPG Generator</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Side Quest & NPC Generator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>TTRPG Side Quest & NPC Generator</h1>
-  </header>
+  <div class="container">
+    <h1>RPG Side Quest & NPC Generator</h1>
 
-  <main>
-    <section id="side-quest-section">
-      <h2>Side Quest Generator</h2>
-      <div id="side-quest-output" class="output">
-        <!-- Generated side quest will display here -->
-      </div>
-      <button id="generate-quest-btn">Generate Side Quest</button>
+    <section class="generator">
+      <h2>Generate a Side Quest</h2>
+      
+      <label for="questType">Select Quest Type:</label>
+      <select id="questType">
+        <option value="">Any</option> <!-- gets replaced dynamically -->
+      </select>
+
+      <button id="generateQuest">Generate Quest</button>
+      <div id="questOutput" class="output-box"></div>
     </section>
 
-    <section id="npc-section">
-      <h2>NPC Generator</h2>
-      <div id="npc-output" class="output">
-        <!-- Generated NPC will display here -->
-      </div>
-      <button id="generate-npc-btn">Generate NPC</button>
+    <section class="generator">
+      <h2>Generate an NPC</h2>
+      <button id="generateNPC">Generate NPC</button>
+      <div id="npcOutput" class="output-box"></div>
     </section>
-  </main>
+  </div>
 
-  <footer>
-    <p>2025 Tim Rishell</p>
-  </footer>
-
-  <script src="main.js"></script>
+  <!-- JS placed at the end with defer to ensure DOM loads first -->
+  <script src="main.js" defer></script>
 </body>
 </html>
