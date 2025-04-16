@@ -1,42 +1,191 @@
 {
-    "npcParts": {
-      "races": ["Human", "Elf", "Dwarf", "Orc", "Tiefling", "Dragonborn", "Gnome", "Halfling"],
-      "genders": ["Male", "Female", "Nonbinary", "Unknown", "Other"],
-      "occupations": ["Blacksmith", "Bard", "Merchant", "Thief", "Guard", "Scholar", "Cleric"],
-      "personalityTraits": [
-        "grumpy", "charming", "nervous", "sarcastic", "stoic", "obsessive", "dramatic"
+  "npcParts": {
+    "races": [
+      "Human",
+      "Elf",
+      "Dwarf",
+      "Orc",
+      "Tiefling",
+      "Dragonborn",
+      "Gnome",
+      "Halfling",
+      "Goliath",
+      "Aasimar",
+      "Firbolg",
+      "Kenku",
+      "Tabaxi",
+      "Lizardfolk",
+      "Goblin",
+      "Hobgoblin",
+      "Bugbear"
     ],
-      "motivations": [
-        "wants revenge for a past betrayal",
-        "seeks knowledge lost to time",
-        "needs to prove their worth",
-        "protects their family at all costs"
+    "genders": [
+      "Male",
+      "Female",
+      "Nonbinary",
+      "Unknown",
+      "Other",
+      "Agender",
+      "Fluid",
+      "Prefers not to say"
+    ],
+    "occupations": [
+      "Blacksmith",
+      "Bard",
+      "Merchant",
+      "Thief",
+      "Guard",
+      "Scholar",
+      "Cleric",
+      "Innkeeper",
+      "Farmer",
+      "Noble",
+      "Priest",
+      "Wizard",
+      "Ranger",
+      "Soldier",
+      "Alchemist",
+      "Ship Captain",
+      "Miner",
+      "Stablehand"
+    ],
+    "personalityTraits": [
+      "grumpy",
+      "charming",
+      "nervous",
+      "sarcastic",
+      "stoic",
+      "obsessive",
+      "dramatic",
+      "optimistic",
+      "pessimistic",
+      "paranoid",
+      "naive",
+      "arrogant",
+      "humble",
+      "curious",
+      "apathetic",
+      "witty",
+      "cowardly",
+      "brave",
+      "meticulous",
+      "lazy"
+    ],
+    "motivations": [
+      "wants revenge for a past betrayal",
+      "seeks knowledge lost to time",
+      "needs to prove their worth",
+      "protects their family at all costs",
+      "dreams of finding a legendary artifact",
+      "wants to restore their family's honor",
+      "driven by insatiable greed",
+      "seeks to spread their faith",
+      "desires political power",
+      "hopes to master forbidden magic",
+      "just wants a quiet life",
+      "needs money to pay off a dangerous debt"
+    ],
+    "secrets": [
+      "is working as a spy",
+      "has a cursed item in their possession",
+      "isn't who they claim to be",
+      "was exiled from their homeland",
+      "owes a debt to a powerful entity",
+      "secretly controls a local gang",
+      "is afflicted with lycanthropy",
+      "possesses knowledge they shouldn't have",
+      "faked their own death",
+      "comes from a disgraced family line",
+      "is secretly royalty",
+      "committed a crime long ago"
+    ],
+    "appearances": {
+      "hair": [
+        "bald",
+        "long braided black ",
+        "shaggy blond",
+        "fiery red ponytail",
+        "neatly combed grey",
+        "tonsure",
+        "elaborate topknot",
+        "wild, unkempt brown locks",
+        "shock of white"
       ],
-      "secrets": [
-        "is working as a spy",
-        "has a cursed item in their possession",
-        "isn't who they claim to be",
-        "was exiled from their homeland"
+      "eyes": [
+        "piercing blue",
+        "dull gray",
+        "mismatched",
+        "warm brown",
+        "blind milky white",
+        "intense green",
+        "heterochromia (e.g., gold/blue)",
+        "tired, bloodshot",
+        "unusually bright yellow"
       ],
-      "appearances": {
-        "hair": ["bald", "long braided black hair", "shaggy blond hair"],
-        "eyes": ["piercing blue", "dull gray", "mismatched"],
-        "clothing": ["travel-stained robes", "military uniform", "tattered cloak"],
-        "features": ["scar over one eye", "glowing tattoo", "missing hand"]
-      },
-      "voiceStyles": [
-        "raspy and slow", "quick and nasal", "booming and theatrical", "whispery"
+      "clothing": [
+        "travel-stained robes",
+        "military uniform",
+        "tattered cloak",
+        "expensive silk robes",
+        "practical leather armor",
+        "simple peasant garb",
+        "flamboyant feathered hat and doublet",
+        "priestly vestments",
+        "worn miner's overalls",
+        "patched-up adventuring gear"
       ],
-      "connections": [
-        "is related to the mayor",
-        "once saved a dragon",
-        "is hunted by a crime syndicate"
-      ],
-      "questHooks": [
-        "wants to retrieve a stolen heirloom",
-        "needs help escaping a bounty",
-        "seeks guards for a dangerous journey"
+      "features": [
+        "scar over one eye",
+        "glowing tattoo",
+        "missing hand",
+        "prominent nose",
+        "facial piercings",
+        "intricate burn scars",
+        "mechanical limb",
+        "pointed ears",
+        "fangs",
+        "unusually pale skin",
+        "weathered face",
+        "birthmark shaped like a crescent moon"
       ]
-    }
+    },
+    "voiceStyles": [
+      "raspy and slow",
+      "quick and nasal",
+      "booming and theatrical",
+      "whispery",
+      "high-pitched and excited",
+      "deep and gravelly",
+      "smooth and reassuring",
+      "monotone and flat",
+      "lilting and musical",
+      "stuttering",
+      "heavy accent",
+      "soft-spoken"
+    ],
+    "connections": [
+      "is related to the mayor",
+      "once saved a dragon",
+      "is hunted by a crime syndicate",
+      "belongs to a secret society",
+      "is the estranged child of a noble",
+      "has powerful enemies in the church",
+      "trained with a legendary warrior",
+      "owes a life debt to a monster",
+      "is a member of the town council",
+      "has connections in the underworld"
+    ],
+    "questHooks": [
+      "wants to retrieve a stolen heirloom",
+      "needs help escaping a bounty",
+      "seeks guards for a dangerous journey",
+      "offers information in exchange for a favor",
+      "knows the location of a hidden treasure",
+      "needs protection from assassins",
+      "can identify a magical item",
+      "wants to hire the party for sabotage",
+      "is looking for missing family members",
+      "needs a rare component for a ritual/potion"
+    ]
   }
-  
+}

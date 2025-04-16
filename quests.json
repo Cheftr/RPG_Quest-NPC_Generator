@@ -1,23 +1,265 @@
 {
-    "questTypes": {
-      "fetch": {
-        "descriptions": [
-          "Retrieve a rare ingredient from {location}.",
-          "Recover a lost artifact taken by {enemy}."
-        ],
-        "locations": ["ancient ruins", "deep forest", "abandoned temple"],
-        "challenges": ["bears", "bandits", "rockslide"],
-        "rewards": ["potion of healing", "bag of gold", "favor from a noble"]
-      },
-      "escort": {
-        "descriptions": [
-          "Protect the merchant on their way to {location}.",
-          "Guide the lost child back from {location}."
-        ],
-        "locations": ["mountain pass", "haunted woods", "enemy territory"],
-        "threats": ["wolves", "undead", "goblins"],
-        "rewards": ["rare gem", "magic scroll", "safe passage scroll"]
-      }
+  "questTypes": {
+    "fetch": {
+      "descriptions": [
+        "Retrieve a rare ingredient from {location}.",
+        "Recover a lost artifact taken by {enemy}.",
+        "Find a stolen valuable from the {location}.",
+        "Collect rare samples from the dangerous {location}.",
+        "Bring back the head of {enemy} from their lair in {location}."
+      ],
+      "locations": [
+        "ancient ruins",
+        "deep forest",
+        "abandoned temple",
+        "underground cavern",
+        "wizard's tower",
+        "dragon's hoard",
+        "shipwreck cove"
+      ],
+      "challenges": [
+        "bears",
+        "bandits",
+        "rockslide",
+        "giant spiders",
+        "cultists",
+        "magical traps",
+        "rival adventurers",
+        "environmental hazards (poison gas, collapsing tunnels)"
+      ],
+      "rewards": [
+        "potion of healing",
+        "bag of gold",
+        "favor from a noble",
+        "enchanted weapon",
+        "map to hidden treasure",
+        "information broker contact",
+        "guild membership",
+        "rare crafting component"
+      ]
+    },
+    "escort": {
+      "descriptions": [
+        "Protect the merchant on their way to {location}.",
+        "Guide the lost child back from {location}.",
+        "Safeguard the scholar studying ancient texts in {location}.",
+        "Accompany the diplomat through the treacherous {location}.",
+        "Ensure the safe passage of refugees fleeing {location}."
+      ],
+      "locations": [
+        "mountain pass",
+        "haunted woods",
+        "enemy territory",
+        "bustling city underbelly",
+        "stormy sea route",
+        "politically unstable border region",
+        "underdark passage"
+      ],
+      "threats": [
+        "wolves",
+        "undead",
+        "goblins",
+        "assassins",
+        "pirates",
+        "political rivals",
+        "monstrous beasts",
+        "natural disasters (avalanche, sandstorm)"
+      ],
+      "rewards": [
+        "rare gem",
+        "magic scroll",
+        "safe passage scroll",
+        "letter of introduction",
+        "political favor",
+        "unique piece of equipment",
+        "secret information",
+        "valuable trade goods"
+      ]
+    },
+    "slay": {
+      "descriptions": [
+        "Eliminate the {enemy} terrorizing {location}.",
+        "Hunt down the beast hiding in the {location}.",
+        "Clear the {location} of {enemy} infestation.",
+        "A bounty has been placed on {enemy}, last seen near {location}.",
+        "Disrupt the {enemy}'s ritual taking place at {location}."
+      ],
+      "locations": [
+        "monster den",
+        "goblin camp",
+        "haunted graveyard",
+        "city sewers",
+        "corrupted shrine",
+        "abandoned mine",
+        "orcish warcamp"
+      ],
+      "challenges": [
+        "powerful monster",
+        "horde of enemies",
+        "enemy leader",
+        "lair traps",
+        "difficult terrain",
+        "ambushes",
+        "reinforcements"
+      ],
+      "rewards": [
+        "bounty payment",
+        "monster trophy",
+        "magical item from hoard",
+        "gratitude of locals",
+        "reputation boost",
+        "cleared territory",
+        "salvaged enemy equipment"
+      ]
+    },
+    "investigate": {
+      "descriptions": [
+        "Discover the source of the strange occurrences in {location}.",
+        "Uncover a plot brewing within {location}.",
+        "Gather clues about a recent disappearance near {location}.",
+        "Find out who is smuggling contraband through {location}.",
+        "Solve the mystery of the haunting at {location}."
+      ],
+      "locations": [
+        "noble estate",
+        "abandoned asylum",
+        "secret society headquarters",
+        "crime scene",
+        "ancient library",
+        "bustling marketplace",
+        "dock district"
+      ],
+      "challenges": [
+        "deceptive NPCs",
+        "red herrings",
+        "hidden clues",
+        "puzzles and riddles",
+        "ambushes by interested parties",
+        "social intrigue",
+        "encrypted messages",
+        "misinformation"
+      ],
+      "rewards": [
+        "crucial information",
+        "secret knowledge",
+        "ally contact",
+        "evidence for authorities",
+        "key item",
+        "blackmail material",
+        "favor from an investigator"
+      ]
+    },
+    "defend": {
+      "descriptions": [
+        "Protect the {location} from the impending {enemy} attack.",
+        "Hold the line at the {location} against waves of {enemy}.",
+        "Safeguard a key point within the {location}.",
+        "Ensure an important individual survives the siege at {location}.",
+        "Repel the invaders trying to breach {location}."
+      ],
+      "locations": [
+        "village outpost",
+        "fortified bridge",
+        "sacred grove",
+        "castle walls",
+        "trading post",
+        "mountain stronghold",
+        "magical nexus"
+      ],
+      "challenges": [
+        "siege engines",
+        "enemy commanders",
+        "multiple attack vectors",
+        "limited resources",
+        "morale checks",
+        "sabotage attempts",
+        "overwhelming numbers",
+        "aerial assaults"
+      ],
+      "rewards": [
+        "land grant",
+        "title of honor",
+        "community support",
+        "defensive gear",
+        "payment from grateful inhabitants",
+        "strategic advantage",
+        "captured enemy supplies"
+      ]
+    },
+    "deliver": {
+      "descriptions": [
+        "Transport a sensitive package secretly to {location}.",
+        "Carry an urgent message to {location}.",
+        "Smuggle valuable cargo past the blockade at {location}.",
+        "Deliver sensitive information to contacts in {location}.",
+        "Move a valuable package through the dangerous {location} without being detected."
+      ],
+      "locations": [
+        "across enemy lines",
+        "through a treacherous swamp",
+        "into a guarded city",
+        "via a secret tunnel network",
+        "over a dangerous mountain range",
+        "across a pirate-infested sea",
+        "through a magically warded area"
+      ],
+      "challenges": [
+        "pursuers",
+        "checkpoints and patrols",
+        "time limit",
+        "need for stealth",
+        "environmental obstacles",
+        "betrayal",
+        "interception attempts",
+        "tracking magic/creatures"
+      ],
+      "rewards": [
+        "significant payment",
+        "trust of a faction",
+        "secret route map",
+        "specialized gear (e.g., cloak of elvenkind)",
+        "safe house access",
+        "counter-intelligence",
+        "future smuggling contracts"
+      ]
+    },
+    "explore": {
+      "descriptions": [
+        "Map the uncharted territory beyond {location}.",
+        "Find the lost city said to be hidden in {location}.",
+        "Chart a safe passage through the perilous {location}.",
+        "Investigate the source of the river flowing from {location}.",
+        "Discover what lies within the mysterious {location}."
+      ],
+      "locations": [
+        "forgotten jungle",
+        "floating islands",
+        "subterranean sea",
+        "elemental plane",
+        "ancient desert ruins",
+        "deep underwater trench",
+        "otherworldly dimension"
+      ],
+      "challenges": [
+        "unknown creatures",
+        "hostile environments (extreme temperatures, toxic air)",
+        "navigational difficulties (no landmarks, magical interference)",
+        "lack of supplies",
+        "ancient guardians or traps",
+        "making first contact with unknown cultures",
+        "getting lost",
+        "resource management"
+      ],
+      "rewards": [
+        "discovery rights",
+        "map sale profits",
+        "rare resources (plants, minerals)",
+        "ancient artifact",
+        "knowledge of new cultures/areas",
+        "unique companion or mount",
+        "claim to new territory",
+        "historical renown"
+      ]
     }
   }
-  
+}

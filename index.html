@@ -2,34 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Side Quest & NPC Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RPG Quest & NPC Generator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>RPG Side Quest & NPC Generator</h1>
-
-    <section class="generator">
-      <h2>Generate a Side Quest</h2>
-      
-      <label for="questType">Select Quest Type:</label>
+  <div class="top-section">
+    <!-- Side Quest Generator -->
+    <section class="generator-section" id="quest-generator">
+      <h2>Side Quest Generator</h2>
+      <label for="questType">Choose a Quest Type:</label>
       <select id="questType">
-        <option value="">Any</option> <!-- gets replaced dynamically -->
+        <!-- Options will be populated dynamically -->
       </select>
-
       <button id="generateQuest">Generate Quest</button>
       <div id="questOutput" class="output-box"></div>
+      <button id="saveQuest" class="save-button">Save Quest</button>
     </section>
 
-    <section class="generator">
-      <h2>Generate an NPC</h2>
+    <!-- NPC Generator -->
+    <section class="generator-section" id="npc-generator">
+      <h2>NPC Generator</h2>
       <button id="generateNPC">Generate NPC</button>
       <div id="npcOutput" class="output-box"></div>
+      <button id="saveNPC" class="save-button">Save NPC</button>
     </section>
   </div>
 
-  <!-- JS placed at the end with defer to ensure DOM loads first -->
-  <script src="main.js" defer></script>
+  <div class="bottom-section">
+    <!-- Saved Quests -->
+    <section class="saved-section" id="savedQuests">
+      <h3>Saved Quests</h3>
+      <div id="questCards" class="card-container"></div>
+    </section>
+
+    <!-- Saved NPCs -->
+    <section class="saved-section" id="savedNPCs">
+      <h3>Saved NPCs</h3>
+      <div id="npcCards" class="card-container"></div>
+    </section>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>

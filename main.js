@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('generateQuest').addEventListener('click', generateQuest);
   document.getElementById('generateNPC').addEventListener('click', generateNPC);
+
+  document.getElementById('saveQuest').addEventListener('click', saveQuest);
+  document.getElementById('saveNPC').addEventListener('click', saveNPC);
 });
 
 function populateQuestTypeOptions(data) {
@@ -27,6 +30,14 @@ function populateQuestTypeOptions(data) {
     option.textContent = type.charAt(0).toUpperCase() + type.slice(1);
     select.appendChild(option);
   }
+
+  // Add 'any' option
+  const anyOption = document.createElement('option');
+  anyOption.value = 'any';
+  anyOption.textContent = 'Any';
+  select.insertBefore(anyOption, select.firstChild);
+
+  select.value = 'any';
 }
 
 function getRandomItem(array) {
@@ -34,17 +45,19 @@ function getRandomItem(array) {
 }
 
 function generateQuest() {
-  const type = document.getElementById('questType').value;
-  const quest = questData[type];
+  let type = document.getElementById('questType').value;
+  if (type === "any") {
+    const allTypes = Object.keys(questData);
+    type = getRandomItem(allTypes);
+  }
 
+  const quest = questData[type];
   if (!quest) {
     document.getElementById('questOutput').textContent = 'No quest data found.';
     return;
   }
 
   const description = getRandomItem(quest.descriptions);
-
-  // Fill in placeholders
   let filledDescription = description.replace('{location}', getRandomItem(quest.locations));
   if (description.includes('{enemy}')) {
     const enemySource = quest.challenges || quest.threats || ["unknown enemy"];
@@ -95,4 +108,38 @@ function generateNPC() {
   `;
 
   document.getElementById('npcOutput').innerHTML = result;
+}
+
+function saveCard(content, containerId, fileNamePrefix) {
+  const card = document.createElement('div');
+  card.className = 'saved-card';
+  card.innerHTML = content;
+
+  const downloadBtn = document.createElement('button');
+  downloadBtn.textContent = 'Download';
+  downloadBtn.className = 'download-button';
+  downloadBtn.addEventListener('click', () => {
+    const blob = new Blob([card.innerText], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `${fileNamePrefix}_${Date.now()}.txt`;
+    a.click();
+  });
+
+  card.appendChild(downloadBtn);
+  document.getElementById(containerId).appendChild(card);
+}
+
+function saveQuest() {
+  const content = document.getElementById('questOutput').innerHTML;
+  if (content) {
+    saveCard(content, 'savedQuests', 'quest');
+  }
+}
+
+function saveNPC() {
+  const content = document.getElementById('npcOutput').innerHTML;
+  if (content) {
+    saveCard(content, 'savedNPCs', 'npc');
+  }
 }
