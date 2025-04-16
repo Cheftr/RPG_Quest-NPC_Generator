@@ -1,0 +1,23 @@
+{
+    "questTypes": {
+      "fetch": {
+        "descriptions": [
+          "Retrieve a rare ingredient from {location}.",
+          "Recover a lost artifact taken by {enemy}."
+        ],
+        "locations": ["ancient ruins", "deep forest", "abandoned temple"],
+        "challenges": ["bears", "bandits", "rockslide"],
+        "rewards": ["potion of healing", "bag of gold", "favor from a noble"]
+      },
+      "escort": {
+        "descriptions": [
+          "Protect the merchant on their way to {location}.",
+          "Guide the lost child back from {location}."
+        ],
+        "locations": ["mountain pass", "haunted woods", "enemy territory"],
+        "threats": ["wolves", "undead", "goblins"],
+        "rewards": ["rare gem", "magic scroll", "safe passage scroll"]
+      }
+    }
+  }
+  

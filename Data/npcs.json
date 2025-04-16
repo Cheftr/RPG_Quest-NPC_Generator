@@ -1,0 +1,42 @@
+{
+    "npcParts": {
+      "races": ["Human", "Elf", "Dwarf", "Orc", "Tiefling", "Dragonborn", "Gnome", "Halfling"],
+      "genders": ["Male", "Female", "Nonbinary", "Unknown", "Other"],
+      "occupations": ["Blacksmith", "Bard", "Merchant", "Thief", "Guard", "Scholar", "Cleric"],
+      "personalityTraits": [
+        "grumpy", "charming", "nervous", "sarcastic", "stoic", "obsessive", "dramatic"
+    ],
+      "motivations": [
+        "wants revenge for a past betrayal",
+        "seeks knowledge lost to time",
+        "needs to prove their worth",
+        "protects their family at all costs"
+      ],
+      "secrets": [
+        "is working as a spy",
+        "has a cursed item in their possession",
+        "isn't who they claim to be",
+        "was exiled from their homeland"
+      ],
+      "appearances": {
+        "hair": ["bald", "long braided black hair", "shaggy blond hair"],
+        "eyes": ["piercing blue", "dull gray", "mismatched"],
+        "clothing": ["travel-stained robes", "military uniform", "tattered cloak"],
+        "features": ["scar over one eye", "glowing tattoo", "missing hand"]
+      },
+      "voiceStyles": [
+        "raspy and slow", "quick and nasal", "booming and theatrical", "whispery"
+      ],
+      "connections": [
+        "is related to the mayor",
+        "once saved a dragon",
+        "is hunted by a crime syndicate"
+      ],
+      "questHooks": [
+        "wants to retrieve a stolen heirloom",
+        "needs help escaping a bounty",
+        "seeks guards for a dangerous journey"
+      ]
+    }
+  }
+  
