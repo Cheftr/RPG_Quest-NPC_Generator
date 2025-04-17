@@ -6,25 +6,16 @@
   <title>RPG Quest & NPC Generator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V28HMJTB3G"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-V28HMJTB3G');
-</script>
 <body>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
+
   <div class="top-section">
     <!-- Side Quest Generator -->
     <section class="generator-section" id="quest-generator">
       <h2>Side Quest Generator</h2>
       <label for="questType">Choose a Quest Type:</label>
-      <select id="questType">
-        <!-- Options will be populated dynamically -->
-      </select>
-      <button id="generateQuest">Generate Quest</button>
+      <select id="questType"></select>
+      <button id="generateQuest" class="generate"><span>🎲 Generate Quest</span></button>
       <div id="questOutput" class="output-box"></div>
       <button id="saveQuest" class="save-button">Save Quest</button>
     </section>
@@ -32,7 +23,7 @@
     <!-- NPC Generator -->
     <section class="generator-section" id="npc-generator">
       <h2>NPC Generator</h2>
-      <button id="generateNPC">Generate NPC</button>
+      <button id="generateNPC" class="generate"><span>🎲 Generate NPC</span></button>
       <div id="npcOutput" class="output-box"></div>
       <button id="saveNPC" class="save-button">Save NPC</button>
     </section>
@@ -40,15 +31,17 @@
 
   <div class="bottom-section">
     <!-- Saved Quests -->
-    <section class="saved-section" id="savedQuests">
+    <section class="saved-section">
       <h3>Saved Quests</h3>
-      <div id="questCards" class="card-container"></div>
+      <!-- This container now matches JS getElementById('savedQuests') -->
+      <div id="savedQuests" class="card-container"></div>
     </section>
 
     <!-- Saved NPCs -->
-    <section class="saved-section" id="savedNPCs">
+    <section class="saved-section">
       <h3>Saved NPCs</h3>
-      <div id="npcCards" class="card-container"></div>
+      <!-- This container now matches JS getElementById('savedNPCs') -->
+      <div id="savedNPCs" class="card-container"></div>
     </section>
   </div>
 
