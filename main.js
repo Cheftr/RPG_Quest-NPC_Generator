@@ -150,9 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="card-header">
                     <h3 class="card-title" contenteditable="true">${selectedType.charAt(0).toUpperCase() + selectedType.slice(1)} Quest</h3>
                     <div class="card-controls">
-                        <button class="card-control card-toggle" aria-label="Collapse" aria-expanded="true">▼</button>
-                        <button class="card-control card-delete" aria-label="Delete">🗑️</button>
-                        <button class="card-control card-export" aria-label="Export">💾</button>
+                        <button class="card-control card-export" aria-label="Export" title="Export card">📝</button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -194,9 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="card-header">
                     <h3 class="card-title" contenteditable="true">${firstName} ${lastName}</h3>
                     <div class="card-controls">
-                        <button class="card-control card-toggle" aria-label="Collapse" aria-expanded="true">▼</button>
-                        <button class="card-control card-delete" aria-label="Delete">🗑️</button>
-                        <button class="card-control card-export" aria-label="Export">💾</button>
+                        <button class="card-control card-export" aria-label="Export" title="Export card">📝</button>
                     </div>
                 </div>
                 <div class="card-body">
