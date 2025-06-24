@@ -114,107 +114,180 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- Generation Logic --- //
+    const npcLocks = {}; // e.g., { race: "Elf", occupation: "Baker" }
 
     /**
      * Generates a new side quest card and adds it to the DOM.
      */
     const handleGenerateQuest = () => {
-        if (!questData) {
-            showAlert('Quest data is not loaded yet. Please wait.');
-            return;
-        }
+    if (!questData) {
+        showAlert('Quest data is not loaded yet. Please wait.');
+        return;
+    }
 
-        let selectedType = questTypeSelect.value;
-        if (selectedType === 'any') {
-            const types = Object.keys(questData.questTypes);
-            selectedType = getRandomItem(types);
-        }
+    // Clear previous quests
+    questOutput.innerHTML = '';
 
-        const data = questData.questTypes[selectedType];
-        if (!data) {
-            console.error(`Invalid quest type selected: ${selectedType}`);
-            return;
-        }
+    // --- Type selection ---
+    let selectedType = questTypeSelect.value;
+    if (selectedType === 'any') {
+        const types = Object.keys(questData.questTypes);
+        selectedType = getRandomItem(types);
+    }
 
-        const location = getRandomItem(data.locations) || 'an unknown place';
-        const enemy = getRandomItem(questData.enemies) || 'a mysterious foe';
-        const descriptionTemplate = getRandomItem(data.descriptions) || 'A task needs doing at {location} involving {challenge}.';
-        const reward = getRandomItem(data.rewards) || 'a sense of accomplishment';
+    const data = questData.questTypes[selectedType];
+    if (!data) {
+        console.error(`Invalid quest type selected: ${selectedType}`);
+        return;
+    }
 
-        const description = descriptionTemplate
-            .replace(/{location}/g, `<span contenteditable="true">${location}</span>`)
-            .replace(/{enemy}/g, `<span contenteditable="true">${enemy}</span>`);
+    // --- Pull details ---
+    const location = getRandomItem(data.locations) || 'an unknown place';
+    const enemy = getRandomItem(questData.enemies) || 'a mysterious foe';
+    const reward = getRandomItem(data.rewards) || 'a sense of accomplishment';
+    const descriptionTemplate = getRandomItem(data.descriptions) || 'A task awaits at {location} involving {enemy}.';
 
-        const questCardHTML = `
-            <div class="card" data-type="quest">
-                <div class="card-header">
-                    <h3 class="card-title" contenteditable="true">${selectedType.charAt(0).toUpperCase() + selectedType.slice(1)} Quest</h3>
-                    <div class="card-controls">
-                        <button class="card-control card-export" aria-label="Export" title="Export card">📝</button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p><span contenteditable="true">${description}</span></p>
-                    <p><strong>Reward:</strong><span contenteditable="true"> ${reward}</span></p>
-                </div>
-                <div class="tag-area">
-                    <div class="tags-container"></div>
-                    <input type="text" class="tag-input" placeholder="Add tag...">
-                </div>
-            </div>`;
+    // Replace tokens with contenteditable spans
+    const description = descriptionTemplate
+        .replace(/{location}/g, `<span contenteditable="true">${location}</span>`)
+        .replace(/{enemy}/g, `<span contenteditable="true">${enemy}</span>`);
 
-        const cardElement = htmlToElement(questCardHTML);
-        questOutput.innerHTML = ''; // clear previous card(s)
-        questOutput.prepend(cardElement);
-    };
+    // --- Create card ---
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.setAttribute('data-type', 'quest');
+
+    // --- Header ---
+    const header = document.createElement('div');
+    header.classList.add('card-header');
+
+    const title = createElementWithAttrs('h3', {
+        class: 'card-title',
+        contenteditable: 'true'
+    }, `${selectedType.charAt(0).toUpperCase() + selectedType.slice(1)} Quest`);
+    header.appendChild(title);
+
+    const controls = document.createElement('div');
+    controls.classList.add('card-controls');
+
+    const exportBtn = createElementWithAttrs('button', {
+        class: 'card-control card-export',
+        'aria-label': 'Export',
+        title: 'Export card'
+    }, '📝');
+    controls.appendChild(exportBtn);
+
+    header.appendChild(controls);
+    card.appendChild(header);
+
+    // --- Body ---
+    const body = document.createElement('div');
+    body.classList.add('card-body');
+
+    const descriptionP = document.createElement('p');
+    descriptionP.innerHTML = `<span contenteditable="true">${description}</span>`;
+    body.appendChild(descriptionP);
+
+    const rewardP = document.createElement('p');
+    rewardP.innerHTML = `<strong>Reward:</strong> <span contenteditable="true">${reward}</span>`;
+    body.appendChild(rewardP);
+
+    card.appendChild(body);
+
+    // --- Tags ---
+    const tagArea = htmlToElement(`
+        <div class="tag-area">
+            <div class="tags-container"></div>
+            <input type="text" class="tag-input" placeholder="Add tag...">
+        </div>
+    `);
+    card.appendChild(tagArea);
+
+    // --- Done ---
+    questOutput.prepend(card);
+};
+
 
     /**
      * Generates a new NPC card and adds it to the DOM.
      */
-    const handleGenerateNPC = () => {
-        if (!npcData) {
-            showAlert('NPC data is not loaded yet. Please wait.');
-            return;
-        }
+   const handleGenerateNPC = () => {
+  if (!npcData) {
+    showAlert('NPC data not loaded yet. Please wait.');
+    return;
+  }
 
-        const p = npcData.npcParts;
-        const firstName = getRandomItem(p.firstNames) || 'Alex';
-        const lastName = getRandomItem(p.lastNames) || 'Doe';
-        const appearance = {
-            hair: getRandomItem(p.appearances.hair) || 'nondescript hair',
-            eyes: getRandomItem(p.appearances.eyes) || 'expressive eyes',
-            clothing: getRandomItem(p.appearances.clothing) || 'practical clothes',
-            features: getRandomItem(p.appearances.features) || 'a distinguishing scar'
-        };
+  // Clear old
+  npcOutput.innerHTML = '';
 
-        const npcCardHTML = `
-            <div class="card" data-type="npc">
-                <div class="card-header">
-                    <h3 class="card-title" contenteditable="true">${firstName} ${lastName}</h3>
-                    <div class="card-controls">
-                        <button class="card-control card-export" aria-label="Export" title="Export card">📝</button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p><strong>Race:</strong> <span contenteditable="true">${getRandomItem(p.races) || 'Human'}</span></p>
-                    <p><strong>Gender:</strong> <span contenteditable="true">${getRandomItem(p.genders) || 'Non-binary'}</span></p>
-                    <p><strong>Occupation:</strong> <span contenteditable="true">${getRandomItem(p.occupations) || 'Adventurer'}</span></p>
-                    <p><strong>Appearance:</strong> <span contenteditable="true">${appearance.hair}, ${appearance.eyes}, wearing ${appearance.clothing}, with ${appearance.features}.</span></p>
-                    <p><strong>Personality:</strong> <span contenteditable="true">${getRandomItem(p.personalityTraits) || 'Enigmatic'}</span></p>
-                    <p><strong>Motivation:</strong> <span contenteditable="true">${getRandomItem(p.motivations) || 'Seeks knowledge'}</span></p>
-                    <p><strong>Secret:</strong> <span contenteditable="true">${getRandomItem(p.secrets) || 'Has a hidden past'}</span></p>
-                    <p><strong>Quest Hook:</strong> <span contenteditable="true">${getRandomItem(p.questHooks) || 'Needs help with a personal matter.'}</span></p>
-                </div>
-                <div class="tag-area">
-                    <div class="tags-container"></div>
-                    <input type="text" class="tag-input" placeholder="Add tag...">
-                </div>
-            </div>`;
+  // Grab parts
+  const p = npcData.npcParts;
 
-        const cardElement = htmlToElement(npcCardHTML);
-        npcOutput.innerHTML = '';   // for handleGenerateNPC
-        npcOutput.prepend(cardElement);
-    };
+  // Create the card container
+  const card = document.createElement('div');
+  card.classList.add('card');
+  card.setAttribute('data-type', 'npc');
+
+  // Header
+  const header = document.createElement('div');
+  header.classList.add('card-header');
+  const title = document.createElement('h3');
+  title.classList.add('card-title');
+  // Compute name (locked or random)
+  const firstName = npcLocks.firstName || getRandomItem(p.firstNames) || 'Alex';
+  const lastName  = npcLocks.lastName  || getRandomItem(p.lastNames)  || 'Doe';
+  title.textContent = `${firstName} ${lastName}`;
+  title.setAttribute('contenteditable', 'true');
+  header.appendChild(title);
+
+  // Export button
+  const controls = document.createElement('div');
+  controls.classList.add('card-controls');
+  const exportBtn = createElementWithAttrs('button', {
+    class: 'card-control card-export',
+    'aria-label': 'Export',
+    title: 'Export card'
+  }, '📝');
+  controls.appendChild(exportBtn);
+  header.appendChild(controls);
+
+  card.appendChild(header);
+
+  // Body
+  const body = document.createElement('div');
+  body.classList.add('card-body');
+
+  // Helper to pick random or locked
+  const pick = (key, arr, fallback) => npcLocks[key] || getRandomItem(arr) || fallback;
+
+  // Traits rows
+  body.appendChild(createLockableTraitRow('Race',       'race',       pick('race',       p.races,             'Human')));
+  body.appendChild(createLockableTraitRow('Gender',     'gender',     pick('gender',     p.genders,           'Non-binary')));
+  body.appendChild(createLockableTraitRow('Occupation','occupation', pick('occupation', p.occupations,      'Adventurer')));
+  body.appendChild(createLockableTraitRow('Hair',       'hair',       pick('hair',       p.appearances.hair, 'nondescript hair')));
+  body.appendChild(createLockableTraitRow('Eyes',       'eyes',       pick('eyes',       p.appearances.eyes, 'expressive eyes')));
+  body.appendChild(createLockableTraitRow('Clothing',   'clothing',   pick('clothing',   p.appearances.clothing, 'practical clothes')));
+  body.appendChild(createLockableTraitRow('Feature',    'features',   pick('features',   p.appearances.features, 'a distinguishing scar')));
+  body.appendChild(createLockableTraitRow('Personality','personalityTraits', pick('personalityTraits', p.personalityTraits, 'Enigmatic')));
+  body.appendChild(createLockableTraitRow('Motivation','motivations', pick('motivations',    p.motivations,    'Seeks knowledge')));
+  body.appendChild(createLockableTraitRow('Secret',     'secrets',     pick('secrets',     p.secrets,         'Has a hidden past')));
+  body.appendChild(createLockableTraitRow('Quest Hook','questHooks', pick('questHooks', p.questHooks,      'Needs help with a personal matter.')));
+
+  card.appendChild(body);
+
+  // Tag area (unchanged)
+  const tagArea = htmlToElement(`
+    <div class="tag-area">
+      <div class="tags-container"></div>
+      <input type="text" class="tag-input" placeholder="Add tag...">
+    </div>
+  `);
+  card.appendChild(tagArea);
+
+  // Prepend to output
+  npcOutput.prepend(card);
+};
+
 
 
     // --- Card Interaction Logic --- //
@@ -279,8 +352,33 @@ document.addEventListener('DOMContentLoaded', () => {
         showAlert('Saving is a premium feature—coming soon!');
     };
 
+    // --- Trait Lock Logic --- //
+    function createLockableTraitRow(label, traitKey, value) {
+  const p = document.createElement('p');
 
+  const strong = document.createElement('strong');
+  strong.textContent = `${label}: `;
 
+  const span = document.createElement('span');
+  span.classList.add('trait');
+  span.setAttribute('data-trait', traitKey);
+  span.setAttribute('contenteditable', 'true');
+  span.textContent = value;
+
+  const button = document.createElement('button');
+  button.classList.add('lock-btn');
+  const isLocked = npcLocks.hasOwnProperty(traitKey);
+  button.textContent = isLocked ? '🔒' : '🔓';
+  button.setAttribute('aria-label', isLocked ? 'Unlock trait' : 'Lock trait');
+
+  p.appendChild(strong);
+  p.appendChild(span);
+  p.appendChild(button);
+
+  return p;
+};
+
+    
     // --- Export Logic --- //
 
     /**
@@ -378,7 +476,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 handleCardExport(target);
             } else if (target.matches('.remove-tag')) {
                 handleRemoveTag(target);
-            }
+            } else if (target.matches('.lock-btn')) {
+                const span = target.previousElementSibling;
+                const traitKey = span.getAttribute('data-trait');
+                const currentValue = span.textContent.trim();
+
+                const isLocked = npcLocks.hasOwnProperty(traitKey);
+
+                if (isLocked) {
+                    delete npcLocks[traitKey];
+                    target.textContent = '🔓';
+                    target.setAttribute('aria-label', 'Lock trait');
+                } else {
+                    npcLocks[traitKey] = currentValue;
+                    target.textContent = '🔒';
+                    target.setAttribute('aria-label', 'Unlock trait');
+                }
+
+                console.log('npcLocks:', npcLocks);
+                };
         });
 
         document.body.addEventListener('keydown', (event) => {
