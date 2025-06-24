@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadData = async () => {
         try {
             const [questResponse, npcResponse] = await Promise.all([
-                fetch('data/quests.json'),
-                fetch('data/npcs.json'),
+                fetch('Data/quests.json'),
+                fetch('Data/npcs.json'),
             ]);
 
             if (!questResponse.ok || !npcResponse.ok) {
