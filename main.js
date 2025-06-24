@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>`;
 
         const cardElement = htmlToElement(questCardHTML);
+        questOutput.innerHTML = ''; // clear previous card(s)
         questOutput.prepend(cardElement);
     };
 
@@ -215,6 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>`;
 
         const cardElement = htmlToElement(npcCardHTML);
+        npcOutput.innerHTML = '';   // for handleGenerateNPC
         npcOutput.prepend(cardElement);
     };
 
