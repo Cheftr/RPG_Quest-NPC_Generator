@@ -137,13 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const location = getRandomItem(data.locations) || 'an unknown place';
-        const challenge = getRandomItem(data.challenges) || 'a mysterious foe';
+        const enemy = getRandomItem(questData.enemies) || 'a mysterious foe';
         const descriptionTemplate = getRandomItem(data.descriptions) || 'A task needs doing at {location} involving {challenge}.';
         const reward = getRandomItem(data.rewards) || 'a sense of accomplishment';
 
         const description = descriptionTemplate
             .replace(/{location}/g, `<span contenteditable="true">${location}</span>`)
-            .replace(/{challenge}/g, `<span contenteditable="true">${challenge}</span>`);
+            .replace(/{enemy}/g, `<span contenteditable="true">${enemy}</span>`);
 
         const questCardHTML = `
             <div class="card" data-type="quest">
@@ -156,8 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="card-body">
-                    <p>${description}</p>
-                    <p><strong>Reward:</strong> <span contenteditable="true">${reward}</span></p>
+                    <p><span contenteditable="true">${description}</span></p>
+                    <p><strong>Reward:</strong><span contenteditable="true"> ${reward}</span></p>
                 </div>
                 <div class="tag-area">
                     <div class="tags-container"></div>
