@@ -12,20 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Global State & Configuration --- //
     let questData = null;
     let npcData = null;
-    let undoState = {
-        timer: null,
-        element: null,
-        parent: null,
-        nextSibling: null,
-    };
 
     // --- DOM Element References --- //
     const questTypeSelect = document.getElementById('questType');
     const questOutput = document.getElementById('questOutput');
     const npcOutput = document.getElementById('npcOutput');
-    const undoBanner = document.getElementById('undo-banner'); // Assuming an element with this ID exists
-    const undoButton = document.getElementById('undo-btn'); // Assuming a button within the banner
-
     // --- Helper Functions --- //
 
     /**
@@ -291,67 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    // --- Undo Logic --- //
-
-    /**
-     * Hides a card and displays the undo banner.
-     * @param {HTMLButtonElement} button - The delete button that was clicked.
-     */
-    const handleCardDelete = (button) => {
-        const cardToDelete = button.closest('.card');
-        if (!cardToDelete) return;
-
-        // Clear any previous undo timeout
-        if (undoState.timer) {
-            clearTimeout(undoState.timer);
-            // "Finalize" the previous deletion if a new one is triggered
-            if (undoState.element) {
-                undoState.element.remove();
-            }
-        }
-
-        // Store card's position to restore it correctly
-        undoState.element = cardToDelete;
-        undoState.parent = cardToDelete.parentNode;
-        undoState.nextSibling = cardToDelete.nextSibling;
-
-        cardToDelete.style.display = 'none'; // Hide instead of removing
-        undoBanner.classList.add('visible');
-
-        undoState.timer = setTimeout(() => {
-            // PREMIUM FEATURE: This would be a permanent DB delete call
-            if (undoState.element) {
-                undoState.element.remove();
-                console.log('Card permanently deleted (stub).');
-            }
-            hideUndoBanner();
-        }, 10000); // 10 seconds
-    };
-
-    /**
-     * Restores the most recently "deleted" card.
-     */
-    const handleUndo = () => {
-        if (undoState.element && undoState.parent) {
-            clearTimeout(undoState.timer);
-            undoState.element.style.display = ''; // Unhide the element
-            // Restore element to its original position
-            undoState.parent.insertBefore(undoState.element, undoState.nextSibling);
-            hideUndoBanner();
-        }
-    };
-
-    /**
-     * Hides the undo banner and clears the undo state.
-     */
-    const hideUndoBanner = () => {
-        undoBanner.classList.remove('visible');
-        undoState.timer = null;
-        undoState.element = null;
-        undoState.parent = null;
-        undoState.nextSibling = null;
-    };
-
 
     // --- Export Logic --- //
 
@@ -427,20 +357,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('theme-toggle').addEventListener('click', handleThemeToggle);
 
         // --- Save buttons (Premium Stubs) ---
-        const saveQuestBtn = document.getElementById('saveQuest');
+        const saveQuestBtn = document.getElementById('saveQuestButton');
         saveQuestBtn.classList.add('premium-only', 'locked');
         saveQuestBtn.setAttribute('data-feature', 'save');
         saveQuestBtn.addEventListener('click', () => handleSave('quest'));
 
-        const saveNpcBtn = document.getElementById('saveNPC');
+        const saveNpcBtn = document.getElementById('saveNPCButton');
         saveNpcBtn.classList.add('premium-only', 'locked');
         saveNpcBtn.setAttribute('data-feature', 'save');
         saveNpcBtn.addEventListener('click', () => handleSave('npc'));
 
-        // --- Undo button ---
-        if (undoButton) {
-            undoButton.addEventListener('click', handleUndo);
-        }
+
 
         // --- Delegated Event Listeners for dynamic content ---
         document.body.addEventListener('click', (event) => {
