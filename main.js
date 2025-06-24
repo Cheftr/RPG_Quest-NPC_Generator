@@ -474,4 +474,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     init();
 
-});
+;
