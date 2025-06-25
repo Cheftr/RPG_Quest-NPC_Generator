@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         class: 'card-control card-export',
         'aria-label': 'Export',
         title: 'Export card'
-    }, '📇');
+    }, '📥');
     controls.appendChild(exportBtn);
 
     header.appendChild(controls);
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     class: 'card-control card-export',
     'aria-label': 'Export',
     title: 'Export card'
-  }, '📇');
+  }, '📥');
   controls.appendChild(exportBtn);
   header.appendChild(controls);
 
