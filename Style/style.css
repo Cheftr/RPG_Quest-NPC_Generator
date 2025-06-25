@@ -387,9 +387,11 @@ body.dark-mode .output-box:hover {
   ABOUT PAGE
 ───────────────────────────────────────────────────────────────*/
 .about-content { padding: 2rem 1.5rem; max-width: 720px; margin: 0 auto; line-height: 1.6; }
-.about-content section { margin-bottom: 2.5rem; }
+.about-content section { margin-bottom: 2.5rem; background: rgba(0, 0, 0, 0.1); border-radius: 0.75rem; padding: 1rem; }
 .donation-placeholder { border: 1px dashed var(--color-muted); padding: 1rem; text-align: center; color: var(--color-muted); font-style: italic; }
-
+body.dark-mode .about-content section {
+  background: rgba(255,255,255,0.05);
+}
 /*───────────────────────────────────────────────────────────────
   NAVIGATION: TOP & FLOATING
 ───────────────────────────────────────────────────────────────*/
