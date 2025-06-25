@@ -94,7 +94,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url('/images/stars-overlay.png') repeat;
+  background: url('/images/stars-overlay.jpg') repeat;
   animation: moveStars 60s linear infinite;
   opacity: 0.08;
   z-index: -1;
