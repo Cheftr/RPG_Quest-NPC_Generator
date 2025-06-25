@@ -30,10 +30,10 @@
   <main class="about-content">
     <section>
       <h2>What is this?</h2>
-      <p>
-        This is a free web app designed for tabletop RPG players and game masters.
-        You can generate random quests, NPCs, and roll dice—all in one clean interface.
-      </p>
+      <p>This is a free web app designed for tabletop RPG players and game masters. </p>
+      <p>You can generate random quests, NPCs, and roll dice - all in one clean interface.</p>
+      <p>Each line of the card can be edited, locked, and regenerated individually. </p>
+      <p>The cards can be downladed as a .txt file with this button → <button>📥</button></p>
     </section>
 
     <section>
@@ -43,10 +43,12 @@
       </p>
       <p>
         If you enjoy the tool or want to offer feedback, feel free to reach out at:  
-        <a id="copy-email-btn" type="button" title="Copy email to clipboard" style="cursor:pointer;">
-    cheftr.contact@gmail.com
-        </a>
-  <span id="copy-confirm" style="display:none; color:green; margin-left:8px;">Copied!</span> 
+        <button id="copy-email-btn" type="button" aria-label="Copy email to clipboard"
+  style="cursor:pointer; background:none; border:none; color:#2563eb; font-weight:bold;">
+  cheftr.contact@gmail.com
+</button>
+<span id="copy-confirm" style="display:none; color:green; margin-left:1px;">Copied!</span>
+
       </p>
       <p>
         Tech Stack: <br> <strong>HTML, CSS, Javascript, JSON, and AI Assistants 😊</strong>
@@ -67,5 +69,26 @@
   <footer class="page-footer">
     <p>v0.9 – Built with ❤️</p>
   </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const copyBtn = document.getElementById('copy-email-btn');
+        const confirm = document.getElementById('copy-confirm');
+
+        if (copyBtn && confirm) {
+        copyBtn.addEventListener('click', () => {
+            const email = copyBtn.textContent.trim();
+            navigator.clipboard.writeText(email).then(() => {
+            confirm.style.display = 'inline';
+            setTimeout(() => {
+                confirm.style.display = 'none';
+            }, 1500);
+            }).catch(() => {
+            alert('Failed to copy email.');
+            });
+        });
+        }
+    });
+    </script>
+
 </body>
 </html>

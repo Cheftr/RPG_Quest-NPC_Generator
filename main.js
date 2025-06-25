@@ -486,7 +486,6 @@ document.getElementById('rollCustomDice').addEventListener('click', () => {
         URL.revokeObjectURL(url);
     };
 
-
     // --- Event Listeners Setup --- //
 
     const setupEventListeners = () => {
