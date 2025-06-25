@@ -460,3 +460,63 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+/*───────────────────────────────────────────────────────────────
+    Dice Rollers
+  ───────────────────────────────────────────────────────────────*/
+
+#dice-roller {
+  text-align: center;
+}
+
+.dice-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dice-buttons button,
+#rollCustomDice {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: #333;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.dice-buttons button:hover,
+#rollCustomDice:hover {
+  background: #444;
+}
+
+.custom-dice {
+  margin-bottom: 1rem;
+}
+
+#customDice {
+  width: 80px;
+  padding: 0.4rem;
+  text-align: center;
+  margin-right: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid #555;
+  background: #222;
+  color: #fff;
+}
+
+#diceResult {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.flash {
+  animation: flash 0.3s ease-in-out;
+}
+
+@keyframes flash {
+  0% { background-color: #444; }
+  100% { background-color: transparent; }
+}

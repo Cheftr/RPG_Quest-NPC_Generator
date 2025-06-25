@@ -297,6 +297,37 @@ document.addEventListener('DOMContentLoaded', () => {
   npcOutput.prepend(card);
 };
 
+    // --- Dice Rolling Logic --- //
+
+function rollDie(sides) {
+  return Math.floor(Math.random() * sides) + 1;
+}
+
+function showDiceResult(result) {
+  const output = document.getElementById('diceResult');
+  output.textContent = `🎲 You rolled: ${result}`;
+  output.classList.add('flash');
+  setTimeout(() => output.classList.remove('flash'), 300);
+}
+
+document.querySelectorAll('.dice-roll').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const sides = parseInt(btn.dataset.sides, 10);
+    const result = rollDie(sides);
+    showDiceResult(result);
+  });
+});
+
+document.getElementById('rollCustomDice').addEventListener('click', () => {
+  const input = document.getElementById('customDice');
+  const sides = parseInt(input.value, 10);
+  if (sides && sides > 1) {
+    const result = rollDie(sides);
+    showDiceResult(result);
+  } else {
+    showDiceResult('Invalid number of sides');
+  }
+});
 
 
     // --- Card Interaction Logic --- //

@@ -56,7 +56,18 @@
     <!-- Dice Roller Section (stub for now) -->
     <section class="generator-section" id="dice-roller" aria-labelledby="dice-roller-heading">
       <h2 id="dice-roller-heading">Dice Roller</h2>
-      <p>Coming soon: roll d6, d20, or custom dice right here.</p>
+        <div class="dice-buttons">
+          <button class="dice-roll" data-sides="6">Roll d6</button>
+          <button class="dice-roll" data-sides="20">Roll d20</button>
+        </div>
+
+        <div class="custom-dice">
+          <label for="customDice">Custom Die:</label>
+          <input type="number" id="customDice" min="2" placeholder="Enter sides (e.g. 100)" />
+          <button id="rollCustomDice">Roll</button>
+        </div>
+        
+        <div id="diceResult" class="output-box" aria-live="polite" aria-atomic="true"></div>
       <!-- You’ll plug your actual dice logic in here later -->
     </section>
   </main>
