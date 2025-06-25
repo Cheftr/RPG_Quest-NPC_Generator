@@ -9,62 +9,67 @@
 </head>
 <body>
 
-  <header class="page-header">
-    <h1>RPG Quest & NPC Generator</h1>
-    <button id="theme-toggle" aria-label="Toggle dark and light theme">🌓</button>
+  <!-- Top Nav -->
+  <header id="top-nav">
+    <h1>TTRPG Dashboard</h1>
+    <div class="nav-controls">
+      <button id="theme-toggle" aria-label="Toggle dark and light theme">🌓</button>
+    </div>
   </header>
 
   <main>
-    <div class="generators-wrapper">
-      <section class="generator-section" id="quest-generator" aria-labelledby="quest-generator-heading">
-        <h2 id="quest-generator-heading">Side Quest Generator</h2>
-        
-        <label for="questTypeSelect">Choose a Quest Type:</label>
-        <select id="questTypeSelect"></select>
-        
-        <button id="generateQuest" class="generate-button">
-          <span role="img" aria-hidden="true">🎲</span> Generate Quest
-        </button>
-        
-        <div id="questOutput" class="output-box" aria-live="polite" aria-atomic="true"></div>
-        
-        <div class="premium-feature" data-feature="save-quest">
-          <button id="saveQuestButton" class="save-button" title="Premium Feature" disabled>Save Quest</button>
-          <span class="premium-lock" aria-label="Premium feature" title="Premium Feature">🔒</span>
-        </div>
-      </section>
+    <!-- Quest Generator Section -->
+    <section class="generator-section" id="quest-generator" aria-labelledby="quest-generator-heading">
+      <h2 id="quest-generator-heading">Side Quest Generator</h2>
+      
+      <label for="questTypeSelect">Choose a Quest Type:</label>
+      <select id="questTypeSelect"></select>
+      
+      <button id="generateQuest" class="generate-button">
+        🎲 Generate Quest
+      </button>
+      
+      <div id="questOutput" class="output-box" aria-live="polite" aria-atomic="true"></div>
+      
+      <div class="premium-feature" data-feature="save-quest">
+        <button id="saveQuestButton" class="save-button" title="Premium Feature" disabled>Save Quest</button>
+        <span class="premium-lock" aria-label="Premium feature" title="Premium Feature">🔒</span>
+      </div>
+    </section>
 
-      <section class="generator-section" id="npc-generator" aria-labelledby="npc-generator-heading">
-        <h2 id="npc-generator-heading">NPC Generator</h2>
-        
-        <button id="generateNPC" class="generate-button">
-          <span role="img" aria-hidden="true">🎲</span> Generate NPC
-        </button>
-        
-        <div id="npcOutput" class="output-box" aria-live="polite" aria-atomic="true"></div>
+    <!-- NPC Generator Section -->
+    <section class="generator-section" id="npc-generator" aria-labelledby="npc-generator-heading">
+      <h2 id="npc-generator-heading">NPC Generator</h2>
+      
+      <button id="generateNPC" class="generate-button">
+        🎲 Generate NPC
+      </button>
+      
+      <div id="npcOutput" class="output-box" aria-live="polite" aria-atomic="true"></div>
 
-        <div class="premium-feature" data-feature="save-npc">
-           <button id="saveNPCButton" class="save-button" title="Premium Feature" disabled>Save NPC</button>
-          <span class="premium-lock" aria-label="Premium feature" title="Premium Feature">🔒</span>
-        </div>
-      </section>
-    </div>
+      <div class="premium-feature" data-feature="save-npc">
+        <button id="saveNPCButton" class="save-button" title="Premium Feature" disabled>Save NPC</button>
+        <span class="premium-lock" aria-label="Premium feature" title="Premium Feature">🔒</span>
+      </div>
+    </section>
 
-    <div class="saved-items-wrapper">
-      <section class="saved-section" id="saved-quests-section" role="region" aria-labelledby="saved-quests-heading">
-        <h3 id="saved-quests-heading">Saved Quests</h3>
-        <div id="savedQuests" class="card-container"></div>
-      </section>
-
-      <section class="saved-section" id="saved-npcs-section" role="region" aria-labelledby="saved-npcs-heading">
-        <h3 id="saved-npcs-heading">Saved NPCs</h3>
-        <div id="savedNPCs" class="card-container"></div>
-      </section>
-    </div>
+    <!-- Dice Roller Section (stub for now) -->
+    <section class="generator-section" id="dice-roller" aria-labelledby="dice-roller-heading">
+      <h2 id="dice-roller-heading">Dice Roller</h2>
+      <p>Coming soon: roll d6, d20, or custom dice right here.</p>
+      <!-- You’ll plug your actual dice logic in here later -->
+    </section>
   </main>
 
-  <footer class="page-footer">
-    </footer>
+  <!-- Floating Nav -->
+  <nav id="floating-nav" aria-label="Quick Navigation">
+    <button data-target="quest-generator" title="Go to Quests">📜</button>
+    <button data-target="npc-generator" title="Go to NPCs">🧍</button>
+    <button data-target="dice-roller" title="Go to Dice Roller">🎲</button>
+    <button id="floating-saved" disabled title="Saved (future feature)">💾</button>
+  </nav>
 
-  </body>
+  <footer class="page-footer"></footer>
+
+</body>
 </html>
