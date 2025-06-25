@@ -212,6 +212,35 @@ button.generate:active { transform: scale(0.98); }
   cursor: pointer;
 }
 
+.donation-box {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  color: var(--text-color, #222);
+}
+
+.donate-button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #8e44ad, #3498db);
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.donate-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+
+
+
 /*───────────────────────────────────────────────────────────────
   LAYOUT CONTAINERS
 ───────────────────────────────────────────────────────────────*/
@@ -467,4 +496,18 @@ body.dark-mode .about-content section {
   #top-nav { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
   #top-nav h1 { margin-bottom: 0.5rem; }
   html { font-size: 15px;}
+}
+@media (prefers-color-scheme: dark) {
+  .donation-box {
+    color: #f0f0f0;
+  }
+
+  .donate-button {
+    background: linear-gradient(135deg, #9b59b6, #2980b9);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+
+  .donate-button:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  }
 }
