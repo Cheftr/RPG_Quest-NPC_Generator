@@ -196,6 +196,10 @@ button.generate:active { transform: scale(0.98); }
     background: var(--color-panel-dark);
     border-color: var(--color-border-dark);
   }
+
+  #copy-email-btn:hover {
+    background-color: rgba(145, 92, 182, .4);
+  }
 /*───────────────────────────────────────────────────────────────
   LAYOUT CONTAINERS
 ───────────────────────────────────────────────────────────────*/
