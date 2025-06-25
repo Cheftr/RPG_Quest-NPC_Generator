@@ -326,35 +326,37 @@ if (toggleBtn && titleMenu) {
 
     // --- Dice Rolling Logic --- //
 
-function rollDie(sides) {
-  return Math.floor(Math.random() * sides) + 1;
-}
+document.querySelectorAll('.dice-btn').forEach(icon => {
+  icon.addEventListener('click', () => {
+    const sides = parseInt(icon.dataset.sides, 10);
+    // spin + bounce
+    icon.classList.add('spin');
+    setTimeout(() => icon.classList.remove('spin'), 600);
 
-function showDiceResult(result) {
-  const output = document.getElementById('diceResult');
-  output.textContent = `🎲 You rolled: ${result}`;
-  output.classList.add('flash');
-  setTimeout(() => output.classList.remove('flash'), 300);
-}
-
-document.querySelectorAll('.dice-roll').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const sides = parseInt(btn.dataset.sides, 10);
-    const result = rollDie(sides);
+    // roll result
+    const result = Math.floor(Math.random() * sides) + 1;
     showDiceResult(result);
   });
 });
 
+// custom die
 document.getElementById('rollCustomDice').addEventListener('click', () => {
-  const input = document.getElementById('customDice');
-  const sides = parseInt(input.value, 10);
-  if (sides && sides > 1) {
-    const result = rollDie(sides);
-    showDiceResult(result);
+  const val = parseInt(document.getElementById('customDice').value, 10);
+  if (val > 1) {
+    showDiceResult(Math.floor(Math.random() * val) + 1);
   } else {
-    showDiceResult('Invalid number of sides');
+    showDiceResult('Invalid');
   }
 });
+
+// shared result function
+function showDiceResult(result) {
+  const output = document.getElementById('diceResult');
+  output.textContent = `🎲 ${result}`;
+  output.classList.add('flash');
+  setTimeout(() => output.classList.remove('flash'), 800);
+}
+
 
 
     // --- Card Interaction Logic --- //

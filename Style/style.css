@@ -407,10 +407,58 @@ body.dark-mode .output-box:hover {
 }
 .dice-buttons button:hover, #rollCustomDice:hover { background-color: var(--color-bg); }
 .custom-dice { margin-bottom: 1rem; }
-#customDice { width: 80px; padding: 0.4rem; text-align: center; margin-right: 0.5rem; border: 1px solid var(--color-border); border-radius: var(--radius); }
+#customDice { width: 10rem; padding: 0.4rem; text-align: center; margin-right: 0.5rem; border: 1px solid var(--color-border); border-radius: var(--radius); }
 #diceResult { font-size: 1.25rem; font-weight: bold; margin-top: 1rem; }
-.flash { animation: flash 0.3s ease-in-out; }
-@keyframes flash { 0% { background-color: var(--color-panel); } 100% { background-color: transparent; } }
+
+
+/* Dice Icon Buttons */
+.dice-btn {
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.3s ease;
+}
+.dice-btn:hover {
+  filter: drop-shadow(0 0 8px var(--color-primary));
+}
+.dice-btn.spin {
+  animation: roll-spin 0.6s ease;
+}
+@keyframes roll-spin {
+  0%   { transform: rotate(0deg) translateY(0); }
+  50%  { transform: rotate(180deg) translateY(25px); }
+  100% { transform: rotate(360deg) translateY(0); }
+}
+
+/* Custom Die Button styled to match */
+.dice-btn-custom {
+  background-color: var(--color-panel);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.dice-btn-custom:hover {
+  background-color: var(--color-bg);
+  transform: translateY(-2px);
+}
+.dice-btn-custom:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Result Area Flash & Pop */
+#diceResult.flash {
+  animation: flashEffect 0.5s ease-out, popIn 0.2s ease-out 0.3s both;
+}
+@keyframes flashEffect {
+  from { box-shadow: 0 0 12px rgba(0, 255, 200, 0.4); }
+  to   { box-shadow: none; }
+}
+@keyframes popIn {
+  from { transform: scale(1.2); opacity: 0.7; }
+  to   { transform: scale(1);   opacity: 1;   }
+}
+
 
 /*───────────────────────────────────────────────────────────────
   ABOUT PAGE
@@ -421,6 +469,7 @@ body.dark-mode .output-box:hover {
 body.dark-mode .about-content section {
   background: rgba(255,255,255,0.05);
 }
+.attributions { font-size: 0.9rem; color: var(--color-muted); opacity: 20%; }
 /*───────────────────────────────────────────────────────────────
   NAVIGATION: TOP & FLOATING
 ───────────────────────────────────────────────────────────────*/

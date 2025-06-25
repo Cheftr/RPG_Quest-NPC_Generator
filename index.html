@@ -78,18 +78,18 @@
     <section class="generator-section" id="dice-roller" aria-labelledby="dice-roller-heading">
       <h2 id="dice-roller-heading">Dice Roller</h2>
         <div class="dice-buttons">
-          <button class="dice-roll" data-sides="6">Roll d6</button>
-          <button class="dice-roll" data-sides="20">Roll d20</button>
+          <img src="images/d6.png" alt="Roll d6" class="dice-btn" data-sides="6" />
+          <img src="images/d20.png" alt="Roll d20" class="dice-btn" data-sides="20" />
         </div>
 
         <div class="custom-dice">
           <label for="customDice">Custom Die:</label>
           <input type="number" id="customDice" min="2" placeholder="Enter sides (e.g. 100)" />
-          <button id="rollCustomDice">Roll</button>
+          <button id="rollCustomDice" class="dice-btn-custom">Roll</button>
         </div>
 
         <div id="diceResult" class="output-box" aria-live="polite" aria-atomic="true"></div>
-      <!-- You’ll plug your actual dice logic in here later -->
+
     </section>
   </main>
 
