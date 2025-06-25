@@ -508,6 +508,13 @@ body.dark-mode .about-content section {
 #floating-nav button { background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--color-text); }
 #floating-nav button:disabled { opacity: 0.4; cursor: not-allowed; }
 
+#floating-nav .nav-pages { 
+  border-left: #090d14 1px solid;
+}
+
+#floating-nav a {
+  text-decoration: none; 
+}
 /*───────────────────────────────────────────────────────────────
   TITLE DROPDOWN
 ───────────────────────────────────────────────────────────────*/
