@@ -112,6 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Floating Navbar //
+    document.querySelectorAll('#floating-nav button[data-target]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.getAttribute('data-target');
+    const section = document.getElementById(id);
+    if (section) section.scrollIntoView({ behavior: 'smooth' });
+  });
+});
 
     // --- Generation Logic --- //
     const npcLocks = {}; // e.g., { race: "Elf", occupation: "Baker" }
@@ -179,15 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     header.appendChild(controls);
     card.appendChild(header);
-
-    // Floating Navbar //
-    document.querySelectorAll('#floating-nav button[data-target]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const id = btn.getAttribute('data-target');
-    const section = document.getElementById(id);
-    if (section) section.scrollIntoView({ behavior: 'smooth' });
-  });
-});
  
 
     // --- Body ---
