@@ -120,6 +120,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (section) section.scrollIntoView({ behavior: 'smooth' });
   });
 });
+    // --- Header/title Navigation controls --- //
+
+const toggleBtn = document.querySelector('.title-toggle');
+const titleMenu = document.querySelector('.title-menu');
+
+if (toggleBtn && titleMenu) {
+  toggleBtn.addEventListener('click', (e) => {
+    const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+    toggleBtn.setAttribute('aria-expanded', !isOpen);
+    titleMenu.hidden = isOpen;
+    e.stopPropagation(); // prevents body click from instantly closing it
+  });
+
+  // Close menu if clicking anywhere outside
+  document.body.addEventListener('click', () => {
+    if (toggleBtn.getAttribute('aria-expanded') === 'true') {
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      titleMenu.hidden = true;
+    }
+  });
+
+  // Prevent closing if clicking inside the menu
+  titleMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+}
+
 
     // --- Generation Logic --- //
     const npcLocks = {}; // e.g., { race: "Elf", occupation: "Baker" }
@@ -459,29 +486,6 @@ document.getElementById('rollCustomDice').addEventListener('click', () => {
         URL.revokeObjectURL(url);
     };
 
-    // --- Theme Management --- //
-
-    /**
-     * Toggles the dark mode theme and saves the preference.
-     */
-    const handleThemeToggle = () => {
-        const rootEl = document.documentElement;
-        rootEl.classList.toggle('dark-mode');
-
-        const newTheme = rootEl.classList.contains('dark-mode') ? 'dark' : 'light';
-        localStorage.setItem('theme', newTheme);
-        console.log(`Theme set to ${newTheme}`);
-    };
-
-    /**
-     * Applies the saved theme from local storage on page load.
-     */
-    const applyInitialTheme = () => {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    };
 
     // --- Event Listeners Setup --- //
 
@@ -489,7 +493,6 @@ document.getElementById('rollCustomDice').addEventListener('click', () => {
         // --- Direct Listeners for static elements ---
         document.getElementById('generateQuest').addEventListener('click', handleGenerateQuest);
         document.getElementById('generateNPC').addEventListener('click', handleGenerateNPC);
-        document.getElementById('theme-toggle').addEventListener('click', handleThemeToggle);
 
         // --- Save buttons (Premium Stubs) ---
         const saveQuestBtn = document.getElementById('saveQuestButton');
@@ -550,7 +553,6 @@ document.getElementById('rollCustomDice').addEventListener('click', () => {
     // --- Initialization --- //
 
     const init = () => {
-        applyInitialTheme();
         loadData();
         setupEventListeners();
     };

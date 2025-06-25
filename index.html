@@ -5,13 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RPG Quest & NPC Generator</title>
   <link rel="stylesheet" href="Style/style.css" />
+  <script src="Style/theme.js" defer></script>
   <script src="main.js" defer></script>
 </head>
 <body>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
   <!-- Top Nav -->
   <header id="top-nav">
-    <h1>TTRPG Dashboard</h1>
+    <div class="title-dropdown">
+      <button class="title-toggle" aria-expanded="false">
+         RPG Quest & NPC Generator <span class="arrow">⌄</span>
+       </button>
+       <nav class="title-menu" hidden>
+         <a href="" title="Future feature">💾 <strike>Saved Content</strike></a>
+         <a href="about.html">❓ About</a>
+       </nav>
+     </div>
     <div class="nav-controls">
       <button id="theme-toggle" aria-label="Toggle dark and light theme">🌓</button>
     </div>
@@ -20,7 +30,7 @@
   <main>
     <!-- Quest Generator Section -->
     <section class="generator-section" id="quest-generator" aria-labelledby="quest-generator-heading">
-      <h2 id="quest-generator-heading">Side Quest Generator</h2>
+      <h2 id="quest-generator-heading">Quest Generator</h2>
       
       <label for="questTypeSelect">Choose a Quest Type:</label>
       <select id="questTypeSelect"></select>
@@ -66,7 +76,7 @@
           <input type="number" id="customDice" min="2" placeholder="Enter sides (e.g. 100)" />
           <button id="rollCustomDice">Roll</button>
         </div>
-        
+
         <div id="diceResult" class="output-box" aria-live="polite" aria-atomic="true"></div>
       <!-- You’ll plug your actual dice logic in here later -->
     </section>
@@ -79,8 +89,6 @@
     <button data-target="dice-roller" title="Go to Dice Roller">🎲</button>
     <button id="floating-saved" disabled title="Saved (future feature)">💾</button>
   </nav>
-
-  <footer class="page-footer"></footer>
 
 </body>
 </html>
