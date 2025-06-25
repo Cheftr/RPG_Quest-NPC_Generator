@@ -354,8 +354,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Trait Lock Logic --- //
     function createLockableTraitRow(label, traitKey, value) {
-  const p = document.createElement('p');
-
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('trait-row');
   const strong = document.createElement('strong');
   strong.textContent = `${label}: `;
 
@@ -370,14 +370,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const isLocked = npcLocks.hasOwnProperty(traitKey);
   button.textContent = isLocked ? '🔒' : '🔓';
   button.setAttribute('aria-label', isLocked ? 'Unlock trait' : 'Lock trait');
-
-  p.appendChild(strong);
-  p.appendChild(span);
-  p.appendChild(button);
-
-  return p;
+  
+  wrapper.appendChild(button);
+  wrapper.appendChild(strong);
+  wrapper.appendChild(span);
+  
+  return wrapper;
 };
-
     
     // --- Export Logic --- //
 
@@ -477,7 +476,10 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (target.matches('.remove-tag')) {
                 handleRemoveTag(target);
             } else if (target.matches('.lock-btn')) {
-                const span = target.previousElementSibling;
+                const wrapper = target.closest('.trait-row');
+                const span = wrapper?.querySelector('.trait');
+                if (!span) return;
+
                 const traitKey = span.getAttribute('data-trait');
                 const currentValue = span.textContent.trim();
 
@@ -494,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 console.log('npcLocks:', npcLocks);
-                };
+            };
         });
 
         document.body.addEventListener('keydown', (event) => {
