@@ -470,6 +470,11 @@ body.dark-mode .about-content section {
   background: rgba(255,255,255,0.05);
 }
 .attributions { font-size: 0.9rem; color: var(--color-muted); opacity: 20%; }
+
+.about-title{
+  
+}
+
 /*───────────────────────────────────────────────────────────────
   NAVIGATION: TOP & FLOATING
 ───────────────────────────────────────────────────────────────*/
