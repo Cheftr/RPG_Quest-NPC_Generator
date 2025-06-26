@@ -265,16 +265,46 @@ if (toggleBtn && titleMenu) {
   card.setAttribute('data-type', 'npc');
 
   // Header
-  const header = document.createElement('div');
-  header.classList.add('card-header');
-  const title = document.createElement('h3');
-  title.classList.add('card-title');
-  // Compute name (locked or random)
-  const firstName = npcLocks.firstName || getRandomItem(p.firstNames) || 'Alex';
-  const lastName  = npcLocks.lastName  || getRandomItem(p.lastNames)  || 'Doe';
-  title.textContent = `${firstName} ${lastName}`;
-  title.setAttribute('contenteditable', 'true');
-  header.appendChild(title);
+ const header = document.createElement('div');
+header.classList.add('card-header');
+
+// Create a container for the title
+const titleContainer = document.createElement('div');
+titleContainer.classList.add('card-title'); // same class for styling
+
+// Compute locked or random names
+const firstName = npcLocks.firstName || getRandomItem(p.firstNames) || 'Alex';
+const lastName  = npcLocks.lastName  || getRandomItem(p.lastNames)  || 'Doe';
+
+// First Name span
+const firstSpan = document.createElement('span');
+firstSpan.classList.add('trait');
+firstSpan.setAttribute('data-trait', 'firstName');
+firstSpan.setAttribute('contenteditable', 'true');
+firstSpan.textContent = firstName;
+
+// Last Name span
+const lastSpan = document.createElement('span');
+lastSpan.classList.add('trait');
+lastSpan.setAttribute('data-trait', 'lastName');
+lastSpan.setAttribute('contenteditable', 'true');
+lastSpan.textContent = lastName;
+
+// Lock button
+const lockBtn = document.createElement('button');
+lockBtn.classList.add('lock-btn');
+lockBtn.setAttribute('data-lock', 'name');
+lockBtn.setAttribute('aria-label', npcLocks.firstName && npcLocks.lastName ? 'Unlock name' : 'Lock name');
+lockBtn.textContent = npcLocks.firstName && npcLocks.lastName ? '🔒' : '🔓';
+
+// Append to title container
+titleContainer.appendChild(lockBtn);
+titleContainer.appendChild(firstSpan);
+titleContainer.appendChild(lastSpan);
+
+
+// Append to header
+header.appendChild(titleContainer);
 
   // Export button
   const controls = document.createElement('div');
@@ -386,7 +416,7 @@ function showDiceResult(result) {
             const tagPill = createElementWithAttrs('span', { class: 'tag-pill' });
             tagPill.textContent = tagText;
 
-            const removeBtn = createElementWithAttrs('button', { class: 'remove-tag', 'aria-label': 'Remove tag' }, '×');
+            const removeBtn = createElementWithAttrs('button', { class: 'remove-tag', 'aria-label': 'Remove tag' }, '🗑️');
             tagPill.appendChild(removeBtn);
 
             tagContainer.appendChild(tagPill);
@@ -519,7 +549,28 @@ function showDiceResult(result) {
                 handleCardExport(target);
             } else if (target.matches('.remove-tag')) {
                 handleRemoveTag(target);
-            } else if (target.matches('.lock-btn')) {
+            } else if (target.dataset.lock === 'name') {
+                const parent = target.closest('.card-title');
+                const firstSpan = parent.querySelector('[data-trait="firstName"]');
+                const lastSpan = parent.querySelector('[data-trait="lastName"]');
+                if (!firstSpan || !lastSpan) return;
+
+                const isLocked = npcLocks.firstName && npcLocks.lastName;
+
+                if (isLocked) {
+                    delete npcLocks.firstName;
+                    delete npcLocks.lastName;
+                    target.textContent = '🔓';
+                    target.setAttribute('aria-label', 'Lock name');
+                } else {
+                    npcLocks.firstName = firstSpan.textContent.trim();
+                    npcLocks.lastName = lastSpan.textContent.trim();
+                    target.textContent = '🔒';
+                    target.setAttribute('aria-label', 'Unlock name');
+                }
+
+                console.log('npcLocks:', npcLocks);
+            }else if (target.matches('.lock-btn')) {
                 const wrapper = target.closest('.trait-row');
                 const span = wrapper?.querySelector('.trait');
                 if (!span) return;
