@@ -278,6 +278,9 @@ main {
   padding: var(--spacing);
   min-height: 100px;
   white-space: pre-wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*───────────────────────────────────────────────────────────────
