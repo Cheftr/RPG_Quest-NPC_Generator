@@ -472,7 +472,7 @@ body.dark-mode .about-content section {
 .attributions { font-size: 0.9rem; color: var(--color-muted); opacity: 20%; }
 
 .about-title{
-  
+
 }
 
 /*───────────────────────────────────────────────────────────────
@@ -550,7 +550,7 @@ body.dark-mode .about-content section {
 ───────────────────────────────────────────────────────────────*/
 @media (max-width: 768px) {
   .generator-section, .saved-section { margin: 2rem 1rem; }
-  .dice-buttons { flex-direction: column; }
+  .dice-buttons { flex-direction: flex; }
 }
 @media (max-width: 480px) {
   .about-content { padding: 1.5rem 1rem; }

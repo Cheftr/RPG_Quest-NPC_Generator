@@ -78,8 +78,15 @@
     <section class="generator-section" id="dice-roller" aria-labelledby="dice-roller-heading">
       <h2 id="dice-roller-heading">Dice Roller</h2>
         <div class="dice-buttons">
-          <img src="images/d6.png" alt="Roll d6" class="dice-btn" data-sides="6" aria-label="6 sided die" title="Roll a D6!"/>
-          <img src="images/d20.png" alt="Roll d20" class="dice-btn" data-sides="20" aria-label="20 sided die" title="Roll a D20!"/>
+          <picture>
+          <source srcset="images/d6_mobile.png" media="(max-width: 600px)">
+          <img src="images/d6.png" alt="Roll d6" class="dice-btn" data-sides="6" aria-label="Roll a D6" title="Roll a D6!"/>
+        </picture>
+
+        <picture>
+          <source srcset="images/d20_mobile.png" media="(max-width: 600px)">
+          <img src="images/d20.png" alt="Roll d20" class="dice-btn" data-sides="20" aria-label="Roll a D20" title="Roll a D20!"/>
+        </picture>
         </div>
 
         <div class="custom-dice">
