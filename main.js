@@ -324,7 +324,20 @@ header.appendChild(titleContainer);
   body.classList.add('card-body');
 
   // Helper to pick random or locked
-  const pick = (key, arr, fallback) => npcLocks[key] || getRandomItem(arr) || fallback;
+  const pick = (key, list, fallback, count = 1) => {
+  // If the trait is locked, return the locked value
+  if (npcLocks[key]) return npcLocks[key];
+
+  // Single trait
+  if (count === 1) {
+    return getRandomItem(list) || fallback;
+  }
+
+  // Multi-trait
+  const shuffled = [...list].sort(() => 0.5 - Math.random());
+  const selected = shuffled.slice(0, count);
+  return selected.join(', ') || fallback;
+};
 
   // Traits rows
   body.appendChild(createLockableTraitRow('Race',       'race',       pick('race',       p.races,             'Human')));
@@ -333,8 +346,8 @@ header.appendChild(titleContainer);
   body.appendChild(createLockableTraitRow('Hair',       'hair',       pick('hair',       p.appearances.hair, 'nondescript hair')));
   body.appendChild(createLockableTraitRow('Eyes',       'eyes',       pick('eyes',       p.appearances.eyes, 'expressive eyes')));
   body.appendChild(createLockableTraitRow('Clothing',   'clothing',   pick('clothing',   p.appearances.clothing, 'practical clothes')));
-  body.appendChild(createLockableTraitRow('Feature',    'features',   pick('features',   p.appearances.features, 'a distinguishing scar')));
-  body.appendChild(createLockableTraitRow('Personality','personalityTraits', pick('personalityTraits', p.personalityTraits, 'Enigmatic')));
+  body.appendChild(createLockableTraitRow('Feature',    'features',   pick('features',   p.appearances.features, 'a distinguishing scar',2)));
+  body.appendChild(createLockableTraitRow('Personality','personalityTraits', pick('personalityTraits', p.personalityTraits, 'Enigmatic',3)));
   body.appendChild(createLockableTraitRow('Motivation','motivations', pick('motivations',    p.motivations,    'Seeks knowledge')));
   body.appendChild(createLockableTraitRow('Secret',     'secrets',     pick('secrets',     p.secrets,         'Has a hidden past')));
   body.appendChild(createLockableTraitRow('Quest Hook','questHooks', pick('questHooks', p.questHooks,      'Needs help with a personal matter.')));
