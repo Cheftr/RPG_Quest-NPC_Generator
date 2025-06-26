@@ -358,7 +358,7 @@ header.appendChild(titleContainer);
   const tagArea = htmlToElement(`
     <div class="tag-area">
       <div class="tags-container"></div>
-      <input type="text" class="tag-input" placeholder="Add tag..." inputmode ="text> autocomplete="off" spellcheck="off">
+      <input type="text" class="tag-input" placeholder="Add tag..." inputmode ="text" autocomplete="off" spellcheck="off">
     </div>
   `);
   card.appendChild(tagArea);
