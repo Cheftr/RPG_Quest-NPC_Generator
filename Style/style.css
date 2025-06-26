@@ -415,6 +415,8 @@ body.dark-mode .output-box:hover {
 .dice-btn {
   cursor: pointer;
   transition: transform 0.2s ease, filter 0.3s ease;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 .dice-btn:hover {
   filter: drop-shadow(0 0 8px var(--color-primary));
