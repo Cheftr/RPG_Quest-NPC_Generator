@@ -372,6 +372,13 @@ header.appendChild(titleContainer);
 document.querySelectorAll('.dice-btn').forEach(icon => {
   icon.addEventListener('click', () => {
     const sides = parseInt(icon.dataset.sides, 10);
+
+    // 🧠 GA tracking for standard dice
+    gtag('event', `dice_roll_d${sides}`, {
+      event_category: 'dice',
+      event_label: `d${sides}`
+    });
+
     // spin + bounce
     icon.classList.add('spin');
     setTimeout(() => icon.classList.remove('spin'), 600);
@@ -381,16 +388,21 @@ document.querySelectorAll('.dice-btn').forEach(icon => {
     showDiceResult(result);
   });
 });
-
-// custom die
 document.getElementById('rollCustomDice').addEventListener('click', () => {
   const val = parseInt(document.getElementById('customDice').value, 10);
   if (val > 1) {
+    // 🧠 GA tracking for custom dice
+    gtag('event', 'dice_roll_custom', {
+      event_category: 'dice',
+      event_label: `d${val}`
+    });
+
     showDiceResult(Math.floor(Math.random() * val) + 1);
   } else {
     showDiceResult('Invalid');
   }
 });
+
 
 // shared result function
 function showDiceResult(result) {
@@ -535,9 +547,22 @@ function showDiceResult(result) {
 
     const setupEventListeners = () => {
         // --- Direct Listeners for static elements ---
-        document.getElementById('generateQuest').addEventListener('click', handleGenerateQuest);
-        document.getElementById('generateNPC').addEventListener('click', handleGenerateNPC);
-
+        document.getElementById('generateQuest').addEventListener('click',function(){
+            handleGenerateQuest();
+            // GA4 tracking
+            gtag('event', 'quest_generated', {
+                event_category: 'generator',
+                event_label: 'quest_button'
+            });
+        });
+        document.getElementById('generateNPC').addEventListener('click',function(){
+            handleGenerateNPC();
+            // GA4 tracking
+            gtag('event', 'npc_generated', {
+                event_category: 'generator',
+                event_label: 'npc_button'
+            });
+        });
         // --- Save buttons (Premium Stubs) ---
         const saveQuestBtn = document.getElementById('saveQuestButton');
         saveQuestBtn.classList.add('premium-only', 'locked');
