@@ -567,26 +567,14 @@ body.dark-mode .tag-pill:hover {
 }
 
 
-/*───────────────────────────────────────────────────────────────
-  ABOUT PAGE
-───────────────────────────────────────────────────────────────*/
-.about-content { padding: 2rem 1.5rem; max-width: 720px; margin: 0 auto; line-height: 1.6; }
-.about-content section { margin-bottom: 2.5rem; background: rgba(0, 0, 0, 0.1); border-radius: 0.75rem; padding: 1rem; }
-.donation-placeholder { border: 1px dashed var(--color-muted); padding: 1rem; text-align: center; color: var(--color-muted); font-style: italic; }
-body.dark-mode .about-content section {
-  background: rgba(255,255,255,0.05);
-}
-.attributions { font-size: 0.9rem; color: var(--color-muted); opacity: 20%; }
 
-.about-title{
-
-}
 
 /*───────────────────────────────────────────────────────────────
   NAVIGATION: TOP & FLOATING
 ───────────────────────────────────────────────────────────────*/
 #top-nav {
   display: flex;
+  text-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing) 1.5rem;
@@ -653,7 +641,103 @@ body.dark-mode .about-content section {
 .arrow { font-size: 1rem; }
 
 /*───────────────────────────────────────────────────────────────
-  RESPONSIVE
+  ABOUT PAGE
+───────────────────────────────────────────────────────────────*/
+.about-content { padding: 2rem 1.5rem; max-width: 720px; margin: 0 auto; line-height: 1.6; }
+.about-content section { margin-bottom: 2.5rem; background: rgba(0, 0, 0, 0.1); border-radius: 0.75rem; padding: 1rem; }
+.donation-placeholder { border: 1px dashed var(--color-muted); padding: 1rem; text-align: center; color: var(--color-muted); font-style: italic; }
+body.dark-mode .about-content section {
+  background: rgba(255,255,255,0.05);
+}
+.attributions { font-size: 0.9rem; color: var(--color-muted); opacity: 20%; }
+
+.about-title{
+
+}
+
+/*───────────────────────────────────────────────────────────────
+  More.html Page Styles
+───────────────────────────────────────────────────────────────*/
+#more-page main {
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+#more-page .shoutout-card {
+  background-color: var(--box-bg, #f9f9f9);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  text-align: center;
+}
+
+body.dark-mode#more-page .shoutout-card {
+  background-color: var(--box-bg-dark, #202020);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.04);
+}
+
+/* Title styling */
+#more-page .shoutout-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Iframe wrapper to control sizing */
+#more-page .shoutout-media {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+  height: 420px;
+}
+
+/* Force iframe sizing */
+#more-page .shoutout-media iframe, #more-page .shoutout-media img  {
+  width: 220px;
+  height: 420px;
+  display: block;
+}
+
+/* Description text */
+#more-page .shoutout-description-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#more-page .shoutout-description {
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+#more-page .shoutout-description a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #0070f3;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+#more-page .shoutout-description a:hover {
+  color: #0059b3;
+}
+
+#more-page .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+/*───────────────────────────────────────────────────────────────
+  Mobile RESPONSIVE
 ───────────────────────────────────────────────────────────────*/
 @media (max-width: 768px) {
   .generator-section, .saved-section { margin: 2rem 1rem; }
@@ -677,5 +761,50 @@ body.dark-mode .about-content section {
 
   .donate-button:hover {
     box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  }
+}
+@media (max-width: 600px) {
+  #more-page .output-box {
+    padding: 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  #more-page .generator-section h2 {
+    font-size: 1.6rem;
+  }
+
+  #more-page .generator-section h3 {
+    font-size: 1.2rem;
+  }
+
+  #more-page .title-dropdown {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  #more-page .title-toggle {
+    font-size: 1rem;
+  }
+
+  #more-page nav.title-menu {
+    font-size: 0.95rem;
+  }
+
+  #more-page .nav-controls {
+    margin-top: 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #more-page .shoutout-card {
+    padding: 1rem;
+  }
+
+  #more-page .shoutout-title {
+    font-size: 1.05rem;
+  }
+
+  #more-page .shoutout-description {
+    font-size: 0.9rem;
   }
 }
