@@ -348,8 +348,10 @@ header.appendChild(titleContainer);
   body.appendChild(createLockableTraitRow('Clothing',   'clothing',   pick('clothing',   p.appearances.clothing, 'practical clothes')));
   body.appendChild(createLockableTraitRow('Feature',    'features',   pick('features',   p.appearances.features, 'a distinguishing scar',2)));
   body.appendChild(createLockableTraitRow('Personality','personalityTraits', pick('personalityTraits', p.personalityTraits, 'Enigmatic',3)));
+  body.appendChild(createLockableTraitRow('Voice Style',       'voiceStyles',      pick('voiceStyles',      p.voiceStyles,            'Soft-spoken')));
   body.appendChild(createLockableTraitRow('Motivation','motivations', pick('motivations',    p.motivations,    'Seeks knowledge')));
   body.appendChild(createLockableTraitRow('Secret',     'secrets',     pick('secrets',     p.secrets,         'Has a hidden past')));
+  body.appendChild(createLockableTraitRow('Connections',       'connections',       pick('connections',       p.connections,           'Has a legendary mentor')));
   body.appendChild(createLockableTraitRow('Quest Hook','questHooks', pick('questHooks', p.questHooks,      'Needs help with a personal matter.')));
 
   card.appendChild(body);
