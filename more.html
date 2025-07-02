@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>More ✨</title>
   <link rel="stylesheet" href="Style/style.css" />
-  <script src="Style/theme.js" defer></script>
-  <script src="main.js" defer></script> 
+  <script type="module" src="js/main.js" defer></script>
 </head>
-<body id="more-page">
+<body id="page-more">
     <!-- Top Nav -->
   <header id="top-nav">
     <div class="title-dropdown">
@@ -16,12 +15,18 @@
          The RPForge 🧙‍♂️ <span class="arrow">⌄</span>
        </button>
        <nav class="title-menu" hidden>
-        <a href="index.html" title="Quest & NPC Generator">📜 Quests & NPCs</a>
-        <a href="" title="Future feature">💾 <strike>Saved Content</strike></a>
-        <a href="about.html">❓ About</a>
-        <a href="more.html">✨ More</a>
+         <a href="index.html" title="Quest & NPC Generator">📜 Quests & NPCs</a>
+         <a href="" title="Future feature">💾 <strike>Saved Content</strike></a>
+         <a href="about.html">❓ About</a>
+         <a href="more.html">✨ More</a>
        </nav>
      </div>
+     <div class="dropdown-group">
+  <label for="themeSelect">Theme:</label>
+  <select id="themeSelect">
+    <!-- Will populate via JS -->
+  </select>
+</div>
     <div class="nav-controls">
       <button id="theme-toggle" aria-label="Toggle dark and light theme">🌓</button>
     </div>

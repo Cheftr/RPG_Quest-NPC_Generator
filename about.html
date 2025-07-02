@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About This App</title>
   <link rel="stylesheet" href="Style/style.css" />
-  <script src="Style/theme.js" defer></script>
-  <script src="main.js" defer></script>
+  <script type="module" src="js/main.js" defer></script>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -19,7 +18,7 @@
   gtag('config', 'G-V28HMJTB3G');
 </script>
 
-<body>
+<body id="page-about">
     <div class="cursor-glow" aria-hidden="true"></div>
 
   <!-- Top Nav -->
@@ -35,6 +34,12 @@
          <a href="more.html">✨ More</a>
        </nav>
      </div>
+     <div class="dropdown-group">
+  <label for="themeSelect">Theme:</label>
+  <select id="themeSelect">
+    <!-- Will populate via JS -->
+  </select>
+</div>
     <div class="nav-controls">
       <button id="theme-toggle" aria-label="Toggle dark and light theme">🌓</button>
     </div>

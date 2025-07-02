@@ -20,6 +20,9 @@
   --color-text-dark: #f3f4f6;
   --color-border-dark: #374151;
   --color-muted-dark: #9ca3af;
+
+  /* Specific variable for About page section background in light mode */
+  --about-section-bg-light-improved: #ffffff; /* Pure white for better contrast */
 }
 
 /* Dark mode overrides */
@@ -33,12 +36,11 @@ body.dark-mode {
 ───────────────────────────────────────────────────────────────*/
 body, .page-footer {
   font-family: var(--font-base);
-  background: var(--color-bg);
-  color: var(--color-text);
   margin: 0;
   padding-bottom: 6rem;
   transition: background-color 0.3s, color 0.3s;
 }
+
 
 h1, h2, h3 {
   margin: 0;
@@ -48,6 +50,115 @@ h2, h3 {
   margin-bottom: 1rem;
   font-weight: 700;
 }
+
+
+/*───────────────────────────────────────────────────────────────
+  THEME-SPECIFIC STYLES
+───────────────────────────────────────────────────────────────*/
+
+/* === FANTASY THEME === */
+body[data-theme='fantasy'] {
+  background-image: url('../images/fantasy-parchment-bg.jpg');
+  background-size: cover;
+}
+
+body[data-theme='fantasy'] #top-nav {
+  background-color: rgba(139, 69, 19, 0.8);
+  border-bottom: 2px solid #654321;
+}
+
+body[data-theme='fantasy'] .generator-section {
+  border: 2px solid #8b4513;
+  background-color: rgba(245, 222, 179, 0.7);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+body[data-theme='fantasy'] #more-page-heading {
+  color: #654321;
+}
+
+body[data-theme='fantasy'] #quest-generator-heading, body[data-theme='fantasy'] #npc-generator-heading, body[data-theme='fantasy'] #dice-roller-heading, body[data-theme='fantasy'] .quest-type-dropdown, body[data-theme='fantasy'] .custom-dice {
+  color: #654321;
+}
+  
+
+/* === SPACE THEME === */
+body[data-theme='space'] {
+  background-color: #010409;
+}
+
+body[data-theme='space']::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('/images/stars-overlay.jpg') repeat;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.08;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
+
+
+
+body[data-theme='space'] .generator-section {
+  border: 2px solid #00d1ff;
+  background-color: rgba(9, 23, 58, 0.7);
+  box-shadow: 0 0 15px #00d1ff;
+}
+
+body[data-theme='space'] .generate-button {
+  background: linear-gradient(45deg, #00d1ff, #005f73);
+  border: none;
+}
+
+.card-header {
+  color: var(--color-text);
+}
+body.dark-mode .card-header,
+body[data-theme='space'] .card-header,
+body[data-theme='mobster'] .card-header {
+  color: var(--color-text);
+}
+
+
+
+
+/* === UNDERWATER THEME === */
+body[data-theme='underwater'] {
+  background: linear-gradient(to bottom, #003973, #1cb5e0);
+}
+
+body[data-theme='underwater'] .generator-section {
+  background-color: rgba(0, 51, 102, 0.4);
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 15px #00bcd4;
+}
+
+/* === MOBSTER THEME === */
+body[data-theme='mobster'] {
+  background-color: #0e0e0e;
+}
+
+body[data-theme='mobster'] .generator-section {
+  background-color: rgba(25, 25, 25, 0.9);
+  border: 2px solid #b22222;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+body[data-theme='space'].dark-mode .generator-section,
+body[data-theme='space'].dark-mode .card,
+body[data-theme='space'].dark-mode .output-box,
+body[data-theme='mobster'].dark-mode .generator-section,
+body[data-theme='mobster'].dark-mode .card,
+body[data-theme='mobster'].dark-mode .output-box {
+  color: var(--color-text-dark);
+}
+
+
 
 /*───────────────────────────────────────────────────────────────
   ANIMATIONS
@@ -225,7 +336,10 @@ button.generate:active { transform: scale(0.98); }
   margin-top: 2rem;
   text-align: center;
   font-family: system-ui, sans-serif;
-  color: var(--text-color, #222);
+  color: var(--color-text);
+}
+body.dark-mode .donation-box {
+  color: var(--color-text-dark);
 }
 
 .donate-button {
@@ -277,6 +391,26 @@ main {
   border-top: 1px solid var(--color-border);
 }
 
+.dropdown-group {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+.dropdown-group select {
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  border: 1px solid #aaa;
+  color: var(--color-text); /* Ensure dropdown text is readable */
+  background-color: var(--color-panel); /* Ensure dropdown background matches theme */
+}
+body.dark-mode .dropdown-group select {
+  border-color: var(--color-border-dark);
+  color: var(--color-text-dark);
+  background-color: var(--color-panel-dark);
+}
+
+
 /*───────────────────────────────────────────────────────────────
   OUTPUT BOX
 ───────────────────────────────────────────────────────────────*/
@@ -286,7 +420,6 @@ main {
   border-radius: var(--radius);
   padding: var(--spacing);
   min-height: 100px;
-  white-space: pre-wrap;
 }
 
 
@@ -331,6 +464,14 @@ main {
   color: var(--color-muted);
 }
 .toggle-btn:hover, .delete-btn:hover { color: var(--color-text); }
+
+.trait-row {
+  display: flex;
+}
+
+#quest-generator-heading, #npc-generator-heading, #dice-roller-heading, .quest-type-dropdown, .custom-dice {
+  color: var(--color-text-dark);
+}
 
 /* Tags */
 .tag-pill {
@@ -433,70 +574,6 @@ main {
 
 
 
-/*───────────────────────────────────────────────────────────────
-  Dark Mode Overrides for Panels + Cards
-───────────────────────────────────────────────────────────────*/
-
-body.dark-mode .generator-section,
-body.dark-mode .saved-section,
-body.dark-mode .card,
-body.dark-mode .output-box,
-body.dark-mode .page-footer,
-body.dark-mode #top-nav,
-body.dark-mode .title-menu {
-  background-color: var(--color-panel-dark);
-  color: var(--color-text-dark);
-  border-color: var(--color-border-dark);
-}
-
-body.dark-mode .output-box {
-  background-color: #1a1f2a;
-}
-
-body.dark-mode .card-header {
-  background-color: #1c2531;
-  border-bottom: 1px solid var(--color-border-dark);
-}
-
-body.dark-mode .tag-area {
-  background-color: #333;
-}
-
-body.dark-mode .tag-area:hover {
-  background-color: #777;
-}
-
-body.dark-mode .card-body {
-  color: var(--color-text-dark);
-}
-
-body.dark-mode .save-button,
-body.dark-mode .generate,
-body.dark-mode .export-btn {
-  color: #fff;
-}
-
-body.dark-mode .output-box:hover {
-  background-color: #252c3b;
-  box-shadow: 0 0 12px rgba(0, 255, 200, 0.15);
-}
-
-body.dark-mode .tag-pill {
-  background: linear-gradient(145deg, #444, #555);
-  color: #eee;
-}
-
-body.dark-mode .tag-input {
-  color: #ddd;
-}
-
-body.dark-mode .tag-input::placeholder {
-  color: #aaa;
-}
-
-body.dark-mode .tag-pill:hover {
-  background: linear-gradient(145deg, #555, #444);
-}
 
 /*───────────────────────────────────────────────────────────────
   DICE ROLLER
@@ -511,9 +588,48 @@ body.dark-mode .tag-pill:hover {
   padding: 0.5rem 1rem;
 }
 .dice-buttons button:hover, #rollCustomDice:hover { background-color: var(--color-bg); }
-.custom-dice { margin-bottom: 1rem; }
-#customDice { width: 10rem; padding: 0.4rem; text-align: center; margin-right: 0.5rem; border: 1px solid var(--color-border); border-radius: var(--radius); }
+.custom-dice { margin-bottom: 1rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem; }
+#customDice {
+  width: 10rem;
+  padding: 0.4rem;
+  text-align: center;
+  margin-right: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text); /* Ensure input text is readable */
+  background-color: var(--color-panel); /* Ensure input background matches theme */
+}
+body.dark-mode #customDice {
+  border-color: var(--color-border-dark);
+  color: var(--color-text-dark);
+  background-color: var(--color-panel-dark);
+}
+
 #diceResult { font-size: 1.25rem; font-weight: bold; margin-top: 1rem; display: flex; justify-content: center; align-items: center; }
+
+.dice-count-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+#diceCount {
+  width: 5rem;
+  padding: 0.25rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #aaa;
+  text-align: center;
+  color: var(--color-text); /* Ensure input text is readable */
+  background-color: var(--color-panel); /* Ensure input background matches theme */
+}
+body.dark-mode #diceCount {
+  border-color: var(--color-border-dark);
+  color: var(--color-text-dark);
+  background-color: var(--color-panel-dark);
+}
 
 
 /* Dice Icon Buttons */
@@ -608,12 +724,12 @@ body.dark-mode .tag-pill:hover {
 #floating-nav button { background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--color-text); }
 #floating-nav button:disabled { opacity: 0.4; cursor: not-allowed; }
 
-#floating-nav .nav-pages { 
+#floating-nav .nav-pages {
   border-left: #090d14 1px solid;
 }
 
 #floating-nav a {
-  text-decoration: none; 
+  text-decoration: none;
 }
 /*───────────────────────────────────────────────────────────────
   TITLE DROPDOWN
@@ -631,8 +747,10 @@ body.dark-mode .tag-pill:hover {
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  z-index: 10;
+  z-index: 10001; /* Ensure this is above most content */
 }
+
+
 .title-menu a {
   display: block; color: var(--color-text);
   padding: 0.25rem 0; text-decoration: none;
@@ -644,24 +762,35 @@ body.dark-mode .tag-pill:hover {
   ABOUT PAGE
 ───────────────────────────────────────────────────────────────*/
 .about-content { padding: 2rem 1.5rem; max-width: 720px; margin: 0 auto; line-height: 1.6; }
-.about-content section { margin-bottom: 2.5rem; background: rgba(0, 0, 0, 0.1); border-radius: 0.75rem; padding: 1rem; }
-.donation-placeholder { border: 1px dashed var(--color-muted); padding: 1rem; text-align: center; color: var(--color-muted); font-style: italic; }
+.about-content section {
+  margin-bottom: 2.5rem;
+  background: var(--about-section-bg-light-improved); /* Use improved light background */
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
 body.dark-mode .about-content section {
   background: rgba(255,255,255,0.05);
 }
-.attributions { font-size: 0.9rem; color: var(--color-muted); opacity: 20%; }
-
+.donation-placeholder { border: 1px dashed var(--color-muted); padding: 1rem; text-align: center; color: var(--color-muted); font-style: italic; }
+.attributions { font-size: 0.9rem; color: var(--color-muted); opacity: 1; } /* Ensure attributions are fully visible */
 
 
 /*───────────────────────────────────────────────────────────────
   More.html Page Styles
 ───────────────────────────────────────────────────────────────*/
-#more-page main {
+#page-more main {
   padding: 1rem;
   margin: 0 auto;
 }
 
-#more-page .shoutout-card {
+#more-page-heading {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text-dark);
+}
+
+#page-more .shoutout-card {
   background-color: var(--box-bg, #f9f9f9);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
@@ -672,19 +801,19 @@ body.dark-mode .about-content section {
   text-align: center;
 }
 
-body.dark-mode#more-page .shoutout-card {
+body.dark-mode#page-more .shoutout-card {
   background-color: var(--box-bg-dark, #202020);
   box-shadow: 0 4px 14px rgba(255, 255, 255, 0.04);
 }
 
 /* Title styling */
-#more-page .shoutout-title {
+#page-more .shoutout-title {
   font-size: 1.2rem;
   font-weight: 600;
 }
 
 /* Iframe wrapper to control sizing */
-#more-page .shoutout-media {
+#page-more .shoutout-media {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -693,20 +822,20 @@ body.dark-mode#more-page .shoutout-card {
 }
 
 /* Force iframe sizing */
-#more-page .shoutout-media iframe, #more-page .shoutout-media img  {
+#page-more .shoutout-media iframe, #page-more .shoutout-media img  {
   width: 220px;
   height: 420px;
   display: block;
 }
 
 /* Description text */
-#more-page .shoutout-description-wrapper {
+#page-more .shoutout-description-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-#more-page .shoutout-description {
+#page-more .shoutout-description {
   text-align: center;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -716,7 +845,7 @@ body.dark-mode#more-page .shoutout-card {
   box-sizing: border-box;
 }
 
-#more-page .shoutout-description a {
+#page-more .shoutout-description a {
   display: inline-block;
   margin-top: 0.5rem;
   color: #0070f3;
@@ -725,16 +854,90 @@ body.dark-mode#more-page .shoutout-card {
   transition: color 0.2s ease;
 }
 
-#more-page .shoutout-description a:hover {
+#page-more .shoutout-description a:hover {
   color: #0059b3;
 }
 
-#more-page .cards-container {
+#page-more .cards-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
+
+#page-more .output-box:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/*───────────────────────────────────────────────────────────────
+  Dark Mode Overrides for Panels + Cards
+───────────────────────────────────────────────────────────────*/
+
+body.dark-mode .generator-section,
+body.dark-mode .saved-section,
+body.dark-mode .card,
+body.dark-mode .output-box,
+body.dark-mode .page-footer,
+body.dark-mode #top-nav,
+body.dark-mode .title-menu {
+  background-color: var(--color-panel-dark);
+  color: var(--color-text-dark);
+  border-color: var(--color-border-dark);
+}
+
+body.dark-mode .output-box {
+  background-color: #1a1f2a;
+}
+
+body.dark-mode .card-header {
+  background-color: #1c2531;
+  border-bottom: 1px solid var(--color-border-dark);
+}
+
+body.dark-mode .tag-area {
+  background-color: #333;
+}
+
+body.dark-mode .tag-area:hover {
+  background-color: #777;
+}
+
+body.dark-mode .card-body {
+  color: var(--color-text-dark);
+}
+
+body.dark-mode .save-button,
+body.dark-mode .generate,
+body.dark-mode .export-btn {
+  color: #fff;
+}
+
+body.dark-mode .output-box:hover, #page-more .output-box:hover {
+  background-color: #252c3b;
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.15);
+}
+
+body.dark-mode .tag-pill {
+  background: linear-gradient(145deg, #444, #555);
+  color: #eee;
+}
+
+body.dark-mode .tag-input {
+  color: #ddd;
+}
+
+body.dark-mode .tag-input::placeholder {
+  color: #aaa;
+}
+
+body.dark-mode .tag-pill:hover {
+  background: linear-gradient(145deg, #555, #444);
+}
+
+
 /*───────────────────────────────────────────────────────────────
   Mobile RESPONSIVE
 ───────────────────────────────────────────────────────────────*/
@@ -763,47 +966,47 @@ body.dark-mode#more-page .shoutout-card {
   }
 }
 @media (max-width: 600px) {
-  #more-page .output-box {
+  #page-more .output-box {
     padding: 0.85rem;
     font-size: 0.95rem;
   }
 
-  #more-page .generator-section h2 {
+  #page-more .generator-section h2 {
     font-size: 1.6rem;
   }
 
-  #more-page .generator-section h3 {
+  #page-more .generator-section h3 {
     font-size: 1.2rem;
   }
 
-  #more-page .title-dropdown {
+  #page-more .title-dropdown {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
 
-  #more-page .title-toggle {
+  #page-more .title-toggle {
     font-size: 1rem;
   }
 
-  #more-page nav.title-menu {
+  #page-more nav.title-menu {
     font-size: 0.95rem;
   }
 
-  #more-page .nav-controls {
+  #page-more .nav-controls {
     margin-top: 0.5rem;
   }
 }
 @media (max-width: 600px) {
-  #more-page .shoutout-card {
+  #page-more .shoutout-card {
     padding: 1rem;
   }
 
-  #more-page .shoutout-title {
+  #page-more .shoutout-title {
     font-size: 1.05rem;
   }
 
-  #more-page .shoutout-description {
+  #page-more .shoutout-description {
     font-size: 0.9rem;
   }
 }

@@ -1,337 +1,1196 @@
 {
   "questTypes": {
-    "fetch": {
-      "descriptions": [
-        "Retrieve a rare ingredient from {location}.",
-        "Recover a lost artifact taken by {enemy}.",
-        "Find a stolen valuable from the {location}.",
-        "Collect rare samples from the dangerous {location}.",
-        "Bring back the head of {enemy} from their lair in {location}."
-      ],
-      "locations": [
-        "ancient ruins",
-        "deep forest",
-        "abandoned temple",
-        "underground cavern",
-        "wizard's tower",
-        "dragon's hoard",
-        "shipwreck cove"
-      ],
-      "challenges": [
-        "bears",
-        "bandits",
-        "rockslide",
-        "giant spiders",
-        "cultists",
-        "magical traps",
-        "rival adventurers",
-        "environmental hazards (poison gas, collapsing tunnels)"
-      ],
-      "rewards": [
-        "potion of healing",
-        "bag of gold",
-        "favor from a noble",
-        "enchanted weapon",
-        "map to hidden treasure",
-        "information broker contact",
-        "guild membership",
-        "rare crafting component"
-      ]
+    "fantasy": {
+      "fetch": {
+        "descriptions": [
+          "Retrieve a rare ingredient from {location}.",
+          "Recover a lost artifact taken by {enemy}.",
+          "Find a stolen valuable from the {location}.",
+          "Collect rare samples from the dangerous {location}.",
+          "Bring back the head of {enemy} from their lair in {location}."
+        ],
+        "locations": [
+          "ancient ruins",
+          "deep forest",
+          "abandoned temple",
+          "underground cavern",
+          "wizard's tower",
+          "dragon's hoard",
+          "shipwreck cove"
+        ],
+        "challenges": [
+          "bears",
+          "bandits",
+          "rockslide",
+          "giant spiders",
+          "cultists",
+          "magical traps",
+          "rival adventurers",
+          "environmental hazards (poison gas, collapsing tunnels)"
+        ],
+        "rewards": [
+          "potion of healing",
+          "bag of gold",
+          "favor from a noble",
+          "enchanted weapon",
+          "map to hidden treasure",
+          "information broker contact",
+          "guild membership",
+          "rare crafting component"
+        ]
+      },
+      "escort": {
+        "descriptions": [
+          "Protect the merchant on their way to {location}.",
+          "Guide the lost child back from {location}.",
+          "Safeguard the scholar studying ancient texts in {location}.",
+          "Accompany the diplomat through the treacherous {location}.",
+          "Ensure the safe passage of refugees fleeing {location}."
+        ],
+        "locations": [
+          "mountain pass",
+          "haunted woods",
+          "enemy territory",
+          "bustling city underbelly",
+          "stormy sea route",
+          "politically unstable border region",
+          "underdark passage"
+        ],
+        "threats": [
+          "wolves",
+          "undead",
+          "goblins",
+          "assassins",
+          "pirates",
+          "political rivals",
+          "monstrous beasts",
+          "natural disasters (avalanche, sandstorm)"
+        ],
+        "rewards": [
+          "rare gem",
+          "magic scroll",
+          "safe passage scroll",
+          "letter of introduction",
+          "political favor",
+          "unique piece of equipment",
+          "secret information",
+          "valuable trade goods"
+        ]
+      },
+      "slay": {
+        "descriptions": [
+          "Eliminate the {enemy} terrorizing {location}.",
+          "Hunt down the beast hiding in the {location}.",
+          "Clear the {location} of {enemy} infestation.",
+          "A bounty has been placed on {enemy}, last seen near {location}.",
+          "Disrupt the {enemy}'s ritual taking place at {location}."
+        ],
+        "locations": [
+          "monster den",
+          "goblin camp",
+          "haunted graveyard",
+          "city sewers",
+          "corrupted shrine",
+          "abandoned mine",
+          "orcish warcamp"
+        ],
+        "challenges": [
+          "powerful monster",
+          "horde of enemies",
+          "enemy leader",
+          "lair traps",
+          "difficult terrain",
+          "ambushes",
+          "reinforcements"
+        ],
+        "rewards": [
+          "bounty payment",
+          "monster trophy",
+          "magical item from hoard",
+          "gratitude of locals",
+          "reputation boost",
+          "cleared territory",
+          "salvaged enemy equipment"
+        ]
+      },
+      "investigate": {
+        "descriptions": [
+          "Discover the source of the strange occurrences in {location}.",
+          "Uncover a plot brewing within {location}.",
+          "Gather clues about a recent disappearance near {location}.",
+          "Find out who is smuggling contraband through {location}.",
+          "Solve the mystery of the haunting at {location}."
+        ],
+        "locations": [
+          "noble estate",
+          "abandoned asylum",
+          "secret society headquarters",
+          "crime scene",
+          "ancient library",
+          "bustling marketplace",
+          "dock district"
+        ],
+        "challenges": [
+          "deceptive NPCs",
+          "red herrings",
+          "hidden clues",
+          "puzzles and riddles",
+          "ambushes by interested parties",
+          "social intrigue",
+          "encrypted messages",
+          "misinformation"
+        ],
+        "rewards": [
+          "crucial information",
+          "secret knowledge",
+          "ally contact",
+          "evidence for authorities",
+          "key item",
+          "blackmail material",
+          "favor from an investigator"
+        ]
+      },
+      "defend": {
+        "descriptions": [
+          "Protect the {location} from the impending {enemy} attack.",
+          "Hold the line at the {location} against waves of {enemy}.",
+          "Safeguard a key point within the {location}.",
+          "Ensure an important individual survives the siege at {location}.",
+          "Repel the invaders trying to breach {location}."
+        ],
+        "locations": [
+          "village outpost",
+          "fortified bridge",
+          "sacred grove",
+          "castle walls",
+          "trading post",
+          "mountain stronghold",
+          "magical nexus"
+        ],
+        "challenges": [
+          "siege engines",
+          "enemy commanders",
+          "multiple attack vectors",
+          "limited resources",
+          "morale checks",
+          "sabotage attempts",
+          "overwhelming numbers",
+          "aerial assaults"
+        ],
+        "rewards": [
+          "land grant",
+          "title of honor",
+          "community support",
+          "defensive gear",
+          "payment from grateful inhabitants",
+          "strategic advantage",
+          "captured enemy supplies"
+        ]
+      },
+      "deliver": {
+        "descriptions": [
+          "Transport a sensitive package secretly to {location}.",
+          "Carry an urgent message to {location}.",
+          "Smuggle valuable cargo past the blockade at {location}.",
+          "Deliver sensitive information to contacts in {location}.",
+          "Move a valuable package through the dangerous {location} without being detected."
+        ],
+        "locations": [
+          "across enemy lines",
+          "through a treacherous swamp",
+          "into a guarded city",
+          "via a secret tunnel network",
+          "over a dangerous mountain range",
+          "across a pirate-infested sea",
+          "through a magically warded area"
+        ],
+        "challenges": [
+          "pursuers",
+          "checkpoints and patrols",
+          "time limit",
+          "need for stealth",
+          "environmental obstacles",
+          "betrayal",
+          "interception attempts",
+          "tracking magic/creatures"
+        ],
+        "rewards": [
+          "significant payment",
+          "trust of a faction",
+          "secret route map",
+          "specialized gear (e.g., cloak of elvenkind)",
+          "safe house access",
+          "counter-intelligence",
+          "future smuggling contracts"
+        ]
+      },
+      "explore": {
+        "descriptions": [
+          "Map the uncharted territory beyond {location}.",
+          "Find the lost city said to be hidden in {location}.",
+          "Chart a safe passage through the perilous {location}.",
+          "Investigate the source of the river flowing from {location}.",
+          "Discover what lies within the mysterious {location}."
+        ],
+        "locations": [
+          "forgotten jungle",
+          "floating islands",
+          "subterranean sea",
+          "elemental plane",
+          "ancient desert ruins",
+          "deep underwater trench",
+          "otherworldly dimension"
+        ],
+        "challenges": [
+          "unknown creatures",
+          "hostile environments (extreme temperatures, toxic air)",
+          "navigational difficulties (no landmarks, magical interference)",
+          "lack of supplies",
+          "ancient guardians or traps",
+          "making first contact with unknown cultures",
+          "getting lost",
+          "resource management"
+        ],
+        "rewards": [
+          "discovery rights",
+          "map sale profits",
+          "rare resources (plants, minerals)",
+          "ancient artifact",
+          "knowledge of new cultures/areas",
+          "unique companion or mount",
+          "claim to new territory",
+          "historical renown"
+        ]
+      }
     },
-    "escort": {
-      "descriptions": [
-        "Protect the merchant on their way to {location}.",
-        "Guide the lost child back from {location}.",
-        "Safeguard the scholar studying ancient texts in {location}.",
-        "Accompany the diplomat through the treacherous {location}.",
-        "Ensure the safe passage of refugees fleeing {location}."
-      ],
-      "locations": [
-        "mountain pass",
-        "haunted woods",
-        "enemy territory",
-        "bustling city underbelly",
-        "stormy sea route",
-        "politically unstable border region",
-        "underdark passage"
-      ],
-      "threats": [
-        "wolves",
-        "undead",
-        "goblins",
-        "assassins",
-        "pirates",
-        "political rivals",
-        "monstrous beasts",
-        "natural disasters (avalanche, sandstorm)"
-      ],
-      "rewards": [
-        "rare gem",
-        "magic scroll",
-        "safe passage scroll",
-        "letter of introduction",
-        "political favor",
-        "unique piece of equipment",
-        "secret information",
-        "valuable trade goods"
-      ]
+    "space": {
+      "fetch": {
+        "descriptions": [
+          "Retrieve a rare xenomineral from {location}.",
+          "Recover a lost databank from a {enemy}.",
+          "Find a stolen power core from the {location}.",
+          "Collect alien flora samples from the dangerous {location}.",
+          "Bring back the command module of a {enemy} from their base in the {location}."
+        ],
+        "locations": [
+          "derelict starship",
+          "quarantined planet",
+          "abandoned research outpost",
+          "unstable asteroid field",
+          "corporate black site",
+          "alien ruin",
+          "smuggler's den"
+        ],
+        "challenges": [
+          "hostile fauna",
+          "security drones",
+          "radiation leaks",
+          "rival scavengers",
+          "corporate security",
+          "ancient alien defenses",
+          "vacuum exposure",
+          "environmental hazards (micrometeoroids, solar flares)"
+        ],
+        "rewards": [
+          "med-gel pack",
+          "pouch of credits",
+          "favor from a corporate executive",
+          "upgraded laser pistol",
+          "map to a secret hyperspace lane",
+          "hacker contact",
+          "syndicate membership",
+          "rare ship upgrade component"
+        ]
+      },
+      "escort": {
+        "descriptions": [
+          "Protect the corporate whistleblower from {enemy}.",
+          "Guide the lost alien envoy back from the {location}.",
+          "Safeguard the xenolinguist studying texts in the {location}.",
+          "Accompany the diplomat through the treacherous {location}.",
+          "Ensure the safe passage of refugees fleeing {enemy}."
+        ],
+        "locations": [
+          "pirate-controlled sector",
+          "volatile nebula",
+          "enemy territory",
+          "lawless spaceport",
+          "unstable wormhole",
+          "contested border system",
+          "deep space anomaly"
+        ],
+        "threats": [
+          "void creatures",
+          "security mechs",
+          "space pirates",
+          "hired assassins",
+          "mercenaries",
+          "corporate rivals",
+          "massive space fauna",
+          "ship malfunctions (life support failure, engine stall)"
+        ],
+        "rewards": [
+          "rare isotope",
+          "ship schematic",
+          "safe passage codes",
+          "letter of marque",
+          "corporate favor",
+          "unique ship module",
+          "secret corporate intel",
+          "valuable alien artifacts"
+        ]
+      },
+      "slay": {
+        "descriptions": [
+          "Eliminate the {enemy} terrorizing {location}.",
+          "Hunt down the {enemy} hiding in the {location}.",
+          "Clear the {location} of {enemy} infestation.",
+          "A bounty has been placed on {enemy}, last seen near {location}.",
+          "Disrupt the {enemy}'s ritual taking place at the {location}."
+        ],
+        "locations": [
+          "alien nest",
+          "pirate outpost",
+          "haunted starship",
+          "station maintenance shafts",
+          "corrupted AI core",
+          "abandoned mining facility",
+          "mercenary warcamp"
+        ],
+        "challenges": [
+          "powerful alien queen",
+          "horde of drones",
+          "pirate warlord",
+          "automated defense turrets",
+          "zero-G combat",
+          "ambushes",
+          "enemy reinforcements"
+        ],
+        "rewards": [
+          "credit bounty",
+          "alien trophy",
+          "advanced weapon from the wreckage",
+          "gratitude of station inhabitants",
+          "reputation boost",
+          "cleared sector",
+          "salvaged enemy ship parts"
+        ]
+      },
+      "investigate": {
+        "descriptions": [
+          "Discover the source of the ghost signals from {location}.",
+          "Uncover a conspiracy brewing within the {location}.",
+          "Gather clues about a recent disappearance near the {location}.",
+          "Find out who is smuggling illegal xenotech through the {location}.",
+          "Solve the mystery of the 'haunting' at {location}."
+        ],
+        "locations": [
+          "executive suite",
+          "abandoned terraforming project",
+          "smuggler's hideout",
+          "crime scene aboard a starliner",
+          "corporate archives",
+          "bustling trade hub",
+          "docking bay 94"
+        ],
+        "challenges": [
+          "deceptive androids",
+          "falsified data logs",
+          "hidden surveillance devices",
+          "encrypted files",
+          "ambushes by corporate agents",
+          "political intrigue",
+          "AI firewalls",
+          "misinformation campaigns"
+        ],
+        "rewards": [
+          "incriminating data slate",
+          "secret ship schematics",
+          "hacker ally",
+          "evidence for interstellar authorities",
+          "keycard",
+          "corporate blackmail material",
+          "favor from a security chief"
+        ]
+      },
+      "defend": {
+        "descriptions": [
+          "Protect the {location} from the impending {enemy} attack.",
+          "Hold the line at the {location} against waves of {enemy}.",
+          "Safeguard a key comms relay within the {location}.",
+          "Ensure an important scientist survives the siege at the {location}.",
+          "Repel the invaders trying to breach the {location}."
+        ],
+        "locations": [
+          "outpost on a hostile moon",
+          "fortified asteroid",
+          "valuable mining operation",
+          "station defense grid",
+          "trade hub",
+          "orbital elevator",
+          "hyperspace nexus point"
+        ],
+        "challenges": [
+          "capital ships",
+          "enemy boarding parties",
+          "multiple attack vectors",
+          "limited power",
+          "crew morale checks",
+          "sabotage attempts",
+          "overwhelming numbers of fighters",
+          "kinetic bombardment"
+        ],
+        "rewards": [
+          "mining rights",
+          "military commendation",
+          "colony support",
+          "prototype shield generator",
+          "payment from grateful colonists",
+          "strategic control of a system",
+          "captured enemy vessels"
+        ]
+      },
+      "deliver": {
+        "descriptions": [
+          "Transport a sensitive data chip secretly to {location}.",
+          "Carry an urgent diplomatic message to the {location}.",
+          "Smuggle valuable medical supplies past the blockade at {location}.",
+          "Deliver sensitive intel to contacts in the {location}.",
+          "Move a valuable cryo-pod through the dangerous {location} without being detected."
+        ],
+        "locations": [
+          "across corporate-controlled space",
+          "through a dangerous nebula",
+          "into a blockaded star system",
+          "via a secret smuggler's route",
+          "over a politically-charged border",
+          "across a pirate-infested trade lane",
+          "through a sensor-jammed region"
+        ],
+        "challenges": [
+          "pursuing fighters",
+          "customs patrols and scans",
+          "time limit",
+          "need for stealth systems",
+          "environmental obstacles",
+          "betrayal by contact",
+          "interception attempts",
+          "tracking devices"
+        ],
+        "rewards": [
+          "untraceable credits",
+          "trust of a rebellion",
+          "secret star chart",
+          "specialized gear (e.g., stealth drive)",
+          "safe house access",
+          "counter-intelligence data",
+          "future smuggling contracts"
+        ]
+      },
+      "explore": {
+        "descriptions": [
+          "Map the uncharted nebula beyond the {location}.",
+          "Find the lost ark-ship said to be hidden in the {location}.",
+          "Chart a safe passage through the perilous {location}.",
+          "Investigate the source of the energy readings from the {location}.",
+          "Discover what lies within the mysterious {location}."
+        ],
+        "locations": [
+          "uncharted star system",
+          "generation ship adrift for centuries",
+          "sub-space anomaly",
+          "alien megastructure",
+          "ruins of a precursor race",
+          "deep space graveyard of ships",
+          "inside a gas giant"
+        ],
+        "challenges": [
+          "unknown alien species",
+          "hostile environments (extreme gravity, corrosive atmosphere)",
+          "navigational difficulties (sensor ghosts, magnetic fields)",
+          "lack of fuel/supplies",
+          "ancient automated guardians",
+          "first contact protocols",
+          "getting lost in the void",
+          "resource management"
+        ],
+        "rewards": [
+          "naming rights to a planet/system",
+          "starmap sale profits",
+          "rare alien tech",
+          "precursor artifact",
+          "knowledge of new species/civilizations",
+          "unique alien companion",
+          "claim to a new habitable world",
+          "galactic renown"
+        ]
+      }
     },
-    "slay": {
-      "descriptions": [
-        "Eliminate the {enemy} terrorizing {location}.",
-        "Hunt down the beast hiding in the {location}.",
-        "Clear the {location} of {enemy} infestation.",
-        "A bounty has been placed on {enemy}, last seen near {location}.",
-        "Disrupt the {enemy}'s ritual taking place at {location}."
-      ],
-      "locations": [
-        "monster den",
-        "goblin camp",
-        "haunted graveyard",
-        "city sewers",
-        "corrupted shrine",
-        "abandoned mine",
-        "orcish warcamp"
-      ],
-      "challenges": [
-        "powerful monster",
-        "horde of enemies",
-        "enemy leader",
-        "lair traps",
-        "difficult terrain",
-        "ambushes",
-        "reinforcements"
-      ],
-      "rewards": [
-        "bounty payment",
-        "monster trophy",
-        "magical item from hoard",
-        "gratitude of locals",
-        "reputation boost",
-        "cleared territory",
-        "salvaged enemy equipment"
-      ]
+    "underwater": {
+      "fetch": {
+        "descriptions": [
+          "Retrieve a rare bioluminescent pearl from the {location}.",
+          "Recover a lost trident taken by a {enemy}.",
+          "Find a stolen treasure from the {location}.",
+          "Collect rare coral samples from the dangerous {location}.",
+          "Bring back the eye of a {enemy} from their lair in the {location}."
+        ],
+        "locations": [
+          "ancient ruins of a surface city",
+          "deep sea trench",
+          "abandoned merfolk temple",
+          "geothermal vent field",
+          "triton king's palace",
+          "leviathan's boneyard",
+          "shipwreck graveyard"
+        ],
+        "challenges": [
+          "giant squid",
+          "sahuagin raiders",
+          "underwater landslide",
+          "giant isopods",
+          "siren cultists",
+          "high-pressure crushing depths",
+          "rival salvagers",
+          "environmental hazards (toxic brine pools, sudden currents)"
+        ],
+        "rewards": [
+          "potion of water breathing",
+          "chest of pearls",
+          "favor from the merfolk court",
+          "enchanted trident",
+          "map to a sunken treasure fleet",
+          "tide-speaker contact",
+          "clan membership",
+          "rare abyssal crafting component"
+        ]
+      },
+      "escort": {
+        "descriptions": [
+          "Protect the surface-walker on their way to the {location}.",
+          "Guide the lost mer-child back from the {location}.",
+          "Safeguard the scholar studying glyphs in the {location}.",
+          "Accompany the diplomat through the treacherous {location}.",
+          "Ensure the safe passage of refugees fleeing a {location}."
+        ],
+        "locations": [
+          "predator-filled canyon",
+          "haunted kelp forest",
+          "sahuagin territory",
+          "bustling trench city market",
+          "the great maelstrom",
+          "politically unstable border reef",
+          "the twilight zone"
+        ],
+        "threats": [
+          "hunter sharks",
+          "undead sailors",
+          "grindylows",
+          "hired assassins",
+          "pirates in submersibles",
+          "political rivals",
+          "leviathans",
+          "natural disasters (underwater eruption, tsunami)"
+        ],
+        "rewards": [
+          "giant black pearl",
+          "spell scroll of water control",
+          "charm of safe passage",
+          "letter of introduction to a Sea Lord",
+          "political favor",
+          "unique piece of coral armor",
+          "secret of the tides",
+          "valuable trade goods (e.g., air algae)"
+        ]
+      },
+      "slay": {
+        "descriptions": [
+          "Eliminate the {enemy} terrorizing the {location}.",
+          "Hunt down the {enemy} hiding in the {location}.",
+          "Clear the {location} of {enemy} infestation.",
+          "A bounty has been placed on {enemy}, last seen near the {location}.",
+          "Disrupt the {enemy}'s ritual taking place at a {location}."
+        ],
+        "locations": [
+          "kraken's lair",
+          "sahuagin war-camp",
+          "haunted shipwreck",
+          "city's filtration system",
+          "corrupted coral shrine",
+          "abandoned brine mine",
+          "triton war-outpost"
+        ],
+        "challenges": [
+          "powerful sea witch",
+          "horde of enemies",
+          "sahuagin baron",
+          "ancient traps",
+          "disorienting terrain",
+          "ambushes from trenches",
+          "reinforcements"
+        ],
+        "rewards": [
+          "bounty payment in treasure",
+          "leviathan tooth trophy",
+          "magical item from its hoard",
+          "gratitude of local merfolk",
+          "reputation boost",
+          "safe passage through territory",
+          "salvaged enemy gear"
+        ]
+      },
+      "investigate": {
+        "descriptions": [
+          "Discover the source of the strange blight affecting the {location}.",
+          "Uncover a coup brewing within the {location}.",
+          "Gather clues about a recent submersible disappearance near the {location}.",
+          "Find out who is smuggling surface goods through the {location}.",
+          "Solve the mystery of the ghost ship at the {location}."
+        ],
+        "locations": [
+          "merfolk noble's estate",
+          "abandoned research habitat",
+          "secret cultist grotto",
+          "the wreck of a submarine",
+          "ancient abyssal library",
+          "bustling underwater market",
+          "smuggler's cove"
+        ],
+        "challenges": [
+          "deceptive sirens",
+          "false rumors",
+          "hidden clues in ship logs",
+          "riddles of the deep",
+          "ambushes by interested parties",
+          "social intrigue and caste politics",
+          "waterlogged messages",
+          "misinformation"
+        ],
+        "rewards": [
+          "knowledge of the blight's cure",
+          "secret of the abyss",
+          "ally in the triton court",
+          "evidence for the Sea Lord",
+          "key to a sunken vault",
+          "blackmail material on a noble",
+          "favor from a tide-speaker"
+        ]
+      },
+      "defend": {
+        "descriptions": [
+          "Protect the {location} from the impending {enemy} attack.",
+          "Hold the line at the {location} against waves of {enemy}.",
+          "Safeguard a key geothermal vent within the {location}.",
+          "Ensure an important elder survives the siege at the {location}.",
+          "Repel the invaders trying to breach the {location}."
+        ],
+        "locations": [
+          "merfolk village",
+          "fortified reef pass",
+          "sacred grotto",
+          "city's outer walls",
+          "trading outpost",
+          "deep sea stronghold",
+          "magical nexus of currents"
+        ],
+        "challenges": [
+          "trained war-sharks",
+          "enemy tide-mages",
+          "multiple attack vectors",
+          "limited resources (e.g. breathable air)",
+          "morale checks",
+          "sabotage attempts",
+          "overwhelming numbers",
+          "leviathan assault"
+        ],
+        "rewards": [
+          "ownership of a pearl bed",
+          "title of 'Reef-Warden'",
+          "community support",
+          "sharkskin armor",
+          "payment from grateful inhabitants",
+          "strategic advantage",
+          "captured sahuagin weapons"
+        ]
+      },
+      "deliver": {
+        "descriptions": [
+          "Transport a sensitive clutch of eggs secretly to the {location}.",
+          "Carry an urgent warning {location}.",
+          "Smuggle a rare medicine past the blockade at the {location}.",
+          "Deliver sensitive information to contacts in the {location}.",
+          "Move a valuable artifact through the dangerous {location} without being detected."
+        ],
+        "locations": [
+          "across sahuagin-controlled waters",
+          "through a treacherous reef system",
+          "into a guarded merfolk city",
+          "via a secret network of sea caves",
+          "over a dangerous abyssal trench",
+          "across a kraken-infested strait",
+          "through a magically-warded current"
+        ],
+        "challenges": [
+          "pursuers on sharks",
+          "checkpoints and patrols",
+          "time limit (for the eggs)",
+          "need for stealth",
+          "environmental obstacles (e.g. brine pools)",
+          "betrayal",
+          "interception attempts",
+          "tracking by scent"
+        ],
+        "rewards": [
+          "significant payment in treasure",
+          "trust of a merfolk clan",
+          "secret current map",
+          "specialized gear (e.g., cloak of the manta ray)",
+          "safe grotto access",
+          "counter-intelligence",
+          "future smuggling contracts"
+        ]
+      },
+      "explore": {
+        "descriptions": [
+          "Map the uncharted territory beyond the {location}.",
+          "Find the lost city of Atlantis said to be hidden in the {location}.",
+          "Chart a safe passage through the perilous {location}.",
+          "Investigate the source of the 'singing' from the {location}.",
+          "Discover what lies within the mysterious {location}."
+        ],
+        "locations": [
+          "forgotten trench",
+          "a city inside a bubble",
+          "the sea beneath the ice caps",
+          "plane of water",
+          "ancient ruins on the seafloor",
+          "deep underwater trench",
+          "an otherworldly portal on the seabed"
+        ],
+        "challenges": [
+          "unknown creatures of the deep",
+          "hostile environments (crushing pressure, no light)",
+          "navigational difficulties (no landmarks, sonar ghosts)",
+          "lack of supplies (air, food)",
+          "ancient guardians or traps",
+          "making first contact with deep ones",
+          "getting lost in the dark",
+          "resource management"
+        ],
+        "rewards": [
+          "discovery rights to a reef",
+          "map sale profits",
+          "rare resources (glowing coral, abyssal iron)",
+          "ancient Atlantean artifact",
+          "knowledge of new sea-lanes",
+          "unique companion (e.g. a baby plesiosaur)",
+          "claim to new territory",
+          "historical renown"
+        ]
+      }
     },
-    "investigate": {
-      "descriptions": [
-        "Discover the source of the strange occurrences in {location}.",
-        "Uncover a plot brewing within {location}.",
-        "Gather clues about a recent disappearance near {location}.",
-        "Find out who is smuggling contraband through {location}.",
-        "Solve the mystery of the haunting at {location}."
-      ],
-      "locations": [
-        "noble estate",
-        "abandoned asylum",
-        "secret society headquarters",
-        "crime scene",
-        "ancient library",
-        "bustling marketplace",
-        "dock district"
-      ],
-      "challenges": [
-        "deceptive NPCs",
-        "red herrings",
-        "hidden clues",
-        "puzzles and riddles",
-        "ambushes by interested parties",
-        "social intrigue",
-        "encrypted messages",
-        "misinformation"
-      ],
-      "rewards": [
-        "crucial information",
-        "secret knowledge",
-        "ally contact",
-        "evidence for authorities",
-        "key item",
-        "blackmail material",
-        "favor from an investigator"
-      ]
-    },
-    "defend": {
-      "descriptions": [
-        "Protect the {location} from the impending {enemy} attack.",
-        "Hold the line at the {location} against waves of {enemy}.",
-        "Safeguard a key point within the {location}.",
-        "Ensure an important individual survives the siege at {location}.",
-        "Repel the invaders trying to breach {location}."
-      ],
-      "locations": [
-        "village outpost",
-        "fortified bridge",
-        "sacred grove",
-        "castle walls",
-        "trading post",
-        "mountain stronghold",
-        "magical nexus"
-      ],
-      "challenges": [
-        "siege engines",
-        "enemy commanders",
-        "multiple attack vectors",
-        "limited resources",
-        "morale checks",
-        "sabotage attempts",
-        "overwhelming numbers",
-        "aerial assaults"
-      ],
-      "rewards": [
-        "land grant",
-        "title of honor",
-        "community support",
-        "defensive gear",
-        "payment from grateful inhabitants",
-        "strategic advantage",
-        "captured enemy supplies"
-      ]
-    },
-    "deliver": {
-      "descriptions": [
-        "Transport a sensitive package secretly to {location}.",
-        "Carry an urgent message to {location}.",
-        "Smuggle valuable cargo past the blockade at {location}.",
-        "Deliver sensitive information to contacts in {location}.",
-        "Move a valuable package through the dangerous {location} without being detected."
-      ],
-      "locations": [
-        "across enemy lines",
-        "through a treacherous swamp",
-        "into a guarded city",
-        "via a secret tunnel network",
-        "over a dangerous mountain range",
-        "across a pirate-infested sea",
-        "through a magically warded area"
-      ],
-      "challenges": [
-        "pursuers",
-        "checkpoints and patrols",
-        "time limit",
-        "need for stealth",
-        "environmental obstacles",
-        "betrayal",
-        "interception attempts",
-        "tracking magic/creatures"
-      ],
-      "rewards": [
-        "significant payment",
-        "trust of a faction",
-        "secret route map",
-        "specialized gear (e.g., cloak of elvenkind)",
-        "safe house access",
-        "counter-intelligence",
-        "future smuggling contracts"
-      ]
-    },
-    "explore": {
-      "descriptions": [
-        "Map the uncharted territory beyond {location}.",
-        "Find the lost city said to be hidden in {location}.",
-        "Chart a safe passage through the perilous {location}.",
-        "Investigate the source of the river flowing from {location}.",
-        "Discover what lies within the mysterious {location}."
-      ],
-      "locations": [
-        "forgotten jungle",
-        "floating islands",
-        "subterranean sea",
-        "elemental plane",
-        "ancient desert ruins",
-        "deep underwater trench",
-        "otherworldly dimension"
-      ],
-      "challenges": [
-        "unknown creatures",
-        "hostile environments (extreme temperatures, toxic air)",
-        "navigational difficulties (no landmarks, magical interference)",
-        "lack of supplies",
-        "ancient guardians or traps",
-        "making first contact with unknown cultures",
-        "getting lost",
-        "resource management"
-      ],
-      "rewards": [
-        "discovery rights",
-        "map sale profits",
-        "rare resources (plants, minerals)",
-        "ancient artifact",
-        "knowledge of new cultures/areas",
-        "unique companion or mount",
-        "claim to new territory",
-        "historical renown"
-      ]
+    "mobster": {
+      "fetch": {
+        "descriptions": [
+          "Retrieve a compromising photograph from {location}.",
+          "Recover a lost ledger taken by a {location}.",
+          "Find a stolen shipment of booze from the {location}.",
+          "Collect protection money from the businesses on {location}.",
+          "Bring back the 'ice pick' used in a hit from the {location}."
+        ],
+        "locations": [
+          "rival family's speakeasy",
+          "the docks",
+          "a crooked police precinct",
+          "the city morgue",
+          "a corrupt politician's office",
+          "a rival's storehouse",
+          "a bookie's joint"
+        ],
+        "challenges": [
+          "security guards",
+          "rival goons",
+          "a police shakedown",
+          "nosy reporters",
+          "informants",
+          "locked safes",
+          "rival collectors",
+          "environmental hazards (fires, collapsing shelves)"
+        ],
+        "rewards": [
+          "a bottle of good hooch",
+          "a fat wad of cash",
+          "a favor from the Don",
+          "a new Tommy gun",
+          "a map of a rival's turf",
+          "an informant's contact info",
+          "a membership card to a high-end speakeasy",
+          "a cut of the take"
+        ]
+      },
+      "escort": {
+        "descriptions": [
+          "Protect the Don's moll on her way to {location}.",
+          "Guide the lost witness back from {location}.",
+          "Safeguard the accountant while he 'cooks the books' at the {location}.",
+          "Accompany the Consigliere through the treacherous {location}.",
+          "Ensure the safe passage of a politician fleeing town from the {location}."
+        ],
+        "locations": [
+          "the industrial district",
+          "a rival family's neighborhood",
+          "G-man territory",
+          "a bustling downtown street",
+          "a stormy night",
+          "a politically unstable ward",
+          "the sewer tunnels"
+        ],
+        "threats": [
+          "drive-by shooters",
+          "G-men",
+          "rival family goons",
+          "hired hitmen",
+          "independent thugs",
+          "political rivals",
+          "street gangs",
+          "unplanned police patrols"
+        ],
+        "rewards": [
+          "a diamond pinky ring",
+          "a written-off debt",
+          "a 'get out of jail free' card",
+          "a letter of introduction to another Don",
+          "political favor",
+          "a unique piece of equipment (e.g. armored car)",
+          "a secret about a rival",
+          "a valuable shipment of whiskey"
+        ]
+      },
+      "slay": {
+        "descriptions": [
+          "Eliminate the {enemy} terrorizing {location}.",
+          "Hunt down the {enemy} hiding in the {location}.",
+          "Clear the {location} of {enemy} infestation.",
+          "A contract has been placed on {enemy}, last seen near {location}.",
+          "Disrupt the {enemy}'s meeting taking place at the {location}."
+        ],
+        "locations": [
+          "a back alley",
+          "a rival speakeasy",
+          "a haunted hotel",
+          "the city sewers",
+          "a corrupt union hall",
+          "an abandoned warehouse",
+          "a rival family's headquarters"
+        ],
+        "challenges": [
+          "a powerful enforcer",
+          "a room full of armed thugs",
+          "the family boss",
+          "hidden escape routes",
+          "a public setting with witnesses",
+          "ambushes",
+          "reinforcements"
+        ],
+        "rewards": [
+          "a cash payment",
+          "a trophy from the target (e.g. their hat)",
+          "a high-end weapon from their collection",
+          "gratitude of the Don",
+          "a reputation boost (fear)",
+          "a piece of their turf",
+          "salvaged enemy weapons"
+        ]
+      },
+      "investigate": {
+        "descriptions": [
+          "Discover the source of the rumors in {location}.",
+          "Uncover a plot to whack the Don brewing within {location}.",
+          "Gather clues about a recent disappearance near {location}.",
+          "Find out who is hijacking our shipments from {location}.",
+          "Solve the mystery of the 'ghost' that haunts the {location}."
+        ],
+        "locations": [
+          "the Don's office",
+          "an abandoned speakeasy",
+          "a secret informant's apartment",
+          "a crime scene",
+          "the city hall records room",
+          "a bustling marketplace",
+          "the dockworkers' union hall"
+        ],
+        "challenges": [
+          "deceptive family members",
+          "red herrings planted by rivals",
+          "hidden clues in betting slips",
+          "coded messages",
+          "ambushes by those you're investigating",
+          "family politics",
+          "encrypted ledgers",
+          "misinformation from the press"
+        ],
+        "rewards": [
+          "the name of the rat",
+          "secret knowledge of a plot",
+          "a new ally within the family",
+          "evidence for the Don",
+          "a key to a rival's safe deposit box",
+          "blackmail material on a Captain",
+          "a favor from the Consigliere"
+        ]
+      },
+      "defend": {
+        "descriptions": [
+          "Protect the {location} from the impending {enemy}.",
+          "Hold the line at the {location} against waves of {enemy}.",
+          "Safeguard a key illegal shipment at the {location}.",
+          "Ensure the Don survives the attack at his {location}.",
+          "Repel the G-men trying to breach the {location}."
+        ],
+        "locations": [
+          "an illegal casino",
+          "a fortified warehouse",
+          "a prized restaurant",
+          "the family's front business",
+          "a gambling den",
+          "a smuggling tunnel entrance",
+          "a key bridge into the territory"
+        ],
+        "challenges": [
+          "armored police trucks",
+          "rival enforcers",
+          "multiple entry points",
+          "limited ammunition",
+          "morale checks (rats fleeing)",
+          "sabotage attempts (fires)",
+          "overwhelming numbers",
+          "drive-by assaults"
+        ],
+        "rewards": [
+          "a piece of the business",
+          "a title of respect ('Made Man')",
+          "community support (fear and respect)",
+          "a new Tommy gun",
+          "a bonus from the Don",
+          "strategic control of the block",
+          "captured rival vehicles"
+        ]
+      },
+      "deliver": {
+        "descriptions": [
+          "Transport a sensitive briefcase of cash secretly {location}.",
+          "Carry an urgent threat to a {location}.",
+          "Smuggle a shipment of whiskey past the police blockade at {location}.",
+          "Deliver sensitive information to our man in the {location}.",
+          "Move a 'package' (a person) through the dangerous {location} without being seen."
+        ],
+        "locations": [
+          "across rival territory",
+          "through a treacherous alleyway system",
+          "into a guarded courthouse",
+          "via a secret tunnel network",
+          "over a dangerous, patrolled bridge",
+          "across a G-man infested district",
+          "through a heavily policed area"
+        ],
+        "challenges": [
+          "pursuing vehicles",
+          "checkpoints and patrols",
+          "a time limit",
+          "need for stealth",
+          "roadblocks",
+          "betrayal by the recipient",
+          "interception attempts by rivals",
+          "tracking by informants"
+        ],
+        "rewards": [
+          "a significant cut",
+          "trust of the Don",
+          "a map of the city's secret passages",
+          "a specialized vehicle (e.g. getaway car)",
+          "access to a safe house",
+          "counter-intelligence on the police",
+          "future delivery contracts"
+        ]
+      },
+      "explore": {
+        "descriptions": [
+          "Map the uncharted smuggling routes beyond {location}.",
+          "Find the lost stash house said to be hidden in the {location}.",
+          "Chart a safe getaway route through the perilous {location}.",
+          "Investigate the source of the river for a new place to dump things from the {location}.",
+          "Discover what lies within the mysterious, closed-off {location}."
+        ],
+        "locations": [
+          "the forgotten parts of the city",
+          "an abandoned brewery",
+          "the sewer system",
+          "the old subway tunnels",
+          "the ruins of a burnt-down district",
+          "the deep sections of the wharf",
+          "an old, haunted mansion"
+        ],
+        "challenges": [
+          "unknown gangs",
+          "hostile environments (collapsing tunnels, rats)",
+          "navigational difficulties (no maps, darkness)",
+          "lack of supplies",
+          "old booby traps left by other gangs",
+          "making contact with hobo communities",
+          "getting lost in the maze",
+          "resource management"
+        ],
+        "rewards": [
+          "rights to a new smuggling route",
+          "profits from map sales to other families",
+          "a new, secure location for a safe house",
+          "an old, forgotten treasure",
+          "knowledge of the city's secrets",
+          "a unique ally (e.g., King of the Hobos)",
+          "claim to new, uncontested territory",
+          "local legend status"
+        ]
+      }
     }
   },
-  "enemies": [
-  "cave goblins",
-  "territorial wolves",
-  "cursed spirits",
-  "angry hornets",
-  "trap-setting kobolds",
-  "arcane constructs",
-  "cursed flora",
-  "rival scavengers",
-  "enchanted sentinels",
-  "corrupted wildlife",
-  "highway bandits",
-  "rogue mercenaries",
-  "shadowy assassins",
-  "wild beasts",
-  "jealous rivals",
-  "undead stalkers",
-  "sentient storms",
-  "saboteurs in disguise",
-  "cultists hunting the escorted",
-  "bounty hunters",
-  "forest troll",
-  "rogue necromancer",
-  "corrupted knight",
-  "vampire noble",
-  "chimera",
-  "swamp hag",
-  "demon spawn",
-  "giant serpent",
-  "wild warlord",
-  "elemental beast",
-  "illusionist trickster",
-  "shapeshifting doppelganger",
-  "corrupt town guard",
-  "secret cult leader",
-  "cursed noble",
-  "spying imp",
-  "mind-controlling parasite",
-  "arcane anomaly",
-  "ancient ghost",
-  "possessed child",
-  "orc raiders",
-  "bone golems",
-  "siege beasts",
-  "berserker warband",
-  "undead horde",
-  "flame cultists",
-  "sky pirates",
-  "clockwork invaders",
-  "twisted fey",
-  "drake riders",
-  "sky highwaymen",
-  "rival couriers",
-  "anarchist saboteurs",
-  "opportunistic smugglers",
-  "cursed cargo spirits",
-  "tracking beasts",
-  "time-looping phantoms",
-  "corrupted border guards",
-  "teleporting thieves",
-  "bridge trolls",
-  "territorial wyvern",
-  "lost souls of explorers",
-  "arcane vines",
-  "lurking mimic colony",
-  "chittering cave swarm",
-  "crystalized stone giants",
-  "fungal beasts",
-  "ancient trap guardians",
-  "void aberrations",
-  "living shadows"
-]
+  "enemies": {
+    "fantasy": [
+      "cave goblins",
+      "territorial wolves",
+      "cursed spirits",
+      "angry hornets",
+      "trap-setting kobolds",
+      "arcane constructs",
+      "cursed flora",
+      "rival scavengers",
+      "enchanted sentinels",
+      "corrupted wildlife",
+      "highway bandits",
+      "rogue mercenaries",
+      "shadowy assassins",
+      "wild beasts",
+      "jealous rivals",
+      "undead stalkers",
+      "sentient storms",
+      "saboteurs in disguise",
+      "cultists hunting the escorted",
+      "bounty hunters",
+      "forest troll",
+      "rogue necromancer",
+      "corrupted knight",
+      "vampire noble",
+      "chimera",
+      "swamp hag",
+      "demon spawn",
+      "giant serpent",
+      "wild warlord",
+      "elemental beast",
+      "illusionist trickster",
+      "shapeshifting doppelganger",
+      "corrupt town guard",
+      "secret cult leader",
+      "cursed noble",
+      "spying imp",
+      "mind-controlling parasite",
+      "arcane anomaly",
+      "ancient ghost",
+      "possessed child",
+      "orc raiders",
+      "bone golems",
+      "siege beasts",
+      "berserker warband",
+      "undead horde",
+      "flame cultists",
+      "sky pirates",
+      "clockwork invaders",
+      "twisted fey",
+      "drake riders",
+      "sky highwaymen",
+      "rival couriers",
+      "anarchist saboteurs",
+      "opportunistic smugglers",
+      "cursed cargo spirits",
+      "tracking beasts",
+      "time-looping phantoms",
+      "corrupted border guards",
+      "teleporting thieves",
+      "bridge trolls",
+      "territorial wyvern",
+      "lost souls of explorers",
+      "arcane vines",
+      "lurking mimic colony",
+      "chittering cave swarm",
+      "crystalized stone giants",
+      "fungal beasts",
+      "ancient trap guardians",
+      "void aberrations",
+      "living shadows"
+    ],
+    "space": [
+      "Malfunctioning Security Drones",
+      "Void-Crazed Marauders",
+      "Psionic Cultists",
+      "Asteroid Lurkers",
+      "Rogue AI Constructs",
+      "Extradimensional Horrors",
+      "Rival Salvage Crews",
+      "Corporate Black-Ops Soldiers",
+      "Xenomorph Stalkers",
+      "Symbiotic Organisms",
+      "Syndicate Bounty Hunters",
+      "Mercenary Shock Troopers",
+      "Void Wyrms",
+      "Nanite Swarms",
+      "Cybernetically-Enhanced Pirates",
+      "Genetically-Engineered Beasts",
+      "Corrupted Ship AI",
+      "Sentient Crystal Entities",
+      "Quarantine Enforcement Mechs",
+      "Alien Apex Predators"
+    ],
+    "underwater": [
+      "Sahuagin Raiders",
+      "Giant Sharks",
+      "Kelp Wraiths",
+      "Brine Zombies",
+      "Siren Cultists",
+      "Abyssal Horrors",
+      "Rival Salvage Crews in Submersibles",
+      "Deep One Hybrids",
+      "Venomous Sea Serpents",
+      "Corrupted Merfolk",
+      "Leviathan Spawn",
+      "Giant Armored Crabs",
+      "Grindylow Swarms",
+      "Tide-Controlling Shamans",
+      "Sentient, Carnivorous Coral",
+      "Ancient Water Elementals",
+      "Sunken Undead Mariners",
+      "Cephalid Assassins",
+      "Poisonous Jellyfish Blooms",
+      "Trench-Dwelling monstrosities"
+    ],
+    "mobster": [
+      "Rival Family Thugs",
+      "Crooked Cops",
+      "Federal Agents",
+      "Hired Hitmen",
+      "Rival Gang Enforcers",
+      "Blackmailing Informants",
+      "Union Busters",
+      "Loan Shark Goons",
+      "Nosy Private Investigators",
+      "Armored Car Guards",
+      "Rival Bootleggers",
+      "Corrupt Politicians' Bodyguards",
+      "Psychotic Hitmen",
+      "Street Brawlers",
+      "Back-stabbing Associates",
+      "Witness Protection Agents",
+      "Syndicate Assassins",
+      "Heavily-Armed Bank Guards",
+      "Escaped Convicts",
+      "The Don's Ambitious Underboss"
+    ]
+  }
 }

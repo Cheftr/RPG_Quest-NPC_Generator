@@ -70,82 +70,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Data Loading --- //
 
+    let questData = null;
+    let npcData = null;
+    const questTypeSelect = document.getElementById('questTypeSelect');
+    const themeSelect = document.getElementById('themeSelect');
+
     /**
      * Fetches and parses JSON data from the server.
      */
     const loadData = async () => {
         try {
             const [questResponse, npcResponse] = await Promise.all([
-                fetch('Data/quests.json'),
-                fetch('Data/npcs.json'),
+            fetch('Data/quests.json'),
+            fetch('Data/npcs.json'),
             ]);
 
             if (!questResponse.ok || !npcResponse.ok) {
-                throw new Error(`HTTP error! Quest status: ${questResponse.status}, NPC status: ${npcResponse.status}`);
+            throw new Error(`HTTP error! Quest: ${questResponse.status}, NPC: ${npcResponse.status}`);
             }
 
             questData = await questResponse.json();
             npcData = await npcResponse.json();
 
-            console.log('Data loaded successfully.');
-            populateQuestTypeDropdown();
+            console.log('Data loaded.');
+            populateThemeDropdown(); // <- now calls theme dropdown builder
         } catch (error) {
-            console.error('Failed to load initial data:', error);
-            showAlert('Error: Could not load required data files. Please check the console and refresh the page.');
+            console.error('Failed to load:', error);
+            showAlert('Error loading data. Check console.');
         }
     };
+
 
     /**
      * Populates the quest type dropdown from the loaded quest data.
      */
-    const populateQuestTypeDropdown = () => {
+    const populateQuestTypeDropdown = (theme) => {
         if (!questData || !questTypeSelect) return;
-        questTypeSelect.innerHTML = ''; // Clear existing options
+        questTypeSelect.innerHTML = '';
 
+        const typeKeys = Object.keys(questData.questTypes?.[theme] || {});
         const anyOption = createElementWithAttrs('option', { value: 'any' }, 'Any Type');
         questTypeSelect.appendChild(anyOption);
 
-        const questTypes = Object.keys(questData.questTypes);
-        questTypes.forEach(type => {
+        typeKeys.forEach(type => {
             const option = createElementWithAttrs('option', { value: type }, type.charAt(0).toUpperCase() + type.slice(1));
             questTypeSelect.appendChild(option);
         });
     };
 
-    // Floating Navbar //
-    document.querySelectorAll('#floating-nav button[data-target]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const id = btn.getAttribute('data-target');
-    const section = document.getElementById(id);
-    if (section) section.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-    // --- Header/title Navigation controls --- //
 
-const toggleBtn = document.querySelector('.title-toggle');
-const titleMenu = document.querySelector('.title-menu');
+    const populateThemeDropdown = () => {
+    if (!questData?.questTypes || !themeSelect) return;
 
-if (toggleBtn && titleMenu) {
-  toggleBtn.addEventListener('click', (e) => {
-    const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
-    toggleBtn.setAttribute('aria-expanded', !isOpen);
-    titleMenu.hidden = isOpen;
-    e.stopPropagation(); // prevents body click from instantly closing it
-  });
+    const themes = Object.keys(questData.questTypes);
+    themeSelect.innerHTML = ''; // Clear existing
 
-  // Close menu if clicking anywhere outside
-  document.body.addEventListener('click', () => {
-    if (toggleBtn.getAttribute('aria-expanded') === 'true') {
-      toggleBtn.setAttribute('aria-expanded', 'false');
-      titleMenu.hidden = true;
-    }
-  });
+    themes.forEach(theme => {
+        const option = createElementWithAttrs('option', { value: theme }, theme.charAt(0).toUpperCase() + theme.slice(1));
+        themeSelect.appendChild(option);
+    });
 
-  // Prevent closing if clicking inside the menu
-  titleMenu.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-}
+    themeSelect.value = 'fantasy';
+    populateQuestTypeDropdown('fantasy');
+    };
+
 
 
     // --- Generation Logic --- //
@@ -155,255 +143,268 @@ if (toggleBtn && titleMenu) {
      * Generates a new side quest card and adds it to the DOM.
      */
     const handleGenerateQuest = () => {
-    if (!questData) {
-        showAlert('Quest data is not loaded yet. Please wait.');
-        return;
-    }
-
-    // Clear previous quests
-    questOutput.innerHTML = '';
-
-    // --- Type selection ---
-    let selectedType = questTypeSelect.value;
-    if (selectedType === 'any') {
-        const types = Object.keys(questData.questTypes);
-        selectedType = getRandomItem(types);
-    }
-
-    const data = questData.questTypes[selectedType];
-    if (!data) {
-        console.error(`Invalid quest type selected: ${selectedType}`);
-        return;
-    }
-
-    // --- Pull details ---
-    const location = getRandomItem(data.locations) || 'an unknown place';
-    const enemy = getRandomItem(questData.enemies) || 'a mysterious foe';
-    const reward = getRandomItem(data.rewards) || 'a sense of accomplishment';
-    const descriptionTemplate = getRandomItem(data.descriptions) || 'A task awaits at {location} involving {enemy}.';
-
-    // Replace tokens with contenteditable spans
-    const description = descriptionTemplate
-        .replace(/{location}/g, `<span contenteditable="true">${location}</span>`)
-        .replace(/{enemy}/g, `<span contenteditable="true">${enemy}</span>`);
-
-    // --- Create card ---
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.setAttribute('data-type', 'quest');
-
-    // --- Header ---
-    const header = document.createElement('div');
-    header.classList.add('card-header');
-
-    const title = createElementWithAttrs('h3', {
-        class: 'card-title',
-        contenteditable: 'true'
-    }, `${selectedType.charAt(0).toUpperCase() + selectedType.slice(1)} Quest`);
-    header.appendChild(title);
-
-    const controls = document.createElement('div');
-    controls.classList.add('card-controls');
-
-    const exportBtn = createElementWithAttrs('button', {
-        class: 'card-control card-export',
-        'aria-label': 'Export',
-        title: 'Export card'
-    }, '📥');
-    controls.appendChild(exportBtn);
-
-    header.appendChild(controls);
-    card.appendChild(header);
- 
-
-    // --- Body ---
-    const body = document.createElement('div');
-    body.classList.add('card-body');
-
-    const descriptionP = document.createElement('p');
-    descriptionP.innerHTML = `<span contenteditable="true">${description}</span>`;
-    body.appendChild(descriptionP);
-
-    const rewardP = document.createElement('p');
-    rewardP.innerHTML = `<strong>Reward:</strong> <span contenteditable="true">${reward}</span>`;
-    body.appendChild(rewardP);
-
-    card.appendChild(body);
-
-    // --- Tags ---
-    const tagArea = htmlToElement(`
-        <div class="tag-area">
-            <div class="tags-container"></div>
-            <input type="text" class="tag-input" placeholder="Add tag...">
-        </div>
-    `);
-    card.appendChild(tagArea);
-
-    // --- Done ---
-    questOutput.prepend(card);
-};
-
-
-    /**
-     * Generates a new NPC card and adds it to the DOM.
-     */
-   const handleGenerateNPC = () => {
-  if (!npcData) {
-    showAlert('NPC data not loaded yet. Please wait.');
+  if (!questData) {
+    showAlert('Quest data is not loaded yet. Please wait.');
     return;
   }
 
-  // Clear old
-  npcOutput.innerHTML = '';
+  // Theme and type selection
+  const selectedTheme = themeSelect.value;
+  let selectedType = questTypeSelect.value;
 
-  // Grab parts
-  const p = npcData.npcParts;
+  const themeData = questData.questTypes?.[selectedTheme];
+  if (!themeData) {
+    showAlert(`Theme "${selectedTheme}" not found.`);
+    return;
+  }
 
-  // Create the card container
+  if (selectedType === 'any') {
+    const types = Object.keys(themeData);
+    selectedType = getRandomItem(types);
+  }
+
+  const typeData = themeData[selectedType];
+  if (!typeData) {
+    showAlert(`Quest type "${selectedType}" not found in theme "${selectedTheme}".`);
+    return;
+  }
+
+  // Clear previous quests
+  questOutput.innerHTML = '';
+
+  // Pull details from the correct theme + type
+  const location = getRandomItem(typeData.locations) || 'an unknown place';
+  const enemyPool = questData.enemies?.[selectedTheme];
+  const enemy = getRandomItem(enemyPool) || 'a mysterious foe';
+  const reward = getRandomItem(typeData.rewards) || 'a sense of accomplishment';
+  const descriptionTemplate = getRandomItem(typeData.descriptions) || 'A task awaits at {location} involving {enemy}.';
+
+  const description = descriptionTemplate
+    .replace(/{location}/g, `<span contenteditable="true">${location}</span>`)
+    .replace(/{enemy}/g, `<span contenteditable="true">${enemy}</span>`);
+
+  // --- Build the card ---
   const card = document.createElement('div');
   card.classList.add('card');
-  card.setAttribute('data-type', 'npc');
+  card.setAttribute('data-type', 'quest');
+  card.setAttribute('data-theme', selectedTheme);
 
   // Header
- const header = document.createElement('div');
-header.classList.add('card-header');
+  const header = document.createElement('div');
+  header.classList.add('card-header');
 
-// Create a container for the title
-const titleContainer = document.createElement('div');
-titleContainer.classList.add('card-title'); // same class for styling
+  const title = createElementWithAttrs('h3', {
+    class: 'card-title',
+    contenteditable: 'true'
+  }, `${selectedType.charAt(0).toUpperCase() + selectedType.slice(1)} Quest`);
+  header.appendChild(title);
 
-// Compute locked or random names
-const firstName = npcLocks.firstName || getRandomItem(p.firstNames) || 'Alex';
-const lastName  = npcLocks.lastName  || getRandomItem(p.lastNames)  || 'Doe';
-
-// First Name span
-const firstSpan = document.createElement('span');
-firstSpan.classList.add('trait');
-firstSpan.setAttribute('data-trait', 'firstName');
-firstSpan.setAttribute('contenteditable', 'true');
-firstSpan.textContent = firstName;
-
-// Last Name span
-const lastSpan = document.createElement('span');
-lastSpan.classList.add('trait');
-lastSpan.setAttribute('data-trait', 'lastName');
-lastSpan.setAttribute('contenteditable', 'true');
-lastSpan.textContent = lastName;
-
-// Lock button
-const lockBtn = document.createElement('button');
-lockBtn.classList.add('lock-btn');
-lockBtn.setAttribute('data-lock', 'name');
-lockBtn.setAttribute('aria-label', npcLocks.firstName && npcLocks.lastName ? 'Unlock name' : 'Lock name');
-lockBtn.textContent = npcLocks.firstName && npcLocks.lastName ? '🔒' : '🔓';
-
-// Append to title container
-titleContainer.appendChild(lockBtn);
-titleContainer.appendChild(firstSpan);
-titleContainer.appendChild(lastSpan);
-
-
-// Append to header
-header.appendChild(titleContainer);
-
-  // Export button
   const controls = document.createElement('div');
   controls.classList.add('card-controls');
+
   const exportBtn = createElementWithAttrs('button', {
     class: 'card-control card-export',
     'aria-label': 'Export',
     title: 'Export card'
   }, '📥');
   controls.appendChild(exportBtn);
-  header.appendChild(controls);
 
+  header.appendChild(controls);
   card.appendChild(header);
 
   // Body
   const body = document.createElement('div');
   body.classList.add('card-body');
 
-  // Helper to pick random or locked
-  const pick = (key, list, fallback, count = 1) => {
-  // If the trait is locked, return the locked value
-  if (npcLocks[key]) return npcLocks[key];
+  const descriptionP = document.createElement('p');
+  descriptionP.innerHTML = `<span contenteditable="true">${description}</span>`;
+  body.appendChild(descriptionP);
 
-  // Single trait
-  if (count === 1) {
-    return getRandomItem(list) || fallback;
-  }
-
-  // Multi-trait
-  const shuffled = [...list].sort(() => 0.5 - Math.random());
-  const selected = shuffled.slice(0, count);
-  return selected.join(', ') || fallback;
-};
-
-  // Traits rows
-  body.appendChild(createLockableTraitRow('Race',       'race',       pick('race',       p.races,             'Human')));
-  body.appendChild(createLockableTraitRow('Gender',     'gender',     pick('gender',     p.genders,           'Non-binary')));
-  body.appendChild(createLockableTraitRow('Occupation','occupation', pick('occupation', p.occupations,      'Adventurer')));
-  body.appendChild(createLockableTraitRow('Hair',       'hair',       pick('hair',       p.appearances.hair, 'nondescript hair')));
-  body.appendChild(createLockableTraitRow('Eyes',       'eyes',       pick('eyes',       p.appearances.eyes, 'expressive eyes')));
-  body.appendChild(createLockableTraitRow('Clothing',   'clothing',   pick('clothing',   p.appearances.clothing, 'practical clothes')));
-  body.appendChild(createLockableTraitRow('Feature',    'features',   pick('features',   p.appearances.features, 'a distinguishing scar',2)));
-  body.appendChild(createLockableTraitRow('Personality','personalityTraits', pick('personalityTraits', p.personalityTraits, 'Enigmatic',3)));
-  body.appendChild(createLockableTraitRow('Voice Style',       'voiceStyles',      pick('voiceStyles',      p.voiceStyles,            'Soft-spoken')));
-  body.appendChild(createLockableTraitRow('Motivation','motivations', pick('motivations',    p.motivations,    'Seeks knowledge')));
-  body.appendChild(createLockableTraitRow('Secret',     'secrets',     pick('secrets',     p.secrets,         'Has a hidden past')));
-  body.appendChild(createLockableTraitRow('Connections',       'connections',       pick('connections',       p.connections,           'Has a legendary mentor')));
-  body.appendChild(createLockableTraitRow('Quest Hook','questHooks', pick('questHooks', p.questHooks,      'Needs help with a personal matter.')));
+  const rewardP = document.createElement('p');
+  rewardP.innerHTML = `<strong>Reward:</strong> <span contenteditable="true">${reward}</span>`;
+  body.appendChild(rewardP);
 
   card.appendChild(body);
 
-  // Tag area (unchanged)
+  // Tags
   const tagArea = htmlToElement(`
     <div class="tag-area">
       <div class="tags-container"></div>
-      <input type="text" class="tag-input" placeholder="Add tag..." inputmode ="text" autocomplete="off" spellcheck="off">
+      <input type="text" class="tag-input" placeholder="Add tag...">
     </div>
   `);
   card.appendChild(tagArea);
 
-  // Prepend to output
+  // Done
+  questOutput.prepend(card);
+};
+
+
+
+    /**
+     * Generates a new NPC card and adds it to the DOM.
+     */
+  const handleGenerateNPC = () => {
+  if (!npcData) {
+    showAlert('NPC data not loaded yet. Please wait.');
+    return;
+  }
+
+  const selectedTheme = themeSelect.value;
+  const p = npcData.npcParts?.[selectedTheme];
+
+  if (!p) {
+    showAlert(`Theme "${selectedTheme}" not found in NPC data.`);
+    return;
+  }
+
+  npcOutput.innerHTML = ''; // Clear old
+
+  const card = document.createElement('div');
+  card.classList.add('card');
+  card.setAttribute('data-type', 'npc');
+  card.setAttribute('data-theme', selectedTheme);
+
+  // --- Header ---
+  const header = document.createElement('div');
+  header.classList.add('card-header');
+
+  const titleContainer = document.createElement('div');
+  titleContainer.classList.add('card-title');
+
+  const firstName = npcLocks.firstName || getRandomItem(p.firstNames) || 'Alex';
+  const lastName = npcLocks.lastName || getRandomItem(p.lastNames) || 'Doe';
+
+  const firstSpan = document.createElement('span');
+  firstSpan.classList.add('trait');
+  firstSpan.setAttribute('data-trait', 'firstName');
+  firstSpan.setAttribute('contenteditable', 'true');
+  firstSpan.textContent = firstName;
+
+  const lastSpan = document.createElement('span');
+  lastSpan.classList.add('trait');
+  lastSpan.setAttribute('data-trait', 'lastName');
+  lastSpan.setAttribute('contenteditable', 'true');
+  lastSpan.textContent = lastName;
+
+  const lockBtn = document.createElement('button');
+  lockBtn.classList.add('lock-btn');
+  lockBtn.setAttribute('data-lock', 'name');
+  lockBtn.setAttribute('aria-label', npcLocks.firstName && npcLocks.lastName ? 'Unlock name' : 'Lock name');
+  lockBtn.textContent = npcLocks.firstName && npcLocks.lastName ? '🔒' : '🔓';
+
+  titleContainer.appendChild(lockBtn);
+  titleContainer.appendChild(firstSpan);
+  titleContainer.appendChild(lastSpan);
+  header.appendChild(titleContainer);
+
+  const controls = document.createElement('div');
+  controls.classList.add('card-controls');
+
+  const exportBtn = createElementWithAttrs('button', {
+    class: 'card-control card-export',
+    'aria-label': 'Export',
+    title: 'Export card'
+  }, '📥');
+
+  controls.appendChild(exportBtn);
+  header.appendChild(controls);
+  card.appendChild(header);
+
+  // --- Body ---
+  const body = document.createElement('div');
+  body.classList.add('card-body');
+
+  const pick = (key, list, fallback, count = 1) => {
+    if (npcLocks[key]) return npcLocks[key];
+    if (!Array.isArray(list)) return fallback;
+
+    if (count === 1) return getRandomItem(list) || fallback;
+
+    const shuffled = [...list].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count).join(', ') || fallback;
+  };
+
+  // Traits
+  body.appendChild(createLockableTraitRow('Race',        'race',        pick('race',        p.races,                    'Human')));
+  body.appendChild(createLockableTraitRow('Gender',      'gender',      pick('gender',      p.genders,                  'Non-binary')));
+  body.appendChild(createLockableTraitRow('Occupation',  'occupation',  pick('occupation',  p.occupations,              'Adventurer')));
+  body.appendChild(createLockableTraitRow('Hair',        'hair',        pick('hair',        p.appearances?.hair,        'nondescript hair')));
+  body.appendChild(createLockableTraitRow('Eyes',        'eyes',        pick('eyes',        p.appearances?.eyes,        'expressive eyes')));
+  body.appendChild(createLockableTraitRow('Clothing',    'clothing',    pick('clothing',    p.appearances?.clothing,    'practical clothes')));
+  body.appendChild(createLockableTraitRow('Feature',     'features',    pick('features',    p.appearances?.features,    'a distinguishing scar', 2)));
+  body.appendChild(createLockableTraitRow('Personality', 'personalityTraits', pick('personalityTraits', p.personalityTraits, 'Enigmatic', 3)));
+  body.appendChild(createLockableTraitRow('Voice Style', 'voiceStyles', pick('voiceStyles', p.voiceStyles,              'Soft-spoken')));
+  body.appendChild(createLockableTraitRow('Motivation',  'motivations', pick('motivations', p.motivations,              'Seeks knowledge')));
+  body.appendChild(createLockableTraitRow('Secret',      'secrets',     pick('secrets',     p.secrets,                  'Has a hidden past')));
+  body.appendChild(createLockableTraitRow('Connections', 'connections', pick('connections', p.connections,              'Has a legendary mentor')));
+  body.appendChild(createLockableTraitRow('Quest Hook',  'questHooks',  pick('questHooks',  p.questHooks,               'Needs help with a personal matter.')));
+
+  card.appendChild(body);
+
+  // --- Tags ---
+  const tagArea = htmlToElement(`
+    <div class="tag-area">
+      <div class="tags-container"></div>
+      <input type="text" class="tag-input" placeholder="Add tag..." inputmode="text" autocomplete="off" spellcheck="off">
+    </div>
+  `);
+  card.appendChild(tagArea);
+
   npcOutput.prepend(card);
 };
 
+
     // --- Dice Rolling Logic --- //
+
+// Get dice count input value (defaults to 1)
+function getDiceCount() {
+  const countInput = document.getElementById('diceCount');
+  const count = parseInt(countInput?.value, 10);
+  return isNaN(count) ? 1 : Math.min(Math.max(count, 1), 20);
+}
 
 document.querySelectorAll('.dice-btn').forEach(icon => {
   icon.addEventListener('click', () => {
     const sides = parseInt(icon.dataset.sides, 10);
+    const count = getDiceCount();
 
-    // 🧠 GA tracking for standard dice
+    // GA tracking
     gtag('event', `dice_roll_d${sides}`, {
       event_category: 'dice',
-      event_label: `d${sides}`
+      event_label: `d${sides} x${count}`
     });
 
-    // spin + bounce
     icon.classList.add('spin');
     setTimeout(() => icon.classList.remove('spin'), 600);
 
-    // roll result
-    const result = Math.floor(Math.random() * sides) + 1;
-    showDiceResult(result);
+    const rolls = Array.from({ length: count }, () => Math.floor(Math.random() * sides) + 1);
+    showDiceResult(rolls.join(', '));
   });
 });
-document.getElementById('rollCustomDice').addEventListener('click', () => {
-  const val = parseInt(document.getElementById('customDice').value, 10);
-  if (val > 1) {
-    // 🧠 GA tracking for custom dice
-    gtag('event', 'dice_roll_custom', {
-      event_category: 'dice',
-      event_label: `d${val}`
-    });
 
-    showDiceResult(Math.floor(Math.random() * val) + 1);
-  } else {
-    showDiceResult('Invalid');
-  }
-});
+const rollCustomBtn = document.getElementById('rollCustomDice');
+const customDiceInput = document.getElementById('customDice');
+
+if (rollCustomBtn && customDiceInput) {
+  rollCustomBtn.addEventListener('click', () => {
+    const val = parseInt(customDiceInput.value, 10);
+    const count = getDiceCount();
+
+    if (val > 1) {
+      gtag('event', 'dice_roll_custom', {
+        event_category: 'dice',
+        event_label: `d${val} x${count}`
+      });
+
+      const rolls = Array.from({ length: count }, () => Math.floor(Math.random() * val) + 1);
+      showDiceResult(rolls.join(', '));
+    } else {
+      showDiceResult('Invalid');
+    }
+  });
+}
+
 
 
 // shared result function
@@ -565,6 +566,11 @@ function showDiceResult(result) {
                 event_label: 'npc_button'
             });
         });
+        themeSelect.addEventListener('change', () => {
+            const selectedTheme = themeSelect.value;
+            populateQuestTypeDropdown(selectedTheme);
+        });
+
         // --- Save buttons (Premium Stubs) ---
         const saveQuestBtn = document.getElementById('saveQuestButton');
         saveQuestBtn.classList.add('premium-only', 'locked');
@@ -576,7 +582,40 @@ function showDiceResult(result) {
         saveNpcBtn.setAttribute('data-feature', 'save');
         saveNpcBtn.addEventListener('click', () => handleSave('npc'));
 
+    // Floating Navbar //
+    document.querySelectorAll('#floating-nav button[data-target]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-target');
+        const section = document.getElementById(id);
+        if (section) section.scrollIntoView({ behavior: 'smooth' });
+    });
+    });
+        // --- Header/title Navigation controls --- //
 
+    const toggleBtn = document.querySelector('.title-toggle');
+    const titleMenu = document.querySelector('.title-menu');
+
+    if (toggleBtn && titleMenu) {
+    toggleBtn.addEventListener('click', (e) => {
+        const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', !isOpen);
+        titleMenu.hidden = isOpen;
+        e.stopPropagation(); // prevents body click from instantly closing it
+    });
+
+    // Close menu if clicking anywhere outside
+    document.body.addEventListener('click', () => {
+        if (toggleBtn.getAttribute('aria-expanded') === 'true') {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        titleMenu.hidden = true;
+        }
+    });
+
+    // Prevent closing if clicking inside the menu
+    titleMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    }
 
         // --- Delegated Event Listeners for dynamic content ---
         document.body.addEventListener('click', (event) => {

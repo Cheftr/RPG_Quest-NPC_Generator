@@ -1,381 +1,245 @@
 {
   "npcParts": {
-    "firstNames": [
-    "Anya",
-    "Lysandra",
-    "Kaelen",
-    "Seraphina",
-    "Torvin",
-    "Elara",
-    "Rhys",
-    "Sylvie",
-    "Brennus",
-    "Isolde",
-    "Gareth",
-    "Linnea",
-    "Kael",
-    "Astrid",
-    "Ronan",
-    "Valeira",
-    "Caspian",
-    "Elowen",
-    "Jareth",
-    "Nayana",
-    "Faelan",
-    "Oriana",
-    "Thorne",
-    "Willow",
-    "Lysander",
-    "Seraphine",
-    "Kaelan",
-    "Elara",
-    "Torvin",
-    "Sylvie",
-    "Brennus",
-    "Isolde",
-    "Gareth",
-    "Linnea",
-    "Kael",
-    "Astrid",
-    "Ronan",
-    "Valeira",
-    "Caspian",
-    "Elowen",
-    "Jareth",
-    "Nayana",
-    "Faelan",
-    "Oriana",
-    "Thorne",
-    "Willow",
-    "Lysander",
-    "Seraphine",
-    "Kaelan",
-    "Elara",
-    "Torvin",
-    "Sylvie",
-    "Brennus",
-    "Isolde",
-    "Gareth",
-    "Linnea",
-    "Kael",
-    "Astrid",
-    "Ronan",
-    "Valeira",
-    "Caspian",
-    "Elowen",
-    "Jareth",
-    "Nayana",
-    "Faelan",
-    "Oriana",
-    "Thorne",
-    "Willow",
-    "Lysander",
-    "Seraphine",
-    "Kaelan",
-    "Elara",
-    "Torvin",
-    "Sylvie",
-    "Brennus",
-    "Isolde",
-    "Gareth",
-    "Linnea",
-    "Kael",
-    "Astrid",
-    "Ronan",
-    "Valeira",
-    "Caspian",
-    "Elowen",
-    "Jareth",
-    "Nayana",
-    "Faelan",
-    "Oriana",
-    "Thorne",
-    "Willow",
-    "Lysander",
-    "Seraphine"
-  ],
-  "lastNames": [
-    "Shadowbrook",
-    "Ironwood",
-    "Stonehaven",
-    "Silverstream",
-    "Nightshade",
-    "Windrider",
-    "Dragonscale",
-    "Moonwhisper",
-    "Frostmourne",
-    "Starfall",
-    "Grimfang",
-    "Emberglow",
-    "Stormblade",
-    "Sunstrider",
-    "Bloodmoon",
-    "Whisperwind",
-    "Steelheart",
-    "Dawnflower",
-    "Rune Carver",
-    "Shadow Walker",
-    "Frost Weaver",
-    "Stone Shaper",
-    "Silver Tongue",
-    "Night Watcher",
-    "Wind Caller",
-    "Dragon Slayer",
-    "Moon Singer",
-    "Frost Giant",
-    "Star Seer",
-    "Grim Walker",
-    "Ember Smith",
-    "Storm Bringer",
-    "Sun Chaser",
-    "Blood Drinker",
-    "Whisper Knight",
-    "Steel Forger",
-    "Dawn Speaker",
-    "Rune Keeper",
-    "Shadow Dancer",
-    "Frost Shield",
-    "Stone Guard",
-    "Silver Hand",
-    "Night Stalker",
-    "Wind Weaver",
-    "Dragon Heart",
-    "Moon Dancer",
-    "Frost Brand",
-    "Star Gazer",
-    "Grim Blade",
-    "Ember Fist",
-    "Storm Herald",
-    "Sun Weaver",
-    "Blood Fury",
-    "Whisper Blade",
-    "Steel Warden",
-    "Dawn Bringer",
-    "Rune Master",
-    "Shadow Thief",
-    "Frost Arrow",
-    "Stone Fist",
-    "Silver Shield",
-    "Night Hunter",
-    "Wind Strike",
-    "Dragon Rider",
-    "Moon Shadow",
-    "Frost Bite",
-    "Star Shield",
-    "Grim Stone",
-    "Ember Soul",
-    "Storm Rider",
-    "Sun Stone",
-    "Blood Oath",
-    "Whisper Step",
-    "Steel Skin",
-    "Dawn Guard",
-    "Rune Shield",
-    "Shadow Veil",
-    "Frost Walker",
-    "Stone Heart",
-    "Silver Wing",
-    "Night Wing",
-    "Wind Soul",
-    "Dragon Lord",
-    "Moon Bloom",
-    "Frost Rune",
-    "Star Weaver",
-    "Grim Hand",
-    "Ember Strike",
-    "Storm Talon",
-    "Sun Blade",
-    "Blood Talon",
-    "Whisper Wind",
-    "Steel Will",
-    "Dawn Rider"
-  ],
-    "races": [
-      "Human",
-      "Elf",
-      "Dwarf",
-      "Orc",
-      "Tiefling",
-      "Dragonborn",
-      "Gnome",
-      "Halfling",
-      "Goliath",
-      "Aasimar",
-      "Firbolg",
-      "Kenku",
-      "Tabaxi",
-      "Lizardfolk",
-      "Goblin",
-      "Hobgoblin",
-      "Bugbear"
-    ],
-    "genders": [
-      "Male",
-      "Female",
-      "Nonbinary",
-      "Unknown",
-      "Other",
-      "Agender",
-      "Fluid",
-      "Prefers not to say"
-    ],
-    "occupations": [
-      "Blacksmith",
-      "Bard",
-      "Merchant",
-      "Thief",
-      "Guard",
-      "Scholar",
-      "Cleric",
-      "Innkeeper",
-      "Farmer",
-      "Noble",
-      "Priest",
-      "Wizard",
-      "Ranger",
-      "Soldier",
-      "Alchemist",
-      "Ship Captain",
-      "Miner",
-      "Stablehand"
-    ],
-    "personalityTraits": [
-      "grumpy",
-      "charming",
-      "nervous",
-      "sarcastic",
-      "stoic",
-      "obsessive",
-      "dramatic",
-      "optimistic",
-      "pessimistic",
-      "paranoid",
-      "naive",
-      "arrogant",
-      "humble",
-      "curious",
-      "apathetic",
-      "witty",
-      "cowardly",
-      "brave",
-      "meticulous",
-      "lazy"
-    ],
-    "motivations": [
-      "wants revenge for a past betrayal",
-      "seeks knowledge lost to time",
-      "needs to prove their worth",
-      "protects their family at all costs",
-      "dreams of finding a legendary artifact",
-      "wants to restore their family's honor",
-      "driven by insatiable greed",
-      "seeks to spread their faith",
-      "desires political power",
-      "hopes to master forbidden magic",
-      "just wants a quiet life",
-      "needs money to pay off a dangerous debt"
-    ],
-    "secrets": [
-      "is working as a spy",
-      "has a cursed item in their possession",
-      "isn't who they claim to be",
-      "was exiled from their homeland",
-      "owes a debt to a powerful entity",
-      "secretly controls a local gang",
-      "is afflicted with lycanthropy",
-      "possesses knowledge they shouldn't have",
-      "faked their own death",
-      "comes from a disgraced family line",
-      "is secretly royalty",
-      "committed a crime long ago"
-    ],
-    "appearances": {
-      "hair": [
-        "bald",
-        "long braided black ",
-        "shaggy blond",
-        "fiery red ponytail",
-        "neatly combed grey",
-        "tonsure",
-        "elaborate topknot",
-        "wild, unkempt brown locks",
-        "shock of white"
+    "fantasy": {
+      "firstNames": [
+        "Anya", "Lysandra", "Kaelen", "Seraphina", "Torvin", "Elara", "Rhys", "Sylvie", "Brennus", "Isolde",
+        "Gareth", "Linnea", "Kael", "Astrid", "Ronan", "Valeira", "Caspian", "Elowen", "Jareth", "Nayana",
+        "Faelan", "Oriana", "Thorne", "Willow", "Lysander", "Seraphine"
       ],
-      "eyes": [
-        "piercing blue",
-        "dull gray",
-        "mismatched",
-        "warm brown",
-        "blind milky white",
-        "intense green",
-        "heterochromia (e.g., gold/blue)",
-        "tired, bloodshot",
-        "unusually bright yellow"
+      "lastNames": [
+        "Shadowbrook", "Ironwood", "Stonehaven", "Silverstream", "Nightshade", "Windrider", "Dragonscale", "Moonwhisper", "Frostmourne", "Starfall",
+        "Grimfang", "Emberglow", "Stormblade", "Sunstrider", "Bloodmoon", "Whisperwind", "Steelheart", "Dawnflower", "Rune Carver", "Shadow Walker",
+        "Frost Weaver", "Stone Shaper", "Silver Tongue", "Night Watcher", "Wind Caller", "Dragon Slayer", "Moon Singer", "Frost Giant", "Star Seer", "Grim Walker"
       ],
-      "clothing": [
-        "travel-stained robes",
-        "military uniform",
-        "tattered cloak",
-        "expensive silk robes",
-        "practical leather armor",
-        "simple peasant garb",
-        "flamboyant feathered hat and doublet",
-        "priestly vestments",
-        "worn miner's overalls",
-        "patched-up adventuring gear"
+      "races": [
+        "Human", "Elf", "Dwarf", "Orc", "Tiefling", "Dragonborn", "Gnome", "Halfling", "Goliath", "Aasimar",
+        "Firbolg", "Kenku", "Tabaxi", "Lizardfolk", "Goblin", "Hobgoblin", "Bugbear"
       ],
-      "features": [
-        "scar over one eye",
-        "glowing tattoo",
-        "missing hand",
-        "prominent nose",
-        "facial piercings",
-        "intricate burn scars",
-        "mechanical limb",
-        "pointed ears",
-        "fangs",
-        "unusually pale skin",
-        "weathered face",
-        "birthmark shaped like a crescent moon"
+      "genders": [
+        "Male", "Female", "Nonbinary", "Unknown", "Other", "Agender", "Fluid", "Prefers not to say"
+      ],
+      "occupations": [
+        "Blacksmith", "Bard", "Merchant", "Thief", "Guard", "Scholar", "Cleric", "Innkeeper", "Farmer", "Noble",
+        "Priest", "Wizard", "Ranger", "Soldier", "Alchemist", "Ship Captain", "Miner", "Stablehand"
+      ],
+      "personalityTraits": [
+        "grumpy", "charming", "nervous", "sarcastic", "stoic", "obsessive", "dramatic", "optimistic", "pessimistic", "paranoid",
+        "naive", "arrogant", "humble", "curious", "apathetic", "witty", "cowardly", "brave", "meticulous", "lazy"
+      ],
+      "motivations": [
+        "wants revenge for a past betrayal", "seeks knowledge lost to time", "needs to prove their worth", "protects their family at all costs", "dreams of finding a legendary artifact", "wants to restore their family's honor",
+        "driven by insatiable greed", "seeks to spread their faith", "desires political power", "hopes to master forbidden magic", "just wants a quiet life", "needs money to pay off a dangerous debt"
+      ],
+      "secrets": [
+        "is working as a spy", "has a cursed item in their possession", "isn't who they claim to be", "was exiled from their homeland", "owes a debt to a powerful entity", "secretly controls a local gang",
+        "is afflicted with lycanthropy", "possesses knowledge they shouldn't have", "faked their own death", "comes from a disgraced family line", "is secretly royalty", "committed a crime long ago"
+      ],
+      "appearances": {
+        "hair": [
+          "bald", "long braided black", "shaggy blond", "fiery red ponytail", "neatly combed grey", "tonsure", "elaborate topknot", "wild, unkempt brown locks", "shock of white"
+        ],
+        "eyes": [
+          "piercing blue", "dull gray", "mismatched", "warm brown", "blind milky white", "intense green", "heterochromia (e.g., gold/blue)", "tired, bloodshot", "unusually bright yellow"
+        ],
+        "clothing": [
+          "travel-stained robes", "military uniform", "tattered cloak", "expensive silk robes", "practical leather armor", "simple peasant garb", "flamboyant feathered hat and doublet", "priestly vestments", "worn miner's overalls", "patched-up adventuring gear"
+        ],
+        "features": [
+          "scar over one eye", "glowing tattoo", "missing hand", "prominent nose", "facial piercings", "intricate burn scars", "mechanical limb", "pointed ears", "fangs", "unusually pale skin",
+          "weathered face", "birthmark shaped like a crescent moon"
+        ]
+      },
+      "voiceStyles": [
+        "raspy and slow", "quick and nasal", "booming and theatrical", "whispery", "high-pitched and excited", "deep and gravelly", "smooth and reassuring", "monotone and flat", "lilting and musical", "stuttering",
+        "heavy accent", "soft-spoken"
+      ],
+      "connections": [
+        "is related to the mayor", "once saved a dragon", "is hunted by a crime syndicate", "belongs to a secret society", "is the estranged child of a noble", "has powerful enemies in the church",
+        "trained with a legendary warrior", "owes a life debt to a monster", "is a member of the town council", "has connections in the underworld"
+      ],
+      "questHooks": [
+        "wants to retrieve a stolen heirloom", "needs help escaping a bounty", "seeks guards for a dangerous journey", "offers information in exchange for a favor", "knows the location of a hidden treasure", "needs protection from assassins",
+        "can identify a magical item", "wants to hire the party for sabotage", "is looking for missing family members", "needs a rare component for a ritual/potion"
       ]
     },
-    "voiceStyles": [
-      "raspy and slow",
-      "quick and nasal",
-      "booming and theatrical",
-      "whispery",
-      "high-pitched and excited",
-      "deep and gravelly",
-      "smooth and reassuring",
-      "monotone and flat",
-      "lilting and musical",
-      "stuttering",
-      "heavy accent",
-      "soft-spoken"
-    ],
-    "connections": [
-      "is related to the mayor",
-      "once saved a dragon",
-      "is hunted by a crime syndicate",
-      "belongs to a secret society",
-      "is the estranged child of a noble",
-      "has powerful enemies in the church",
-      "trained with a legendary warrior",
-      "owes a life debt to a monster",
-      "is a member of the town council",
-      "has connections in the underworld"
-    ],
-    "questHooks": [
-      "wants to retrieve a stolen heirloom",
-      "needs help escaping a bounty",
-      "seeks guards for a dangerous journey",
-      "offers information in exchange for a favor",
-      "knows the location of a hidden treasure",
-      "needs protection from assassins",
-      "can identify a magical item",
-      "wants to hire the party for sabotage",
-      "is looking for missing family members",
-      "needs a rare component for a ritual/potion"
-    ]
+    "space": {
+      "firstNames": [
+        "Jax", "Kira", "Zane", "Cora", "Orion", "Lyra", "Nash", "Sloane", "Roric", "Vesper",
+        "Silas", "Nova", "Gage", "Astrid", "Rex", "Zara", "Caelus", "Echo", "Jett", "Rhea"
+      ],
+      "lastNames": [
+        "Stark", "Korvan", "Xylos", "Valerius", "Helion", "Cygnus", "Dracon", "Orion", "Ryker", "Vex",
+        "Starfire", "Voidrunner", "Galeforce", "Ironclad", "Sunjet", "Nebula", "Quasar", "Pulsar", "Gridrunner", "Techsmith"
+      ],
+      "races": [
+        "Human", "Cyborg", "Android", "Kryptonian", "Zetarian (Grey)", "Reptilian (Draconian)", "Insectoid (Xy'thix)", "Synthetic", "Mutant", "Silicoid",
+        "Nomad (Human subspecies)", "Martian Colonist", "Jovian Hybrid"
+      ],
+      "genders": [
+        "Male", "Female", "Nonbinary", "Unknown", "Other", "Agender", "Fluid", "Prefers not to say"
+      ],
+      "occupations": [
+        "Starship Pilot", "Mechanic", "Bounty Hunter", "Corporate Agent", "Smuggler", "Astro-Miner", "Cybernetics Surgeon", "Terraforming Engineer", "Xenobotanist", "AI Ethicist",
+        "Freelance Mercenary", "Information Broker", "Navigator", "Cargo Hauler", "Station Chief"
+      ],
+      "personalityTraits": [
+        "reckless", "calculating", "jittery", "cynical", "stoic", "methodical", "melodramatic", "idealistic", "fatalistic", "paranoid",
+        "gullible", "cocky", "humble", "inquisitive", "jaded", "sharp", "risk-averse", "bold", "detail-oriented", "lethargic"
+      ],
+      "motivations": [
+        "wants to pay off their starship", "seeks a rare alien artifact", "needs to upgrade their cybernetics", "protects their crew at all costs", "dreams of discovering a new habitable world", "wants to clear their family's name with the Corporate Conglomerate",
+        "driven by a desire for a rare resource", "seeks to bring enlightenment to the outer colonies", "desires control of a trade route", "hopes to unlock forbidden alien technology", "just wants a clean slate on a new planet", "needs credits to pay off a crime syndicate"
+      ],
+      "secrets": [
+        "is a corporate spy", "has an illegal AI in their ship's computer", "is a clone and doesn't know it", "was exiled from a core world", "owes a debt to a shadowy info-broker", "secretly runs a smuggling ring",
+        "is infected with a dormant alien virus", "possesses a map to a lost star system", "faked their service records", "comes from a notorious family of pirates", "is secretly an advanced android passing as human", "sabotaged a rival's ship"
+      ],
+      "appearances": {
+        "hair": [
+          "no hair, chrome dome", "neon-dyed cyber-dreads", "short and practical military cut", "holographic projection", "metallic braids", "bio-luminescent", "slicked-back", "wild, zero-g tousled", "shock of silver"
+        ],
+        "eyes": [
+          "cybernetic implants", "solid black sclera", "augmented reality lenses", "glowing red optics", "milky white from void exposure", "intense, unblinking", "heterochromia (e.g., silver/blue)", "tired, screen-strained", "unusually bright violet"
+        ],
+        "clothing": [
+          "worn pilot's jacket", "corporate-branded jumpsuit", "tattered enviro-suit", "sleek, form-fitting stealth suit", "practical armored fatigues", "simple station-dweller's overalls", "flamboyant neo-tech duster coat", "researcher's lab coat", "dirty miner's gear", "patched-up mercenary armor"
+        ],
+        "features": [
+          "scar from a plasma burn", "glowing data-jack tattoo", "robotic arm", "prominent facial implant", "barcode tattoo on neck", "intricate energy scars", "neural interface port", "vestigial tail", "fangs", "unusually grey skin tone",
+          "weather-beaten face from space walks", "birthmark shaped like a constellation"
+        ]
+      },
+      "voiceStyles": [
+        "static-laced and slow", "quick and clipped", "booming and authoritative", "synthetic whisper", "high-energy and excitable", "deep and rumbling", "smooth and corporate", "monotone and robotic", "lilting and alien", "stuttering from a glitch",
+        "heavy off-world accent", "soft-spoken"
+      ],
+      "connections": [
+        "is related to a high-ranking corporate official", "once repaired a legendary sentient ship", "is hunted by a galactic crime syndicate", "belongs to a fringe-world separatist movement", "is the disgraced child of a famous admiral", "has powerful enemies in the Galactic Patrol",
+        "trained with a legendary bounty hunter", "owes a life debt to an alien", "sits on the board of a small star-station", "has connections with black market tech dealers"
+      ],
+      "questHooks": [
+        "wants to retrieve a stolen data-core", "needs help escaping a corporate blockade", "seeks a crew for a dangerous salvage operation", "offers information for passage to the outer rim", "knows the location of a derelict capital ship", "needs protection from assassins",
+        "can identify a piece of alien technology", "wants to hire the party for industrial espionage", "is looking for a missing survey team", "needs a rare mineral for their ship's reactor"
+      ]
+    },
+    "underwater": {
+      "firstNames": [
+        "Coralia", "Finn", "Mael", "Nixie", "Caspian", "Marina", "Triton", "Ondine", "Kailani", "Zale",
+        "Doris", "Ronan", "Sedna", "Brine", "Aqua", "Nerida", "Echo", "Lir", "Thalassa", "Kai"
+      ],
+      "lastNames": [
+        "Deepwater", "Tidecaller", "Bluefin", "Abyss", "Coral-Shaper", "Wave-Rider", "Maelstrom", "Oceanus", "Kelpspire", "Seabrook",
+        "Stillwater", "Storm-Surge", "Pearl-Hand", "Reef-Guard", "Hydrus", "Current-Runner", "Ship-Wrecker", "Foam-Beard", "Salt-Song", "Anchor-Arm"
+      ],
+      "races": [
+        "Merfolk", "Triton", "Aquatic Elf (Sea Elf)", "Cephalid (Octopus-folk)", "Selkie", "Human (Submariner)", "Grindylow", "Sahuagin", "Naiad", "Marid (Water Genie)",
+        "Aquarian", "Deep One Hybrid", "Shark-Kin"
+      ],
+      "genders": [
+        "Male", "Female", "Nonbinary", "Unknown", "Other", "Agender", "Fluid", "Prefers not to say"
+      ],
+      "occupations": [
+        "Pearl Diver", "Coral Sculptor", "Leviathan Hunter", "Hydro-thermal Engineer", "Abyssal Scholar", "Submarine Captain", "Tide Mage", "Kelp Farmer", "Sunken-City Archaeologist", "Marine Biologist",
+        "Reef Guardian", "Salvage Operator", "Aquatic Beast Tamer", "Healer", "Envoy to the Surface"
+      ],
+      "personalityTraits": [
+        "brooding", "serene", "skittish", "acerbic", "impassive", "obsessive", "effusive", "buoyant", "dour", "suspicious",
+        "trusting", "haughty", "humble", "curious", "listless", "sharp-witted", "cautious", "bold", "patient", "impatient"
+      ],
+      "motivations": [
+        "wants vengeance on the beast that destroyed their home", "seeks the lost city of Atlantis", "needs to prove their worth to the clan", "protects the great reef at all costs", "dreams of finding the Ocean's Heart jewel", "wants to restore their family's sunken palace",
+        "driven by a lust for sunken treasure", "seeks to spread the faith of the Sea Mother", "desires political control of the currents", "hopes to master abyssal magic", "just wants a peaceful grotto", "needs rare pearls to pay off a mer-king"
+      ],
+      "secrets": [
+        "is a spy for a rival trench-city", "has a cursed pearl that whispers madness", "is a surface-dweller in disguise", "was exiled for a forbidden ritual", "owes a debt to a powerful kraken", "secretly controls a school of predatory fish",
+        "is slowly turning into a sea-monster", "possesses charts to uncharted abyssal plains", "faked their death during a leviathan attack", "comes from a shamed lineage of coral-blighters", "is secretly of royal blood", "caused a submarine implosion long ago"
+      ],
+      "appearances": {
+        "hair": [
+          "bald and streamlined", "long, flowing seaweed-like", "strands of bioluminescent algae", "crowned with living coral", "pale white and wispy", "deep blue or green braids", "adorned with shells and pearls", "wild, unkempt kelp-like locks", "shock of bright pink"
+        ],
+        "eyes": [
+          "large, dark, abyssal", "pearly silver", "mismatched (e.g., coral/seafoam)", "warm, placid green", "blind from pressure depth", "intense, predatory amber", "bioluminescent", "tired, saltwater-stung", "unusually bright, glowing yellow"
+        ],
+        "clothing": [
+          "woven kelp tunic", "pressurized deep-dive suit", "tattered sailor's rags", "robes of fine sea-silk", "armor from giant crab shells", "simple loincloth", "flamboyant cloak of shimmering fish scales", "priestly vestments of the deep", "worn submersible engineer's coveralls", "scavenged shipwreck materials"
+        ],
+        "features": [
+          "shark-tooth scar", "glowing bioluminescent patterns", "webbed hands and feet", "prominent dorsal fin", "facial piercings of pearl and coral", "intricate keloid scars", "barnacle-encrusted prosthetic limb", "gills on neck", "translucent skin", "unusually cold to the touch",
+          "weathered, salt-crusted face", "birthmark shaped like a nautilus shell"
+        ]
+      },
+      "voiceStyles": [
+        "gurgling and slow", "quick and bubbly", "booming like a whale call", "whispery like the tide", "high-pitched and chirping", "deep and resonant", "smooth and flowing", "monotone and flat", "lilting and siren-like", "stuttering like a broken sonar",
+        "heavy, foreign accent", "soft-spoken"
+      ],
+      "connections": [
+        "is related to the city's Tide-Speaker", "once befriended a great whale", "is hunted by Sahuagin pirates", "belongs to a secret society of abyssal explorers", "is the estranged child of a Sea-Lord", "has powerful enemies in the priesthood",
+        "trained with a legendary Triton warrior", "owes a life debt to a Marid", "is a member of the city council", "has connections with smugglers of surface-world goods"
+      ],
+      "questHooks": [
+        "wants to retrieve a stolen trident of power", "needs help escaping a kraken's territory", "seeks guards for a dangerous expedition into the trench", "offers treasure maps in exchange for a favor", "knows the location of a legendary shipwreck", "needs protection from assassins",
+        "can identify a magical coral", "wants to hire the party to stop polluters", "is looking for their pod that went missing in the deep", "needs a rare bioluminescent pearl for a ritual"
+      ]
+    },
+    "mobster": {
+      "firstNames": [
+        "Vinnie", "Frankie", "Connie", "Sal", "Mickey", "Louie", "Tony", "Angelo", "Carmine", "Rosie",
+        "Paulie", "Johnny", "Beatrice", "Sonny", "Artie", "Gloria", "Benny", "Dominic", "Ginny", "Rocco"
+      ],
+      "lastNames": [
+        "Moretti", "Ricci", "Gallo", "Capone", "Genovese", "Lombardo", "Falcone", "Maranzano", "Scaletta", "Vitale",
+        "\"The Butcher\"", "\"Lefty\"", "\"The Fixer\"", "\"Two-Toes\"", "\"Knuckles\"", "\"The Chin\"", "\"The Suit\"", "\"Diamond\"", "\"Lucky\"", "\"Big Tuna\""
+      ],
+      "races": [
+        "Costello Family", "Falcone Crime Family", "Irish Mob", "Independent Outfit", "Corrupt Police", "Federal Agent (undercover)", "Union Worker", "Civilian", "The Commission", "Chinatown Tong"
+      ],
+      "genders": [
+        "Male", "Female", "Nonbinary", "Unknown", "Other", "Agender", "Fluid", "Prefers not to say"
+      ],
+      "occupations": [
+        "Enforcer", "Don/Boss", "Consigliere", "Capo", "Bootlegger", "Bookie", "Fixer", "Femme Fatale", "Crooked Cop", "Union Boss",
+        "Hitman", "Numbers Runner", "Speakeasy Owner", "Loan Shark", "Politician"
+      ],
+      "personalityTraits": [
+        "hot-headed", "smooth-talking", "jumpy", "cynical", "stone-faced", "detail-oriented", "melodramatic", "ambitious", "world-weary", "paranoid",
+        "gullible", "arrogant", "loyal", "nosy", "callous", "quick-witted", "cowardly", "ruthless", "principled", "lazy"
+      ],
+      "motivations": [
+        "wants revenge for their brother's murder", "seeks to become a 'made man'", "needs to prove their loyalty to the Don", "protects their family above all else", "dreams of taking over a rival's territory", "wants to restore their family's honor in the organization",
+        "driven by insatiable greed for money and power", "seeks to control the city's politicians", "desires respect", "hopes to get out of the life", "just wants to provide for their family", "needs money to pay off the Feds"
+      ],
+      "secrets": [
+        "is an informant for the Bureau", "is skimming from the family's earnings", "is having an affair with a rival's spouse", "was exiled from another city's mob", "owes a gambling debt to a dangerous bookie", "secretly runs their own side-hustle",
+        "is secretly planning a coup", "knows where the bodies are buried", "faked their loyalty to get in", "comes from a family of cops", "is secretly the illegitimate child of the Don", "botched a hit and framed someone else"
+      ],
+      "appearances": {
+        "hair": [
+          "slicked back with pomade", "short bob, flapper style", "bald", "receding hairline", "perfectly coiffed", "under a fedora", "greying at the temples", "wild, curly", "dyed jet black"
+        ],
+        "eyes": [
+          "shifty", "cold and dead", "mismatched (one glass eye)", "warm and disarming", "permanently squinting", "hooded and calculating", "bloodshot", "tired, world-weary", "piercingly observant"
+        ],
+        "clothing": [
+          "pinstripe suit", "trench coat and fedora", "tattered dockworker's clothes", "expensive silk dress", "practical enforcer's leather jacket", "simple bartender's uniform", "flamboyant double-breasted suit", "police uniform", "worn-out coveralls", "tailored tuxedo"
+        ],
+        "features": [
+          "scar across the nose", "cauliflower ear", "missing finger", "broken nose (poorly set)", "facial piercings (subtle)", "burn scar from an old job", "gold tooth", "family crest tattoo", "cigar always in mouth", "unusually pale from staying indoors",
+          "weathered face", "birthmark hidden under collar"
+        ]
+      },
+      "voiceStyles": [
+        "raspy and low", "fast and high-pitched", "booming and commanding", "whispery and conspiratorial", "excited and loud", "deep and gravelly", "smooth and charming", "monotone and intimidating", "lilting with a thick accent", "stuttering nervously",
+        "heavy Brooklyn/Chicago accent", "soft-spoken"
+      ],
+      "connections": [
+        "is the Don's nephew", "once did a job for Al Capone", "is hunted by a rival family", "belongs to the local union", "is the estranged child of a police chief", "has a judge in their pocket",
+        "was trained by a legendary hitman", "owes a life debt to a bootlegger", "is a member of the city council", "has connections at the racetrack"
+      ],
+      "questHooks": [
+        "wants a rival's booze shipment hijacked", "needs help 'convincing' a witness to forget what they saw", "seeks a driver for a bank job", "offers inside information on a rival in exchange for a cut", "knows where a stash of hidden money is buried", "needs protection from a hitman",
+        "can identify a rat in the organization", "wants to hire the party for some 'union busting'", "is looking for the Don's kidnapped daughter", "needs a rare item smuggled into the city"
+      ]
+    }
   }
 }
