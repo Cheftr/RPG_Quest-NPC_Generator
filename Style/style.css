@@ -79,27 +79,55 @@ body[data-theme='fantasy'] #more-page-heading {
 body[data-theme='fantasy'] #quest-generator-heading, body[data-theme='fantasy'] #npc-generator-heading, body[data-theme='fantasy'] #dice-roller-heading, body[data-theme='fantasy'] .quest-type-dropdown, body[data-theme='fantasy'] .custom-dice {
   color: #654321;
 }
-  
+body[data-theme='fantasy'].dark-mode #quest-generator-heading, body[data-theme='fantasy'].dark-mode #npc-generator-heading, body[data-theme='fantasy'].dark-mode #dice-roller-heading, body[data-theme='fantasy'].dark-mode .quest-type-dropdown, body[data-theme='fantasy'].dark-mode .custom-dice {
+  color: #f3f4f6;
+}
 
 /* === SPACE THEME === */
 body[data-theme='space'] {
-  background-color: #010409;
+  background-color: #01040af8;
 }
 
-body[data-theme='space']::before {
-  content: "";
+#theme-overlay {
   position: fixed;
   inset: 0;
-  background: url('/images/stars-overlay.jpg') repeat;
-  animation: moveStars 60s linear infinite;
-  opacity: 0.08;
-  z-index: -1;
+  background: none;
+  opacity: 0;
   pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.4s ease;
 }
+
+body[data-theme='fantasy'] #theme-overlay {
+  background: url('/images/candle-overlay.png') repeat;
+  animation: Wiggle 45s linear infinite;
+  opacity: 0.25;
+}
+body[data-theme='space'] #theme-overlay {
+  background: url('/images/aliens-overlay.png') repeat;
+  animation: Wiggle 45s linear infinite;
+  opacity: 0.25;
+}
+
 
 @keyframes moveStars {
   from { background-position: 0 0; }
   to { background-position: 1000px 1000px; }
+}
+
+@keyframes Wiggle {
+  0%   { background-position:   0px   0px; }
+  5%  { background-position: -40px 50px; }
+  10%  { background-position:  40px 100px; }
+  20%  { background-position: -40px 200px; }
+  30%  { background-position:  40px 300px; }
+  40%  { background-position: -40px 400px; }
+  50%  { background-position:  40px 500px; }
+  60%  { background-position: -40px 600px; }
+  70%  { background-position:  40px 700px; }
+  80%  { background-position: -40px 800px; }
+  90%  { background-position:  40px 900px; }
+  100% { background-position:   0px 1000px; }
 }
 
 
@@ -421,6 +449,10 @@ body.dark-mode .dropdown-group select {
   padding: var(--spacing);
   min-height: 100px;
 }
+.output-wrapper {
+  position: relative;
+}
+
 
 
 /*───────────────────────────────────────────────────────────────
