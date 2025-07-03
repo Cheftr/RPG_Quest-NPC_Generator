@@ -82,6 +82,19 @@ body[data-theme='fantasy'] #quest-generator-heading, body[data-theme='fantasy'] 
 body[data-theme='fantasy'].dark-mode #quest-generator-heading, body[data-theme='fantasy'].dark-mode #npc-generator-heading, body[data-theme='fantasy'].dark-mode #dice-roller-heading, body[data-theme='fantasy'].dark-mode .quest-type-dropdown, body[data-theme='fantasy'].dark-mode .custom-dice {
   color: #f3f4f6;
 }
+body[data-theme='fantasy'] #theme-overlay {
+  background: url('/images/candle-overlay.png') repeat;
+  animation: Wiggle 45s linear infinite;
+  opacity: 0.25;
+}
+body[data-theme='fantasy'] #floating-nav {
+  border: 2px solid #8b4513;
+  box-shadow: 0 0 10px rgba(139, 69, 19, 0.4);
+}
+body[data-theme='fantasy'] .generate-button {
+  background: linear-gradient(45deg, #8b4513, #d2691e);
+  border: none;
+}
 
 /* === SPACE THEME === */
 body[data-theme='space'] {
@@ -97,12 +110,15 @@ body[data-theme='space'] {
   z-index: -1;
   transition: opacity 0.4s ease;
 }
-
-body[data-theme='fantasy'] #theme-overlay {
-  background: url('/images/candle-overlay.png') repeat;
-  animation: Wiggle 45s linear infinite;
-  opacity: 0.25;
+body[data-theme='space'] #top-nav {
+  background-color: rgba(9, 23, 58, 0.8);
+  border-bottom: 2px solid #00d1ff;
+  color: var(--color-text-dark);
 }
+body[data-theme='space'] .title-menu, body[data-theme='underwater'] .title-menu {
+  color: var(--color-text);
+}
+
 body[data-theme='space'] #theme-overlay {
   background: url('/images/aliens-overlay.png') repeat;
   animation: Wiggle 45s linear infinite;
@@ -130,7 +146,10 @@ body[data-theme='space'] #theme-overlay {
   100% { background-position:   0px 1000px; }
 }
 
-
+body[data-theme='space'] #floating-nav {
+  border: 2px solid #00d1ff;
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.4);
+}
 
 body[data-theme='space'] .generator-section {
   border: 2px solid #00d1ff;
@@ -151,6 +170,9 @@ body[data-theme='space'] .card-header,
 body[data-theme='mobster'] .card-header {
   color: var(--color-text);
 }
+body[data-theme='space'].dark-mode .card-header, body[data-theme='mobster'].dark-mode .card-header, body[data-theme='underwater'].dark-mode .card-header, body[data-theme='fantasy'].dark-mode .card-header{
+  color: var(--color-text-dark);
+} 
 
 
 
@@ -165,16 +187,57 @@ body[data-theme='underwater'] .generator-section {
   border: 2px solid #00ffff;
   box-shadow: 0 0 15px #00bcd4;
 }
+body[data-theme='underwater'] #theme-overlay {
+  background: url('/images/underwater-overlay.png') repeat;
+  animation: Wiggle 45s linear infinite;
+  opacity: 0.25;
+}
+body[data-theme=underwater] #floating-nav {
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+body[data-theme='underwater'] .generate-button {
+  background: linear-gradient(45deg, #00bcd4, #00796b);
+  border: none;
+}
+body[data-theme='underwater'] #top-nav{
+  background-color: rgba(0, 51, 102, 0.8);
+  border-bottom: 2px solid #00ffff;
+  color: var(--color-text-dark);
+}
 
 /* === MOBSTER THEME === */
 body[data-theme='mobster'] {
   background-color: #0e0e0e;
+}
+body[data-theme='mobster'] #theme-overlay {
+  background: url('/images/mobster-overlay.png') repeat;
+  animation: Wiggle 45s linear infinite;
+  opacity: 0.25;
 }
 
 body[data-theme='mobster'] .generator-section {
   background-color: rgba(25, 25, 25, 0.9);
   border: 2px solid #b22222;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+body[data-theme='mobster'] #floating-nav {
+  border: 2px solid #b22222;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+body[data-theme='mobster'] .generate-button {
+  background: linear-gradient(45deg, #b22222, #8b0000);
+  border: none;
+}
+
+body[data-theme='mobster'] #top-nav {
+  background-color: rgba(25, 25, 25, 0.8);
+  border-bottom: 2px solid #b22222;
+  color: var(--color-text-dark);
+}
+body[data-theme='mobster'] .title-menu {
+  color: var(--color-text);
 }
 
 body[data-theme='space'].dark-mode .generator-section,

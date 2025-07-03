@@ -38,13 +38,12 @@ function showDiceResult(result) {
  * Rolls dice and shows the result.
  * @param {number} sides - The number of sides on the die.
  * @param {number} count - The number of dice to roll.
- * @param {string} eventLabel - The label for analytics.
  */
-function rollDice(sides, count, eventLabel) {
+function rollDice(sides, count) {
     if (typeof gtag === 'function') {
-        gtag('event', 'dice_roll', {
+        gtag('event', 'dice_roll_d${sides}', {
             event_category: 'dice',
-            event_label: eventLabel
+            event_label: 'd${sides}x${count}',
         });
     }
     const rolls = Array.from({ length: count }, () => Math.floor(Math.random() * sides) + 1);
