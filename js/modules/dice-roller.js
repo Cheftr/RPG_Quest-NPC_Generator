@@ -41,9 +41,9 @@ function showDiceResult(result) {
  */
 function rollDice(sides, count) {
     if (typeof gtag === 'function') {
-        gtag('event', 'dice_roll_d${sides}', {
+        gtag('event', `dice_roll_d${sides}`, {
             event_category: 'dice',
-            event_label: 'd${sides}x${count}',
+            event_label: `d${sides}x${count}`,
         });
     }
     const rolls = Array.from({ length: count }, () => Math.floor(Math.random() * sides) + 1);
